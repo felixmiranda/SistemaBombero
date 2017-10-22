@@ -23,11 +23,15 @@
 
     <link href="~/Styles/styles/easyTables.css" rel="stylesheet" type="text/css"/>
     <link href="~/Styles/styles/realplaza.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Styles/styles/jquery.rondell.css" rel="stylesheet" type="text/css"/>
+    
     <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon"/>
     <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
 	<!--[if lt IE 9]>
 		<script src="~/Recursos/Styles/ie.min.js"></script>
 	<![endif]-->
+
+
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -101,9 +105,13 @@
         
 	        <script type="text/javascript">	            window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">' + "<" + "/script>"); </script>
        
+       <script src="<%=ResolveClientUrl("~/Scripts/modernizr-2.0.6.min.js") %>"></script>
         <script src="<%=ResolveClientUrl("~/Scripts/bootstrap.min.js") %>"></script>
         <script src="<%=ResolveClientUrl("~/Scripts/pixel-admin.min.js") %>"></script>
         <script src="<%=ResolveClientUrl("~/Scripts/realplaza.js") %>"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/jquery.mousewheel-3.0.6.min.js") %>"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/jquery.rondell.min.js") %>"></script>
+
         <script type="text/javascript">
             var inPageMaster = 1;
             $(document).ready(function () {
