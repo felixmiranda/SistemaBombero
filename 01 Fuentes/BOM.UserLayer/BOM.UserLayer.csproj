@@ -106,6 +106,7 @@
     <Content Include="Interfaces\Reserve\frmMyReservations.aspx" />
     <Content Include="Interfaces\Reserve\frmReserveSpaceAdvertising.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Interfaces\Reserve\frmSpaceAdvertinsingReport.aspx" />
     <Content Include="Interfaces\Restringido\frmAccesoRestringido.aspx" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery-ui-extras.js" />
@@ -116,12 +117,16 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.mousewheel-3.0.6.min.js" />
+    <Content Include="Scripts\jquery.rondell.min.js" />
+    <Content Include="Scripts\modernizr-2.0.6.min.js" />
     <Content Include="Scripts\pixel-admin.min.js" />
     <Content Include="Styles\fonts\font-awesome\fontawesome-webfont.svg" />
     <Content Include="Styles\styles\bootstrap.min.css" />
     <Content Include="Styles\styles\controls.css" />
     <Content Include="Styles\styles\acordion.css" />
     <Content Include="Styles\styles\easyTables.css" />
+    <Content Include="Styles\styles\jquery.rondell.css" />
     <Content Include="Styles\styles\pages.min.css" />
     <Content Include="Styles\styles\pixel-admin.min.css" />
     <Content Include="Styles\styles\realplaza.css" />
@@ -326,6 +331,13 @@
     <Compile Include="Interfaces\Reserve\frmReserveSpaceAdvertising.aspx.designer.cs">
       <DependentUpon>frmReserveSpaceAdvertising.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\Reserve\frmSpaceAdvertinsingReport.aspx.cs">
+      <DependentUpon>frmSpaceAdvertinsingReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Interfaces\Reserve\frmSpaceAdvertinsingReport.aspx.designer.cs">
+      <DependentUpon>frmSpaceAdvertinsingReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\Restringido\frmAccesoRestringido.aspx.cs">
       <DependentUpon>frmAccesoRestringido.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -426,7 +438,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54646</DevelopmentServerPort>
+          <DevelopmentServerPort>18683</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

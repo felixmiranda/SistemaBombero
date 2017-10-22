@@ -624,7 +624,8 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 lbleareaPopinfo.InnerText = HttpUtility.HtmlDecode(lista[0].pu_esp_c_earea.ToString()) + " m2";
 
                 //string rutaImagenFTP = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["rutaImagen"]);
-                //string rutaImagenFTP = ConfigurationManager.AppSettings["rutaImagen"]);
+                string rutaImagenFTP = ConfigurationManager.AppSettings["rutaImagen"];
+
                 ArrayList ListaImagen = new ArrayList();
                 string[] Archivos = System.IO.Directory.GetFiles(Server.MapPath("~/Images"), "*.*");
                 foreach (string archivo in Archivos)

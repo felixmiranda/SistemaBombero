@@ -1124,8 +1124,8 @@
                                     <div id="rondellCarousel">
                                         <asp:Repeater ID="repeaterImage" runat="server">
                                             <ItemTemplate>
-                                               <a href="<%#Container.DataItem %>">
-                                                    <img src="<%#Container.DataItem %>" />
+                                               <a href="<%# Container.DataItem %>">
+                                                    <img src="<%# Container.DataItem %>" />
                                                </a>
                                                 
                                             </ItemTemplate>
