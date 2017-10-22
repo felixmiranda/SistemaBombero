@@ -135,6 +135,7 @@ namespace BOM.UserLayer.Entry.Access
                 }
             }
 
+            bEstado = true;
             return bEstado;
         }
         public void m_MostrarError(String ps_Mensaje)
