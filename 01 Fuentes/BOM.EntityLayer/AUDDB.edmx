@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_9F356E_HipnosModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_9F356E_HipnosModelStoreContainer">
+          <EntitySet Name="AUD_T_BITA_TIPO_MOV" EntityType="DB_9F356E_HipnosModel.Store.AUD_T_BITA_TIPO_MOV" store:Type="Tables" Schema="AUDITORIA" />
+          <EntitySet Name="AUD_T_BITACORA" EntityType="DB_9F356E_HipnosModel.Store.AUD_T_BITACORA" store:Type="Tables" Schema="AUDITORIA" />
+          <AssociationSet Name="FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV" Association="DB_9F356E_HipnosModel.Store.FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV">
+            <End Role="AUD_T_BITA_TIPO_MOV" EntitySet="AUD_T_BITA_TIPO_MOV" />
+            <End Role="AUD_T_BITACORA" EntitySet="AUD_T_BITACORA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AUD_T_BITA_TIPO_MOV">
+          <Key>
+            <PropertyRef Name="bita_tip_mov_c_iid" />
+          </Key>
+          <Property Name="bita_tip_mov_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="bita_tip_mov_c_vnomb" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="AUD_T_BITACORA">
+          <Key>
+            <PropertyRef Name="bita_c_iid" />
+          </Key>
+          <Property Name="bita_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sist_c_iid" Type="int" Nullable="false" />
+          <Property Name="bita_tip_mov_c_iid" Type="int" Nullable="false" />
+          <Property Name="menu_c_iid" Type="int" />
+          <Property Name="bita_c_vopcion" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="bita_c_vrutapagina" Type="varchar(max)" />
+          <Property Name="bita_c_vsqlproceso" Type="varchar(max)" Nullable="false" />
+          <Property Name="bita_c_vquery_transaccion" Type="varchar(max)" Nullable="false" />
+          <Property Name="bita_c_vnum_ip" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="colab_c_cusu_red" Type="char" Nullable="false" MaxLength="30" />
+          <Property Name="colab_c_vnomb_completo" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV">
+          <End Role="AUD_T_BITA_TIPO_MOV" Type="DB_9F356E_HipnosModel.Store.AUD_T_BITA_TIPO_MOV" Multiplicity="1" />
+          <End Role="AUD_T_BITACORA" Type="DB_9F356E_HipnosModel.Store.AUD_T_BITACORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUD_T_BITA_TIPO_MOV">
+              <PropertyRef Name="bita_tip_mov_c_iid" />
+            </Principal>
+            <Dependent Role="AUD_T_BITACORA">
+              <PropertyRef Name="bita_tip_mov_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_9F356E_HipnosModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="AUDDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AUD_T_BITA_TIPO_MOV" EntityType="DB_9F356E_HipnosModel.AUD_T_BITA_TIPO_MOV" />
+          <EntitySet Name="AUD_T_BITACORA" EntityType="DB_9F356E_HipnosModel.AUD_T_BITACORA" />
+          <AssociationSet Name="FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV" Association="DB_9F356E_HipnosModel.FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV">
+            <End Role="AUD_T_BITA_TIPO_MOV" EntitySet="AUD_T_BITA_TIPO_MOV" />
+            <End Role="AUD_T_BITACORA" EntitySet="AUD_T_BITACORA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AUD_T_BITA_TIPO_MOV">
+          <Key>
+            <PropertyRef Name="bita_tip_mov_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="bita_tip_mov_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="bita_tip_mov_c_vnomb" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnom_completo_reg" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AUD_T_BITACORA" Relationship="DB_9F356E_HipnosModel.FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV" FromRole="AUD_T_BITA_TIPO_MOV" ToRole="AUD_T_BITACORA" />
+        </EntityType>
+        <EntityType Name="AUD_T_BITACORA">
+          <Key>
+            <PropertyRef Name="bita_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="bita_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="sist_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="bita_tip_mov_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="menu_c_iid" />
+          <Property Type="String" Name="bita_c_vopcion" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vrutapagina" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vsqlproceso" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vquery_transaccion" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnum_ip" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="colab_c_cusu_red" Nullable="false" MaxLength="30" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="colab_c_vnomb_completo" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" Nullable="false" />
+          <NavigationProperty Name="AUD_T_BITA_TIPO_MOV" Relationship="DB_9F356E_HipnosModel.FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV" FromRole="AUD_T_BITACORA" ToRole="AUD_T_BITA_TIPO_MOV" />
+        </EntityType>
+        <Association Name="FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV">
+          <End Type="DB_9F356E_HipnosModel.AUD_T_BITA_TIPO_MOV" Role="AUD_T_BITA_TIPO_MOV" Multiplicity="1" />
+          <End Type="DB_9F356E_HipnosModel.AUD_T_BITACORA" Role="AUD_T_BITACORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AUD_T_BITA_TIPO_MOV">
+              <PropertyRef Name="bita_tip_mov_c_iid" />
+            </Principal>
+            <Dependent Role="AUD_T_BITACORA">
+              <PropertyRef Name="bita_tip_mov_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_9F356E_HipnosModelStoreContainer" CdmEntityContainer="AUDDBEntities">
+          <EntitySetMapping Name="AUD_T_BITA_TIPO_MOV">
+            <EntityTypeMapping TypeName="DB_9F356E_HipnosModel.AUD_T_BITA_TIPO_MOV">
+              <MappingFragment StoreEntitySet="AUD_T_BITA_TIPO_MOV">
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_tip_mov_c_vnomb" ColumnName="bita_tip_mov_c_vnomb" />
+                <ScalarProperty Name="bita_tip_mov_c_iid" ColumnName="bita_tip_mov_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUD_T_BITACORA">
+            <EntityTypeMapping TypeName="DB_9F356E_HipnosModel.AUD_T_BITACORA">
+              <MappingFragment StoreEntitySet="AUD_T_BITACORA">
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="colab_c_vnomb_completo" ColumnName="colab_c_vnomb_completo" />
+                <ScalarProperty Name="colab_c_cusu_red" ColumnName="colab_c_cusu_red" />
+                <ScalarProperty Name="bita_c_vnum_ip" ColumnName="bita_c_vnum_ip" />
+                <ScalarProperty Name="bita_c_vquery_transaccion" ColumnName="bita_c_vquery_transaccion" />
+                <ScalarProperty Name="bita_c_vsqlproceso" ColumnName="bita_c_vsqlproceso" />
+                <ScalarProperty Name="bita_c_vrutapagina" ColumnName="bita_c_vrutapagina" />
+                <ScalarProperty Name="bita_c_vopcion" ColumnName="bita_c_vopcion" />
+                <ScalarProperty Name="menu_c_iid" ColumnName="menu_c_iid" />
+                <ScalarProperty Name="bita_tip_mov_c_iid" ColumnName="bita_tip_mov_c_iid" />
+                <ScalarProperty Name="sist_c_iid" ColumnName="sist_c_iid" />
+                <ScalarProperty Name="bita_c_iid" ColumnName="bita_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="AUDDB">
+        <EntityTypeShape EntityType="DB_9F356E_HipnosModel.AUD_T_BITA_TIPO_MOV" Width="1.75" PointX="0.75" PointY="1.625" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="DB_9F356E_HipnosModel.AUD_T_BITACORA" Width="1.5" PointX="3" PointY="1" Height="3.5186979166666656" />
+        <AssociationConnector Association="DB_9F356E_HipnosModel.FK_AUD_T_BITACORA_AUD_T_BITA_TIPO_MOV" >
+          <ConnectorPoint PointX="2.5" PointY="2.7112939453125" />
+          <ConnectorPoint PointX="3" PointY="2.7112939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

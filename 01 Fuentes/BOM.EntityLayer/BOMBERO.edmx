@@ -1,0 +1,1672 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BD_DIONISIOModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="BD_DIONISIOModelStoreContainer">
+          <EntitySet Name="ADV_T_CLIENTE" EntityType="BD_DIONISIOModel.Store.ADV_T_CLIENTE" store:Type="Tables" store:Schema="ADVANCE" store:Name="ADV_T_CLIENTE">
+            <DefiningQuery>SELECT 
+      [ADV_T_CLIENTE].[cli_c_vraz_soc] AS [cli_c_vraz_soc], 
+      [ADV_T_CLIENTE].[cli_c_vdoc_id] AS [cli_c_vdoc_id], 
+      [ADV_T_CLIENTE].[cli_c_ctlf] AS [cli_c_ctlf], 
+      [ADV_T_CLIENTE].[cli_c_bactivo] AS [cli_c_bactivo], 
+      [ADV_T_CLIENTE].[bita_c_zfec_reg] AS [bita_c_zfec_reg], 
+      [ADV_T_CLIENTE].[bita_c_vusu_red_reg] AS [bita_c_vusu_red_reg], 
+      [ADV_T_CLIENTE].[bita_c_vnomb_completo_reg] AS [bita_c_vnomb_completo_reg]
+      FROM [ADVANCE].[ADV_T_CLIENTE] AS [ADV_T_CLIENTE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ADV_T_COLABORADOR" EntityType="BD_DIONISIOModel.Store.ADV_T_COLABORADOR" store:Type="Tables" store:Schema="ADVANCE" store:Name="ADV_T_COLABORADOR">
+            <DefiningQuery>SELECT 
+      [ADV_T_COLABORADOR].[colab_c_cdoc_id] AS [colab_c_cdoc_id], 
+      [ADV_T_COLABORADOR].[colab_c_cusu_red] AS [colab_c_cusu_red], 
+      [ADV_T_COLABORADOR].[colab_c_vnomb] AS [colab_c_vnomb], 
+      [ADV_T_COLABORADOR].[colab_c_vape_pat] AS [colab_c_vape_pat], 
+      [ADV_T_COLABORADOR].[colab_c_vape_mat] AS [colab_c_vape_mat], 
+      [ADV_T_COLABORADOR].[bita_c_zfec_reg] AS [bita_c_zfec_reg], 
+      [ADV_T_COLABORADOR].[bita_c_vusu_red_reg] AS [bita_c_vusu_red_reg], 
+      [ADV_T_COLABORADOR].[bita_c_vnomb_completo_reg] AS [bita_c_vnomb_completo_reg]
+      FROM [ADVANCE].[ADV_T_COLABORADOR] AS [ADV_T_COLABORADOR]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ADV_T_INMUEBLE" EntityType="BD_DIONISIOModel.Store.ADV_T_INMUEBLE" store:Type="Tables" store:Schema="ADVANCE" store:Name="ADV_T_INMUEBLE">
+            <DefiningQuery>SELECT 
+      [ADV_T_INMUEBLE].[inm_c_icod] AS [inm_c_icod], 
+      [ADV_T_INMUEBLE].[inm_c_vnomb] AS [inm_c_vnomb], 
+      [ADV_T_INMUEBLE].[inm_c_vabrev] AS [inm_c_vabrev], 
+      [ADV_T_INMUEBLE].[inm_c_bactivo] AS [inm_c_bactivo], 
+      [ADV_T_INMUEBLE].[bita_c_zfec_reg] AS [bita_c_zfec_reg], 
+      [ADV_T_INMUEBLE].[bita_c_vusu_red_reg] AS [bita_c_vusu_red_reg], 
+      [ADV_T_INMUEBLE].[bita_c_vnomb_completo_reg] AS [bita_c_vnomb_completo_reg]
+      FROM [ADVANCE].[ADV_T_INMUEBLE] AS [ADV_T_INMUEBLE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ADV_T_PUB_ELEMENTO_ACTIVACION" EntityType="BD_DIONISIOModel.Store.ADV_T_PUB_ELEMENTO_ACTIVACION" store:Type="Tables" store:Schema="ADVANCE" store:Name="ADV_T_PUB_ELEMENTO_ACTIVACION">
+            <DefiningQuery>SELECT 
+      [ADV_T_PUB_ELEMENTO_ACTIVACION].[pub_elem_act_c_iid] AS [pub_elem_act_c_iid], 
+      [ADV_T_PUB_ELEMENTO_ACTIVACION].[pub_prod_c_iid] AS [pub_prod_c_iid], 
+      [ADV_T_PUB_ELEMENTO_ACTIVACION].[pub_elem_act_c_vnomb] AS [pub_elem_act_c_vnomb], 
+      [ADV_T_PUB_ELEMENTO_ACTIVACION].[pub_elem_act_c_bactivo] AS [pub_elem_act_c_bactivo], 
+      [ADV_T_PUB_ELEMENTO_ACTIVACION].[bita_c_zfec_reg] AS [bita_c_zfec_reg], 
+      [ADV_T_PUB_ELEMENTO_ACTIVACION].[bita_c_vusu_red_reg] AS [bita_c_vusu_red_reg], 
+      [ADV_T_PUB_ELEMENTO_ACTIVACION].[bita_c_vnomb_completo_reg] AS [bita_c_vnomb_completo_reg]
+      FROM [ADVANCE].[ADV_T_PUB_ELEMENTO_ACTIVACION] AS [ADV_T_PUB_ELEMENTO_ACTIVACION]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ADV_T_PUB_PRODUCTO" EntityType="BD_DIONISIOModel.Store.ADV_T_PUB_PRODUCTO" store:Type="Tables" store:Schema="ADVANCE" store:Name="ADV_T_PUB_PRODUCTO">
+            <DefiningQuery>SELECT 
+      [ADV_T_PUB_PRODUCTO].[pub_prod_c_iid] AS [pub_prod_c_iid], 
+      [ADV_T_PUB_PRODUCTO].[pub_prod_c_vnomb] AS [pub_prod_c_vnomb], 
+      [ADV_T_PUB_PRODUCTO].[pub_prod_c_vabrev] AS [pub_prod_c_vabrev], 
+      [ADV_T_PUB_PRODUCTO].[pub_prod_c_bactivo] AS [pub_prod_c_bactivo], 
+      [ADV_T_PUB_PRODUCTO].[bita_c_zfec_reg] AS [bita_c_zfec_reg], 
+      [ADV_T_PUB_PRODUCTO].[bita_c_vusu_red_reg] AS [bita_c_vusu_red_reg], 
+      [ADV_T_PUB_PRODUCTO].[bita_c_vnomb_completo_reg] AS [bita_c_vnomb_completo_reg]
+      FROM [ADVANCE].[ADV_T_PUB_PRODUCTO] AS [ADV_T_PUB_PRODUCTO]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DIO_T_PARAMETRO" EntityType="BD_DIONISIOModel.Store.DIO_T_PARAMETRO" store:Type="Tables" Schema="GENERAL" />
+          <EntitySet Name="DIO_T_PARAMETRO_DET" EntityType="BD_DIONISIOModel.Store.DIO_T_PARAMETRO_DET" store:Type="Tables" Schema="GENERAL" />
+          <EntitySet Name="DIO_PUB_T_AGENCIA" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_AGENCIA" store:Type="Tables" Schema="PUBLICIDAD" />
+          <EntitySet Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_ESPACIO_OCUP_ESTADO" store:Type="Tables" Schema="PUBLICIDAD" />
+          <EntitySet Name="DIO_PUB_T_MARCA" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_MARCA" store:Type="Tables" Schema="PUBLICIDAD" />
+          <EntitySet Name="DIO_PUB_T_RESERVA" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" store:Type="Tables" Schema="PUBLICIDAD" />
+          <EntitySet Name="DIO_PUB_T_RESERVA_DET" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA_DET" store:Type="Tables" Schema="PUBLICIDAD" />
+          <EntitySet Name="DIO_PUB_T_RESERVA_MASTER" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA_MASTER" store:Type="Tables" Schema="PUBLICIDAD" />
+          <EntitySet Name="DIO_PUB_T_TIPO_ASIGNACION" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_TIPO_ASIGNACION" store:Type="Tables" Schema="PUBLICIDAD" />
+          <EntitySet Name="DIO_PUB_T_TIPO_PERIODO" EntityType="BD_DIONISIOModel.Store.DIO_PUB_T_TIPO_PERIODO" store:Type="Tables" Schema="PUBLICIDAD" />
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_DET" Association="BD_DIONISIOModel.Store.FK_DIO_PUB_T_RESERVA_DET">
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+            <End Role="DIO_PUB_T_RESERVA_DET" EntitySet="DIO_PUB_T_RESERVA_DET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_MASTER" Association="BD_DIONISIOModel.Store.FK_DIO_PUB_T_RESERVA_MASTER">
+            <End Role="DIO_PUB_T_RESERVA_MASTER" EntitySet="DIO_PUB_T_RESERVA_MASTER" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA0" Association="BD_DIONISIOModel.Store.FK_DIO_PUB_T_RESERVA0">
+            <End Role="DIO_PUB_T_AGENCIA" EntitySet="DIO_PUB_T_AGENCIA" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA1" Association="BD_DIONISIOModel.Store.FK_DIO_PUB_T_RESERVA1">
+            <End Role="DIO_PUB_T_MARCA" EntitySet="DIO_PUB_T_MARCA" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA2" Association="BD_DIONISIOModel.Store.FK_DIO_PUB_T_RESERVA2">
+            <End Role="DIO_PUB_T_TIPO_ASIGNACION" EntitySet="DIO_PUB_T_TIPO_ASIGNACION" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA4" Association="BD_DIONISIOModel.Store.FK_DIO_PUB_T_RESERVA4">
+            <End Role="DIO_PUB_T_TIPO_PERIODO" EntitySet="DIO_PUB_T_TIPO_PERIODO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_T_PARAMETRO_DET" Association="BD_DIONISIOModel.Store.FK_DIO_T_PARAMETRO_DET">
+            <End Role="DIO_T_PARAMETRO" EntitySet="DIO_T_PARAMETRO" />
+            <End Role="DIO_T_PARAMETRO_DET" EntitySet="DIO_T_PARAMETRO_DET" />
+          </AssociationSet>
+          <AssociationSet Name="PK_DIO_PUB_T_RESERVA5" Association="BD_DIONISIOModel.Store.PK_DIO_PUB_T_RESERVA5">
+            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="PK_DIO_PUB_T_RESERVA6" Association="BD_DIONISIOModel.Store.PK_DIO_PUB_T_RESERVA6">
+            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+        </EntityContainer>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'BD_DIONISIO.ADVANCE.ADV_T_CLIENTE' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="ADV_T_CLIENTE">
+          <Key>
+            <PropertyRef Name="cli_c_vraz_soc" />
+            <PropertyRef Name="cli_c_vdoc_id" />
+            <PropertyRef Name="cli_c_bactivo" />
+          </Key>
+          <Property Name="cli_c_vraz_soc" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="cli_c_vdoc_id" Type="varchar" Nullable="false" MaxLength="11" />
+          <Property Name="cli_c_ctlf" Type="varchar" MaxLength="15" />
+          <Property Name="cli_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'BD_DIONISIO.ADVANCE.ADV_T_COLABORADOR' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="ADV_T_COLABORADOR">
+          <Key>
+            <PropertyRef Name="colab_c_cdoc_id" />
+          </Key>
+          <Property Name="colab_c_cdoc_id" Type="char" Nullable="false" MaxLength="8" />
+          <Property Name="colab_c_cusu_red" Type="char" MaxLength="10" />
+          <Property Name="colab_c_vnomb" Type="varchar" MaxLength="50" />
+          <Property Name="colab_c_vape_pat" Type="varchar" MaxLength="50" />
+          <Property Name="colab_c_vape_mat" Type="varchar" MaxLength="50" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'BD_DIONISIO.ADVANCE.ADV_T_INMUEBLE' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="ADV_T_INMUEBLE">
+          <Key>
+            <PropertyRef Name="inm_c_icod" />
+            <PropertyRef Name="inm_c_vnomb" />
+            <PropertyRef Name="inm_c_vabrev" />
+            <PropertyRef Name="inm_c_bactivo" />
+          </Key>
+          <Property Name="inm_c_icod" Type="int" Nullable="false" />
+          <Property Name="inm_c_vnomb" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="inm_c_vabrev" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="inm_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'BD_DIONISIO.ADVANCE.ADV_T_PUB_ELEMENTO_ACTIVACION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="ADV_T_PUB_ELEMENTO_ACTIVACION">
+          <Key>
+            <PropertyRef Name="pub_elem_act_c_iid" />
+            <PropertyRef Name="pub_prod_c_iid" />
+            <PropertyRef Name="pub_elem_act_c_vnomb" />
+            <PropertyRef Name="pub_elem_act_c_bactivo" />
+          </Key>
+          <Property Name="pub_elem_act_c_iid" Type="int" Nullable="false" />
+          <Property Name="pub_prod_c_iid" Type="int" Nullable="false" />
+          <Property Name="pub_elem_act_c_vnomb" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="pub_elem_act_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'BD_DIONISIO.ADVANCE.ADV_T_PUB_PRODUCTO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="ADV_T_PUB_PRODUCTO">
+          <Key>
+            <PropertyRef Name="pub_prod_c_iid" />
+            <PropertyRef Name="pub_prod_c_vnomb" />
+            <PropertyRef Name="pub_prod_c_vabrev" />
+            <PropertyRef Name="pub_prod_c_bactivo" />
+          </Key>
+          <Property Name="pub_prod_c_iid" Type="int" Nullable="false" />
+          <Property Name="pub_prod_c_vnomb" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pub_prod_c_vabrev" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="pub_prod_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_T_PARAMETRO">
+          <Key>
+            <PropertyRef Name="par_c_iid" />
+          </Key>
+          <Property Name="par_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="par_c_vdesc" Type="varchar" Nullable="false" MaxLength="300" />
+          <Property Name="par_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" Nullable="false" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_T_PARAMETRO_DET">
+          <Key>
+            <PropertyRef Name="par_det_c_iid" />
+          </Key>
+          <Property Name="par_det_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="par_c_iid" Type="int" Nullable="false" />
+          <Property Name="par_det_c_vdesc" Type="varchar" />
+          <Property Name="par_det_c_vcampo_1" Type="varchar" />
+          <Property Name="par_det_c_vcampo_desc_1" Type="varchar" />
+          <Property Name="par_det_c_vcampo_2" Type="varchar" />
+          <Property Name="par_det_c_vcampo_desc_2" Type="varchar" />
+          <Property Name="par_det_c_vcampo_3" Type="varchar" />
+          <Property Name="par_det_c_vcampo_desc_3" Type="varchar" />
+          <Property Name="par_det_c_vcampo_4" Type="varchar" />
+          <Property Name="par_det_c_vcampo_desc_4" Type="varchar" />
+          <Property Name="par_det_c_vcampo_5" Type="varchar" />
+          <Property Name="par_det_c_vcampo_desc_5" Type="varchar" />
+          <Property Name="par_det_c_vobs" Type="varchar" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" Nullable="false" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_AGENCIA">
+          <Key>
+            <PropertyRef Name="agen_c_vdoc_id" />
+          </Key>
+          <Property Name="agen_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="agen_c_vdoc_id" Type="varchar" Nullable="false" MaxLength="11" />
+          <Property Name="agen_c_vnomb_comercial" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="agen_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+          <Key>
+            <PropertyRef Name="esp_ocu_est_c_iid" />
+          </Key>
+          <Property Name="esp_ocu_est_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="esp_ocu_est_c_vnomb" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="esp_ocu_est_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_MARCA">
+          <Key>
+            <PropertyRef Name="marc_c_icod" />
+          </Key>
+          <Property Name="marc_c_icod" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="marc_c_vnomb" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="marc_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_RESERVA">
+          <Key>
+            <PropertyRef Name="reser_c_iid" />
+          </Key>
+          <Property Name="reser_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="reser_mast_c_iid" Type="int" Nullable="false" />
+          <Property Name="tip_asig_c_iid" Type="int" Nullable="false" />
+          <Property Name="esp_ocu_est_c_iid" Type="int" Nullable="false" />
+          <Property Name="tipo_periodo_c_iid" Type="int" Nullable="false" />
+          <Property Name="reser_c_vdim_final" Type="varchar" MaxLength="500" />
+          <Property Name="reser_c_eprecio_alquiler" Type="decimal" Scale="2" />
+          <Property Name="reser_c_vdesc_activacion" Type="varchar" MaxLength="500" />
+          <Property Name="reser_c_vcomen_activacion" Type="varchar" MaxLength="500" />
+          <Property Name="reser_c_dfech_vencimiento" Type="datetime" />
+          <Property Name="reser_c_flat_bpendiente" Type="bit" Nullable="false" />
+          <Property Name="reser_c_dfech_inicio" Type="datetime" />
+          <Property Name="reser_c_dfech_fin" Type="datetime" />
+          <Property Name="reser_c_icant_dias" Type="int" />
+          <Property Name="cli_c_vdoc_id" Type="varchar" MaxLength="11" />
+          <Property Name="marc_c_icod" Type="int" />
+          <Property Name="agen_c_vdoc_id" Type="varchar" MaxLength="11" />
+          <Property Name="reser_mast_c_fac_bagencia" Type="bit" />
+          <Property Name="inm_c_icod" Type="int" Nullable="false" />
+          <Property Name="pub_esp_c_iid" Type="int" Nullable="false" />
+          <Property Name="pub_esp_c_vcod" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="pub_prod_c_iid" Type="int" Nullable="false" />
+          <Property Name="pub_prod_c_vnomb" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="pub_elem_act_c_iid" Type="int" Nullable="false" />
+          <Property Name="pub_esp_c_vmedida" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="pub_esp_c_earea" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="pub_esp_c_emonto_tarifa_base" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="pub_esp_c_emonto_tarifa_top" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="reser_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_RESERVA_DET">
+          <Key>
+            <PropertyRef Name="reser_det_c_iid" />
+          </Key>
+          <Property Name="reser_det_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="reser_c_iid" Type="int" Nullable="false" />
+          <Property Name="reser_det_c_dfech" Type="datetime" />
+          <Property Name="reser_c_inum_orden" Type="int" />
+          <Property Name="mod_orig_c_iid" Type="int" />
+          <Property Name="reser_det_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_RESERVA_MASTER">
+          <Key>
+            <PropertyRef Name="reser_mast_c_iid" />
+          </Key>
+          <Property Name="reser_mast_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ejec_c_cdoc_id" Type="char" Nullable="false" MaxLength="8" />
+          <Property Name="reser_mast_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_TIPO_ASIGNACION">
+          <Key>
+            <PropertyRef Name="tip_asig_c_iid" />
+          </Key>
+          <Property Name="tip_asig_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tip_asig_c_vnomb" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="tip_asig_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_TIPO_PERIODO">
+          <Key>
+            <PropertyRef Name="tipo_periodo_c_iid" />
+          </Key>
+          <Property Name="tipo_periodo_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_periodo_c_vnomb" Type="varchar" MaxLength="100" />
+          <Property Name="tipo_periodo_c_bactivo" Type="bit" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_DIO_PUB_T_RESERVA_DET">
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="1" />
+          <End Role="DIO_PUB_T_RESERVA_DET" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA_DET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="reser_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA_DET">
+              <PropertyRef Name="reser_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA_MASTER">
+          <End Role="DIO_PUB_T_RESERVA_MASTER" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA_MASTER" Multiplicity="1" />
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_RESERVA_MASTER">
+              <PropertyRef Name="reser_mast_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="reser_mast_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA0">
+          <End Role="DIO_PUB_T_AGENCIA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_AGENCIA" Multiplicity="0..1" />
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_AGENCIA">
+              <PropertyRef Name="agen_c_vdoc_id" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="agen_c_vdoc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA1">
+          <End Role="DIO_PUB_T_MARCA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_MARCA" Multiplicity="0..1" />
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_MARCA">
+              <PropertyRef Name="marc_c_icod" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="marc_c_icod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA2">
+          <End Role="DIO_PUB_T_TIPO_ASIGNACION" Type="BD_DIONISIOModel.Store.DIO_PUB_T_TIPO_ASIGNACION" Multiplicity="1" />
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_TIPO_ASIGNACION">
+              <PropertyRef Name="tip_asig_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="tip_asig_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA4">
+          <End Role="DIO_PUB_T_TIPO_PERIODO" Type="BD_DIONISIOModel.Store.DIO_PUB_T_TIPO_PERIODO" Multiplicity="1" />
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_TIPO_PERIODO">
+              <PropertyRef Name="tipo_periodo_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="tipo_periodo_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_T_PARAMETRO_DET">
+          <End Role="DIO_T_PARAMETRO" Type="BD_DIONISIOModel.Store.DIO_T_PARAMETRO" Multiplicity="1" />
+          <End Role="DIO_T_PARAMETRO_DET" Type="BD_DIONISIOModel.Store.DIO_T_PARAMETRO_DET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_T_PARAMETRO">
+              <PropertyRef Name="par_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_T_PARAMETRO_DET">
+              <PropertyRef Name="par_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_DIO_PUB_T_RESERVA5">
+          <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Type="BD_DIONISIOModel.Store.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_DIO_PUB_T_RESERVA6">
+          <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Type="BD_DIONISIOModel.Store.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
+          <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_ADV_DIA_UTIL_SELECCIONAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADVANCE">
+          <Parameter Name="numero_dia_util" Type="int" Mode="In" />
+          <Parameter Name="dia_util" Type="varchar" Mode="InOut" />
+        </Function>
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="DIO_SP_PUB_APROB_RESERVA_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pv_inmueble" Type="varchar" Mode="In" />
+          <Parameter Name="pv_cliente" Type="varchar" Mode="In" />
+          <Parameter Name="pv_ejecutivo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_PUB_RESERVA_DET_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_c_iid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_mast_c_iid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_PUB_RESERVA_PENDIENTE_XEJECUTIVO_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pv_inmueble" Type="varchar" Mode="In" />
+          <Parameter Name="pv_cliente" Type="varchar" Mode="In" />
+          <Parameter Name="pv_ejecutivo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pI_id_master" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_PUB_RESERVA_XSELECCION_DESACTIVAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pv_codigo_espacios" Type="varchar" Mode="In" />
+          <Parameter Name="pi_reser_mast_c_iid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_REQUISITO_PUBLICIDAD_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD" />
+        <Function Name="SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pd_fecha_desde" Type="datetime" Mode="In" />
+          <Parameter Name="pd_fecha_hasta" Type="datetime" Mode="In" />
+          <Parameter Name="pv_espacios_sw_advance" Type="varchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_ACTUALIZAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pi_tipo_periodo_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pv_reser_c_vdim_final" Type="varchar" Mode="In" />
+          <Parameter Name="pe_reser_c_eprecio_alquiler" Type="decimal" Mode="In" />
+          <Parameter Name="pv_reser_c_vdesc_activacion" Type="varchar" Mode="In" />
+          <Parameter Name="pv_reser_c_vcomen_activacion" Type="varchar" Mode="In" />
+          <Parameter Name="pi_pub_elem_act_c_iid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_CERRAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_idMaster" Type="int" Mode="In" />
+          <Parameter Name="id_result" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_DET_INSERTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pi_pub_esp_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pi_tipo_periodo" Type="int" Mode="In" />
+          <Parameter Name="pv_fechaDesde" Type="varchar" Mode="In" />
+          <Parameter Name="pv_fechaHasta" Type="varchar" Mode="In" />
+          <Parameter Name="pd_fec_especifica" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="pv_ejec_cdoc" Type="char" Mode="In" />
+          <Parameter Name="bita_c_vusu_red_reg" Type="varchar" Mode="In" />
+          <Parameter Name="bita_c_vnomb_completo_reg" Type="varchar" Mode="In" />
+          <Parameter Name="ps_fechasNoRegistradas" Type="nvarchar(max)" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_esp_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pi_pub_elem_act_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pd_fec_inicio" Type="datetime" Mode="In" />
+          <Parameter Name="pi_fec_fin" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_INSERTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_mast_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pi_tip_asig_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pi_tipo_periodo_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pv_reser_c_vdim_final" Type="varchar" Mode="In" />
+          <Parameter Name="pe_reser_c_eprecio_alquiler" Type="decimal" Mode="In" />
+          <Parameter Name="pv_reser_c_vdesc_activacion" Type="varchar" Mode="In" />
+          <Parameter Name="pv_reser_c_vcomen_activacion" Type="varchar" Mode="In" />
+          <Parameter Name="pd_reser_c_dfech_vencimiento" Type="datetime" Mode="In" />
+          <Parameter Name="pb_reser_c_flat_bpendiente" Type="bit" Mode="In" />
+          <Parameter Name="pi_inm_c_icod" Type="int" Mode="In" />
+          <Parameter Name="pi_pub_esp_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pv_pub_esp_c_vcod" Type="varchar" Mode="In" />
+          <Parameter Name="pi_pub_prod_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pv_pub_prod_c_vnomb" Type="varchar" Mode="In" />
+          <Parameter Name="pi_pub_elem_act_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pv_pub_esp_c_vmedida" Type="varchar" Mode="In" />
+          <Parameter Name="pe_pub_esp_c_earea" Type="decimal" Mode="In" />
+          <Parameter Name="pe_pub_esp_c_emonto_tarifa_base" Type="decimal" Mode="In" />
+          <Parameter Name="pe_pub_esp_c_emonto_tarifa_top" Type="decimal" Mode="In" />
+          <Parameter Name="bita_c_vusu_red_reg" Type="varchar" Mode="In" />
+          <Parameter Name="bita_c_vnomb_completo_reg" Type="varchar" Mode="In" />
+          <Parameter Name="id_cabecera" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_MASTER_INSERTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pc_ejec_c_cdoc_id" Type="char" Mode="In" />
+          <Parameter Name="pi_bita_c_vusu_red_reg" Type="varchar" Mode="In" />
+          <Parameter Name="pi_bita_c_vnomb_completo_reg" Type="varchar" Mode="In" />
+          <Parameter Name="id_master" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_PRIORIDAD_MODIFICAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_VENDER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_c_iid" Type="int" Mode="In" />
+          <Parameter Name="pi_pub_esp_c_iid" Type="int" Mode="In" />
+          <Parameter Name="reser_mast_c_fac_bagencia" Type="bit" Mode="In" />
+          <Parameter Name="reser_c_eprecio_alquiler" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_XIDMASTER_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pi_reser_mast_c_iid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_CONSULTA_ESPACIO_RESERVADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="WS_BOMBERO">
+          <Parameter Name="pub_esp_c_iid" Type="int" Mode="In" />
+          <Parameter Name="id_result" Type="int" Mode="InOut" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_DIONISIOModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="BD_DIONISIOEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="SP_PUB_TIPO_ASIGNACION_LISTAR" />
+          <FunctionImport Name="SP_ADV_DIA_UTIL_SELECCIONAR">
+            <Parameter Name="numero_dia_util" Mode="In" Type="Int32" />
+            <Parameter Name="dia_util" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR" ReturnType="Collection(BD_DIONISIOModel.SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result)">
+            <Parameter Name="pi_esp_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pi_pub_elem_act_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pd_fec_inicio" Mode="In" Type="DateTime" />
+            <Parameter Name="pi_fec_fin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_RESERVA_MASTER_INSERTAR">
+            <Parameter Name="pc_ejec_c_cdoc_id" Mode="In" Type="String" />
+            <Parameter Name="pi_bita_c_vusu_red_reg" Mode="In" Type="String" />
+            <Parameter Name="pi_bita_c_vnomb_completo_reg" Mode="In" Type="String" />
+            <Parameter Name="id_master" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_RESERVA_INSERTAR">
+            <Parameter Name="pi_reser_mast_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pi_tip_asig_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pi_tipo_periodo_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pv_reser_c_vdim_final" Mode="In" Type="String" />
+            <Parameter Name="pe_reser_c_eprecio_alquiler" Mode="In" Type="Decimal" />
+            <Parameter Name="pv_reser_c_vdesc_activacion" Mode="In" Type="String" />
+            <Parameter Name="pv_reser_c_vcomen_activacion" Mode="In" Type="String" />
+            <Parameter Name="pd_reser_c_dfech_vencimiento" Mode="In" Type="DateTime" />
+            <Parameter Name="pb_reser_c_flat_bpendiente" Mode="In" Type="Boolean" />
+            <Parameter Name="pi_inm_c_icod" Mode="In" Type="Int32" />
+            <Parameter Name="pi_pub_esp_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pv_pub_esp_c_vcod" Mode="In" Type="String" />
+            <Parameter Name="pi_pub_prod_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pv_pub_prod_c_vnomb" Mode="In" Type="String" />
+            <Parameter Name="pi_pub_elem_act_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pv_pub_esp_c_vmedida" Mode="In" Type="String" />
+            <Parameter Name="pe_pub_esp_c_earea" Mode="In" Type="Decimal" />
+            <Parameter Name="pe_pub_esp_c_emonto_tarifa_base" Mode="In" Type="Decimal" />
+            <Parameter Name="pe_pub_esp_c_emonto_tarifa_top" Mode="In" Type="Decimal" />
+            <Parameter Name="bita_c_vusu_red_reg" Mode="In" Type="String" />
+            <Parameter Name="bita_c_vnomb_completo_reg" Mode="In" Type="String" />
+            <Parameter Name="id_cabecera" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="ADV_T_CLIENTE" EntityType="BD_DIONISIOModel.ADV_T_CLIENTE" />
+          <EntitySet Name="ADV_T_COLABORADOR" EntityType="BD_DIONISIOModel.ADV_T_COLABORADOR" />
+          <EntitySet Name="ADV_T_INMUEBLE" EntityType="BD_DIONISIOModel.ADV_T_INMUEBLE" />
+          <EntitySet Name="ADV_T_PUB_ELEMENTO_ACTIVACION" EntityType="BD_DIONISIOModel.ADV_T_PUB_ELEMENTO_ACTIVACION" />
+          <EntitySet Name="ADV_T_PUB_PRODUCTO" EntityType="BD_DIONISIOModel.ADV_T_PUB_PRODUCTO" />
+          <EntitySet Name="DIO_T_PARAMETRO" EntityType="BD_DIONISIOModel.DIO_T_PARAMETRO" />
+          <EntitySet Name="DIO_T_PARAMETRO_DET" EntityType="BD_DIONISIOModel.DIO_T_PARAMETRO_DET" />
+          <EntitySet Name="DIO_PUB_T_AGENCIA" EntityType="BD_DIONISIOModel.DIO_PUB_T_AGENCIA" />
+          <EntitySet Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntityType="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+          <EntitySet Name="DIO_PUB_T_MARCA" EntityType="BD_DIONISIOModel.DIO_PUB_T_MARCA" />
+          <EntitySet Name="DIO_PUB_T_RESERVA" EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA" />
+          <EntitySet Name="DIO_PUB_T_RESERVA_DET" EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" />
+          <EntitySet Name="DIO_PUB_T_RESERVA_MASTER" EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER" />
+          <EntitySet Name="DIO_PUB_T_TIPO_ASIGNACION" EntityType="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION" />
+          <EntitySet Name="DIO_PUB_T_TIPO_PERIODO" EntityType="BD_DIONISIOModel.DIO_PUB_T_TIPO_PERIODO" />
+          <AssociationSet Name="FK_DIO_T_PARAMETRO_DET" Association="BD_DIONISIOModel.FK_DIO_T_PARAMETRO_DET">
+            <End Role="DIO_T_PARAMETRO" EntitySet="DIO_T_PARAMETRO" />
+            <End Role="DIO_T_PARAMETRO_DET" EntitySet="DIO_T_PARAMETRO_DET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA0" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0">
+            <End Role="DIO_PUB_T_AGENCIA" EntitySet="DIO_PUB_T_AGENCIA" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="PK_DIO_PUB_T_RESERVA5" Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5">
+            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="PK_DIO_PUB_T_RESERVA6" Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6">
+            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA1" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1">
+            <End Role="DIO_PUB_T_MARCA" EntitySet="DIO_PUB_T_MARCA" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_DET" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET">
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+            <End Role="DIO_PUB_T_RESERVA_DET" EntitySet="DIO_PUB_T_RESERVA_DET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_MASTER" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER">
+            <End Role="DIO_PUB_T_RESERVA_MASTER" EntitySet="DIO_PUB_T_RESERVA_MASTER" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA2" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2">
+            <End Role="DIO_PUB_T_TIPO_ASIGNACION" EntitySet="DIO_PUB_T_TIPO_ASIGNACION" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA4" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4">
+            <End Role="DIO_PUB_T_TIPO_PERIODO" EntitySet="DIO_PUB_T_TIPO_PERIODO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <FunctionImport Name="SP_PUB_RESERVA_DET_INSERTAR">
+            <Parameter Name="pi_reser_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pi_pub_esp_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pi_tipo_periodo" Mode="In" Type="Int32" />
+            <Parameter Name="pv_fechaDesde" Mode="In" Type="String" />
+            <Parameter Name="pv_fechaHasta" Mode="In" Type="String" />
+            <Parameter Name="pd_fec_especifica" Mode="In" Type="String" />
+            <Parameter Name="pv_ejec_cdoc" Mode="In" Type="String" />
+            <Parameter Name="bita_c_vusu_red_reg" Mode="In" Type="String" />
+            <Parameter Name="bita_c_vnomb_completo_reg" Mode="In" Type="String" />
+            <Parameter Name="ps_fechasNoRegistradas" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_PUB_RESERVA_XSELECCION_DESACTIVAR">
+            <Parameter Name="pv_codigo_espacios" Mode="In" Type="String" />
+            <Parameter Name="pi_reser_mast_c_iid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR" ReturnType="Collection(BD_DIONISIOModel.DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR_Result)">
+          <Parameter Name="pi_reser_mast_c_iid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_PUB_RESERVA_DET_LISTAR" ReturnType="Collection(BD_DIONISIOModel.DIO_SP_PUB_RESERVA_DET_LISTAR_Result)">
+          <Parameter Name="pi_reser_c_iid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_RESERVA_ACTUALIZAR">
+            <Parameter Name="pi_reser_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pi_tipo_periodo_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pv_reser_c_vdim_final" Mode="In" Type="String" />
+            <Parameter Name="pe_reser_c_eprecio_alquiler" Mode="In" Type="Decimal" />
+            <Parameter Name="pv_reser_c_vdesc_activacion" Mode="In" Type="String" />
+            <Parameter Name="pv_reser_c_vcomen_activacion" Mode="In" Type="String" />
+            <Parameter Name="pi_pub_elem_act_c_iid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_RESERVA_CERRAR">
+            <Parameter Name="pi_idMaster" Mode="In" Type="Int32" />
+            <Parameter Name="id_result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR" ReturnType="Collection(BD_DIONISIOModel.SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result)">
+            <Parameter Name="pd_fecha_desde" Mode="In" Type="DateTime" />
+            <Parameter Name="pd_fecha_hasta" Mode="In" Type="DateTime" />
+            <Parameter Name="pv_espacios_sw_advance" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_REQUISITO_PUBLICIDAD_LISTAR" ReturnType="Collection(BD_DIONISIOModel.DIO_SP_REQUISITO_PUBLICIDAD_LISTAR_Result)" />
+          <FunctionImport Name="SP_PUB_RESERVA_PRIORIDAD_MODIFICAR">
+          <Parameter Name="pi_reser_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_RESERVA_XIDMASTER_LISTAR" ReturnType="Collection(BD_DIONISIOModel.SP_PUB_RESERVA_XIDMASTER_LISTAR_Result)">
+          <Parameter Name="pi_reser_mast_c_iid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_PUB_APROB_RESERVA_LISTAR" ReturnType="Collection(BD_DIONISIOModel.DIO_SP_PUB_APROB_RESERVA_LISTAR_Result)">
+            <Parameter Name="pv_inmueble" Mode="In" Type="String" />
+            <Parameter Name="pv_cliente" Mode="In" Type="String" />
+            <Parameter Name="pv_ejecutivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_PUB_RESERVA_VENDER">
+            <Parameter Name="pi_reser_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="pi_pub_esp_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="reser_mast_c_fac_bagencia" Mode="In" Type="Boolean" />
+            <Parameter Name="reser_c_eprecio_alquiler" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER" ReturnType="Collection(BD_DIONISIOModel.DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER_Result)">
+          <Parameter Name="pI_id_master" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_PUB_RESERVA_PENDIENTE_XEJECUTIVO_LISTAR" ReturnType="Collection(BD_DIONISIOModel.DIO_SP_PUB_RESERVA_PENDIENTE_XEJECUTIVO_LISTAR_Result)">
+            <Parameter Name="pv_inmueble" Mode="In" Type="String" />
+            <Parameter Name="pv_cliente" Mode="In" Type="String" />
+            <Parameter Name="pv_ejecutivo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_CONSULTA_ESPACIO_RESERVADO">
+            <Parameter Name="pub_esp_c_iid" Mode="In" Type="Int32" />
+            <Parameter Name="id_result" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          </EntityContainer>
+        <ComplexType Name="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result">
+          <Property Type="DateTime" Name="fecha" Nullable="true" Precision="23" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="detalle" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="ADV_T_CLIENTE">
+          <Key>
+            <PropertyRef Name="cli_c_vraz_soc" />
+            <PropertyRef Name="cli_c_vdoc_id" />
+            <PropertyRef Name="cli_c_bactivo" />
+          </Key>
+          <Property Type="String" Name="cli_c_vraz_soc" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cli_c_vdoc_id" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="cli_c_ctlf" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="cli_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADV_T_COLABORADOR">
+          <Key>
+            <PropertyRef Name="colab_c_cdoc_id" />
+          </Key>
+          <Property Type="String" Name="colab_c_cdoc_id" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="colab_c_cusu_red" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="colab_c_vnomb" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="colab_c_vape_pat" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="colab_c_vape_mat" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADV_T_INMUEBLE">
+          <Key>
+            <PropertyRef Name="inm_c_icod" />
+            <PropertyRef Name="inm_c_vnomb" />
+            <PropertyRef Name="inm_c_vabrev" />
+            <PropertyRef Name="inm_c_bactivo" />
+          </Key>
+          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
+          <Property Type="String" Name="inm_c_vnomb" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="inm_c_vabrev" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="inm_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADV_T_PUB_ELEMENTO_ACTIVACION">
+          <Key>
+            <PropertyRef Name="pub_elem_act_c_iid" />
+            <PropertyRef Name="pub_prod_c_iid" />
+            <PropertyRef Name="pub_elem_act_c_vnomb" />
+            <PropertyRef Name="pub_elem_act_c_bactivo" />
+          </Key>
+          <Property Type="Int32" Name="pub_elem_act_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="pub_prod_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_elem_act_c_vnomb" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="pub_elem_act_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ADV_T_PUB_PRODUCTO">
+          <Key>
+            <PropertyRef Name="pub_prod_c_iid" />
+            <PropertyRef Name="pub_prod_c_vnomb" />
+            <PropertyRef Name="pub_prod_c_vabrev" />
+            <PropertyRef Name="pub_prod_c_bactivo" />
+          </Key>
+          <Property Type="Int32" Name="pub_prod_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_prod_c_vnomb" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="pub_prod_c_vabrev" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="pub_prod_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DIO_T_PARAMETRO">
+          <Key>
+            <PropertyRef Name="par_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="par_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="par_c_vdesc" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="par_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" Nullable="false" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_T_PARAMETRO_DET" Relationship="BD_DIONISIOModel.FK_DIO_T_PARAMETRO_DET" FromRole="DIO_T_PARAMETRO" ToRole="DIO_T_PARAMETRO_DET" />
+        </EntityType>
+        <EntityType Name="DIO_T_PARAMETRO_DET">
+          <Key>
+            <PropertyRef Name="par_det_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="par_det_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="par_c_iid" Nullable="false" />
+          <Property Type="String" Name="par_det_c_vdesc" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_1" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_desc_1" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_2" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_desc_2" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_3" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_desc_3" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_4" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_desc_4" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_5" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vcampo_desc_5" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="par_det_c_vobs" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" Nullable="false" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_T_PARAMETRO" Relationship="BD_DIONISIOModel.FK_DIO_T_PARAMETRO_DET" FromRole="DIO_T_PARAMETRO_DET" ToRole="DIO_T_PARAMETRO" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_AGENCIA">
+          <Key>
+            <PropertyRef Name="agen_c_vdoc_id" />
+          </Key>
+          <Property Type="Int32" Name="agen_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="agen_c_vdoc_id" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="agen_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" FromRole="DIO_PUB_T_AGENCIA" ToRole="DIO_PUB_T_RESERVA" />
+          <Property Type="String" Name="agen_c_vnomb_comercial" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+          <Key>
+            <PropertyRef Name="esp_ocu_est_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="esp_ocu_est_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="esp_ocu_est_c_vnomb" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="esp_ocu_est_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5" FromRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" ToRole="DIO_PUB_T_RESERVA" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA1" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6" FromRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" ToRole="DIO_PUB_T_RESERVA" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_MARCA">
+          <Key>
+            <PropertyRef Name="marc_c_icod" />
+          </Key>
+          <Property Type="Int32" Name="marc_c_icod" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="marc_c_vnomb" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="marc_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1" FromRole="DIO_PUB_T_MARCA" ToRole="DIO_PUB_T_RESERVA" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_RESERVA">
+          <Key>
+            <PropertyRef Name="reser_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="reser_mast_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="tip_asig_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="esp_ocu_est_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="tipo_periodo_c_iid" Nullable="false" />
+          <Property Type="String" Name="reser_c_vdim_final" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="reser_c_eprecio_alquiler" Precision="18" Scale="2" />
+          <Property Type="String" Name="reser_c_vdesc_activacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reser_c_vcomen_activacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="reser_c_dfech_vencimiento" />
+          <Property Type="Boolean" Name="reser_c_flat_bpendiente" Nullable="false" />
+          <Property Type="DateTime" Name="reser_c_dfech_inicio" />
+          <Property Type="DateTime" Name="reser_c_dfech_fin" />
+          <Property Type="String" Name="cli_c_vdoc_id" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="marc_c_icod" />
+          <Property Type="String" Name="agen_c_vdoc_id" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="reser_mast_c_fac_bagencia" />
+          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
+          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="pub_prod_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="pub_elem_act_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_esp_c_vmedida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="pub_esp_c_earea" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_base" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_top" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="reser_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_AGENCIA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_AGENCIA" />
+          <NavigationProperty Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+          <NavigationProperty Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO1" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+          <NavigationProperty Name="DIO_PUB_T_MARCA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_MARCA" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA_DET" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_RESERVA_DET" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA_MASTER" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_RESERVA_MASTER" />
+          <NavigationProperty Name="DIO_PUB_T_TIPO_ASIGNACION" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_TIPO_ASIGNACION" />
+          <NavigationProperty Name="DIO_PUB_T_TIPO_PERIODO" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_TIPO_PERIODO" />
+          <Property Type="Int32" Name="reser_c_icant_dias" />
+          <Property Type="String" Name="pub_prod_c_vnomb" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_RESERVA_DET">
+          <Key>
+            <PropertyRef Name="reser_det_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="reser_det_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="reser_c_inum_orden" />
+          <Property Type="DateTime" Name="reser_det_c_dfech" />
+          <Property Type="Boolean" Name="reser_det_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" FromRole="DIO_PUB_T_RESERVA_DET" ToRole="DIO_PUB_T_RESERVA" />
+          <Property Type="Int32" Name="mod_orig_c_iid" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_RESERVA_MASTER">
+          <Key>
+            <PropertyRef Name="reser_mast_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="reser_mast_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ejec_c_cdoc_id" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="Boolean" Name="reser_mast_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER" FromRole="DIO_PUB_T_RESERVA_MASTER" ToRole="DIO_PUB_T_RESERVA" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_TIPO_ASIGNACION">
+          <Key>
+            <PropertyRef Name="tip_asig_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="tip_asig_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="tip_asig_c_vnomb" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="tip_asig_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2" FromRole="DIO_PUB_T_TIPO_ASIGNACION" ToRole="DIO_PUB_T_RESERVA" />
+        </EntityType>
+        <EntityType Name="DIO_PUB_T_TIPO_PERIODO">
+          <Key>
+            <PropertyRef Name="tipo_periodo_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="tipo_periodo_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="tipo_periodo_c_vnomb" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="tipo_periodo_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4" FromRole="DIO_PUB_T_TIPO_PERIODO" ToRole="DIO_PUB_T_RESERVA" />
+        </EntityType>
+        <Association Name="FK_DIO_T_PARAMETRO_DET">
+          <End Type="BD_DIONISIOModel.DIO_T_PARAMETRO" Role="DIO_T_PARAMETRO" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_T_PARAMETRO_DET" Role="DIO_T_PARAMETRO_DET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_T_PARAMETRO">
+              <PropertyRef Name="par_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_T_PARAMETRO_DET">
+              <PropertyRef Name="par_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA0">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_AGENCIA" Role="DIO_PUB_T_AGENCIA" Multiplicity="0..1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_AGENCIA">
+              <PropertyRef Name="agen_c_vdoc_id" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="agen_c_vdoc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_DIO_PUB_T_RESERVA5">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_DIO_PUB_T_RESERVA6">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA1">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_MARCA" Role="DIO_PUB_T_MARCA" Multiplicity="0..1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_MARCA">
+              <PropertyRef Name="marc_c_icod" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="marc_c_icod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA_DET">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" Role="DIO_PUB_T_RESERVA_DET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="reser_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA_DET">
+              <PropertyRef Name="reser_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA_MASTER">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER" Role="DIO_PUB_T_RESERVA_MASTER" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_RESERVA_MASTER">
+              <PropertyRef Name="reser_mast_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="reser_mast_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA2">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION" Role="DIO_PUB_T_TIPO_ASIGNACION" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_TIPO_ASIGNACION">
+              <PropertyRef Name="tip_asig_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="tip_asig_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA4">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_TIPO_PERIODO" Role="DIO_PUB_T_TIPO_PERIODO" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_TIPO_PERIODO">
+              <PropertyRef Name="tipo_periodo_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="tipo_periodo_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR_Result">
+          <Property Type="String" Name="inm_c_vnomb" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="pub_prod_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
+          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="pub_elem_act_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_prod_c_vnomb" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_base" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_top" Nullable="false" Precision="18" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="DIO_SP_PUB_RESERVA_DET_LISTAR_Result">
+          <Property Type="DateTime" Name="Fecha" Nullable="true" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result">
+          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="DIO_SP_REQUISITO_PUBLICIDAD_LISTAR_Result">
+          <Property Type="Int32" Name="par_c_iid_Padre" Nullable="false" />
+          <Property Type="String" Name="CODIGO_ELEMENTO_ACTIVACION" Nullable="true" MaxLength="8000" />
+          <Property Type="String" Name="HTML" Nullable="true" MaxLength="8000" />
+        </ComplexType>
+        <ComplexType Name="SP_PUB_RESERVA_XIDMASTER_LISTAR_Result">
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" />
+          <Property Type="String" Name="inm_c_vnomb" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="pub_prod_c_vnomb" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="pub_elem_act_c_vnomb" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="agencia" Nullable="false" MaxLength="467" />
+          <Property Type="String" Name="cliente" Nullable="false" MaxLength="214" />
+          <Property Type="String" Name="marca" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="facturarA" Nullable="true" MaxLength="2" />
+        </ComplexType>
+        <ComplexType Name="DIO_SP_PUB_APROB_RESERVA_LISTAR_Result">
+          <Property Type="Int32" Name="MARCAR" Nullable="false" />
+          <Property Type="Int32" Name="reser_mast_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" />
+          <Property Type="DateTime" Name="reser_c_dfech_inicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="reser_c_dfech_fin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
+          <Property Type="String" Name="INMUEBLE" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PRODUCTO" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ELEMENTO_ACTIVACION" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="COD_ESPACIO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CLIENTE" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="MARCA" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="AGENCIA" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="PERIODO" Nullable="true" MaxLength="23" />
+          <Property Type="String" Name="TIPO_PERIODO" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="EJECUTIVO" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="RESERVA" Nullable="false" MaxLength="1" />
+          <Property Type="Decimal" Name="PRECIOFINAL" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="FACTURARA" Nullable="true" MaxLength="7" />
+        </ComplexType>
+        <ComplexType Name="DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER_Result">
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="pub_elem_act_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
+          <Property Type="Int32" Name="pub_prod_c_iid" Nullable="false" />
+          <Property Type="String" Name="inm_c_vnomb" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="pub_prod_c_vnomb" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="pub_elem_act_c_vnomb" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_base" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_top" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pub_esp_c_earea" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="pub_esp_c_vmedida" Nullable="false" MaxLength="500" />
+        </ComplexType>
+        <ComplexType Name="DIO_SP_PUB_RESERVA_PENDIENTE_XEJECUTIVO_LISTAR_Result">
+          <Property Type="Int32" Name="MARCAR" Nullable="false" />
+          <Property Type="String" Name="ejec_c_cdoc_id" Nullable="false" MaxLength="8" />
+          <Property Type="Int32" Name="reser_mast_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" />
+          <Property Type="DateTime" Name="reser_c_dfech_inicio" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="reser_c_dfech_fin" Nullable="true" Precision="23" />
+          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
+          <Property Type="String" Name="INMUEBLE" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PRODUCTO" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="ELEMENTO_ACTIVACION" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="COD_ESPACIO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CLIENTE" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="MARCA" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="AGENCIA" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="PERIODO" Nullable="true" MaxLength="23" />
+          <Property Type="String" Name="TIPO_PERIODO" Nullable="false" MaxLength="12" />
+          <Property Type="String" Name="EJECUTIVO" Nullable="true" MaxLength="101" />
+          <Property Type="String" Name="RESERVA" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="ESTADORESERVA" Nullable="true" MaxLength="9" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_DIONISIOModelStoreContainer" CdmEntityContainer="BD_DIONISIOEntities">
+          <FunctionImportMapping FunctionImportName="SP_ADV_DIA_UTIL_SELECCIONAR" FunctionName="BD_DIONISIOModel.Store.SP_ADV_DIA_UTIL_SELECCIONAR" />
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result">
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_MASTER_INSERTAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_MASTER_INSERTAR" />
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_INSERTAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_INSERTAR" />
+          <EntitySetMapping Name="ADV_T_CLIENTE">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.ADV_T_CLIENTE">
+              <MappingFragment StoreEntitySet="ADV_T_CLIENTE">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="cli_c_bactivo" ColumnName="cli_c_bactivo" />
+                <ScalarProperty Name="cli_c_ctlf" ColumnName="cli_c_ctlf" />
+                <ScalarProperty Name="cli_c_vdoc_id" ColumnName="cli_c_vdoc_id" />
+                <ScalarProperty Name="cli_c_vraz_soc" ColumnName="cli_c_vraz_soc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADV_T_COLABORADOR">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.ADV_T_COLABORADOR">
+              <MappingFragment StoreEntitySet="ADV_T_COLABORADOR">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="colab_c_vape_mat" ColumnName="colab_c_vape_mat" />
+                <ScalarProperty Name="colab_c_vape_pat" ColumnName="colab_c_vape_pat" />
+                <ScalarProperty Name="colab_c_vnomb" ColumnName="colab_c_vnomb" />
+                <ScalarProperty Name="colab_c_cusu_red" ColumnName="colab_c_cusu_red" />
+                <ScalarProperty Name="colab_c_cdoc_id" ColumnName="colab_c_cdoc_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADV_T_INMUEBLE">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.ADV_T_INMUEBLE">
+              <MappingFragment StoreEntitySet="ADV_T_INMUEBLE">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="inm_c_bactivo" ColumnName="inm_c_bactivo" />
+                <ScalarProperty Name="inm_c_vabrev" ColumnName="inm_c_vabrev" />
+                <ScalarProperty Name="inm_c_vnomb" ColumnName="inm_c_vnomb" />
+                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADV_T_PUB_ELEMENTO_ACTIVACION">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.ADV_T_PUB_ELEMENTO_ACTIVACION">
+              <MappingFragment StoreEntitySet="ADV_T_PUB_ELEMENTO_ACTIVACION">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="pub_elem_act_c_bactivo" ColumnName="pub_elem_act_c_bactivo" />
+                <ScalarProperty Name="pub_elem_act_c_vnomb" ColumnName="pub_elem_act_c_vnomb" />
+                <ScalarProperty Name="pub_prod_c_iid" ColumnName="pub_prod_c_iid" />
+                <ScalarProperty Name="pub_elem_act_c_iid" ColumnName="pub_elem_act_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ADV_T_PUB_PRODUCTO">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.ADV_T_PUB_PRODUCTO">
+              <MappingFragment StoreEntitySet="ADV_T_PUB_PRODUCTO">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="pub_prod_c_bactivo" ColumnName="pub_prod_c_bactivo" />
+                <ScalarProperty Name="pub_prod_c_vabrev" ColumnName="pub_prod_c_vabrev" />
+                <ScalarProperty Name="pub_prod_c_vnomb" ColumnName="pub_prod_c_vnomb" />
+                <ScalarProperty Name="pub_prod_c_iid" ColumnName="pub_prod_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_T_PARAMETRO">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_T_PARAMETRO">
+              <MappingFragment StoreEntitySet="DIO_T_PARAMETRO">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="par_c_bactivo" ColumnName="par_c_bactivo" />
+                <ScalarProperty Name="par_c_vdesc" ColumnName="par_c_vdesc" />
+                <ScalarProperty Name="par_c_iid" ColumnName="par_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_T_PARAMETRO_DET">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_T_PARAMETRO_DET">
+              <MappingFragment StoreEntitySet="DIO_T_PARAMETRO_DET">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="par_det_c_vobs" ColumnName="par_det_c_vobs" />
+                <ScalarProperty Name="par_det_c_vcampo_desc_5" ColumnName="par_det_c_vcampo_desc_5" />
+                <ScalarProperty Name="par_det_c_vcampo_5" ColumnName="par_det_c_vcampo_5" />
+                <ScalarProperty Name="par_det_c_vcampo_desc_4" ColumnName="par_det_c_vcampo_desc_4" />
+                <ScalarProperty Name="par_det_c_vcampo_4" ColumnName="par_det_c_vcampo_4" />
+                <ScalarProperty Name="par_det_c_vcampo_desc_3" ColumnName="par_det_c_vcampo_desc_3" />
+                <ScalarProperty Name="par_det_c_vcampo_3" ColumnName="par_det_c_vcampo_3" />
+                <ScalarProperty Name="par_det_c_vcampo_desc_2" ColumnName="par_det_c_vcampo_desc_2" />
+                <ScalarProperty Name="par_det_c_vcampo_2" ColumnName="par_det_c_vcampo_2" />
+                <ScalarProperty Name="par_det_c_vcampo_desc_1" ColumnName="par_det_c_vcampo_desc_1" />
+                <ScalarProperty Name="par_det_c_vcampo_1" ColumnName="par_det_c_vcampo_1" />
+                <ScalarProperty Name="par_det_c_vdesc" ColumnName="par_det_c_vdesc" />
+                <ScalarProperty Name="par_c_iid" ColumnName="par_c_iid" />
+                <ScalarProperty Name="par_det_c_iid" ColumnName="par_det_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_AGENCIA">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_AGENCIA">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_AGENCIA">
+                <ScalarProperty Name="agen_c_vnomb_comercial" ColumnName="agen_c_vnomb_comercial" />
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="agen_c_bactivo" ColumnName="agen_c_bactivo" />
+                <ScalarProperty Name="agen_c_vdoc_id" ColumnName="agen_c_vdoc_id" />
+                <ScalarProperty Name="agen_c_iid" ColumnName="agen_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="esp_ocu_est_c_bactivo" ColumnName="esp_ocu_est_c_bactivo" />
+                <ScalarProperty Name="esp_ocu_est_c_vnomb" ColumnName="esp_ocu_est_c_vnomb" />
+                <ScalarProperty Name="esp_ocu_est_c_iid" ColumnName="esp_ocu_est_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_MARCA">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_MARCA">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_MARCA">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="marc_c_bactivo" ColumnName="marc_c_bactivo" />
+                <ScalarProperty Name="marc_c_vnomb" ColumnName="marc_c_vnomb" />
+                <ScalarProperty Name="marc_c_icod" ColumnName="marc_c_icod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_RESERVA">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_RESERVA">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_RESERVA">
+                <ScalarProperty Name="pub_prod_c_vnomb" ColumnName="pub_prod_c_vnomb" />
+                <ScalarProperty Name="reser_c_icant_dias" ColumnName="reser_c_icant_dias" />
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="reser_c_bactivo" ColumnName="reser_c_bactivo" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_top" ColumnName="pub_esp_c_emonto_tarifa_top" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_base" ColumnName="pub_esp_c_emonto_tarifa_base" />
+                <ScalarProperty Name="pub_esp_c_earea" ColumnName="pub_esp_c_earea" />
+                <ScalarProperty Name="pub_esp_c_vmedida" ColumnName="pub_esp_c_vmedida" />
+                <ScalarProperty Name="pub_elem_act_c_iid" ColumnName="pub_elem_act_c_iid" />
+                <ScalarProperty Name="pub_prod_c_iid" ColumnName="pub_prod_c_iid" />
+                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
+                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
+                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
+                <ScalarProperty Name="reser_mast_c_fac_bagencia" ColumnName="reser_mast_c_fac_bagencia" />
+                <ScalarProperty Name="agen_c_vdoc_id" ColumnName="agen_c_vdoc_id" />
+                <ScalarProperty Name="marc_c_icod" ColumnName="marc_c_icod" />
+                <ScalarProperty Name="cli_c_vdoc_id" ColumnName="cli_c_vdoc_id" />
+                <ScalarProperty Name="reser_c_dfech_fin" ColumnName="reser_c_dfech_fin" />
+                <ScalarProperty Name="reser_c_dfech_inicio" ColumnName="reser_c_dfech_inicio" />
+                <ScalarProperty Name="reser_c_flat_bpendiente" ColumnName="reser_c_flat_bpendiente" />
+                <ScalarProperty Name="reser_c_dfech_vencimiento" ColumnName="reser_c_dfech_vencimiento" />
+                <ScalarProperty Name="reser_c_vcomen_activacion" ColumnName="reser_c_vcomen_activacion" />
+                <ScalarProperty Name="reser_c_vdesc_activacion" ColumnName="reser_c_vdesc_activacion" />
+                <ScalarProperty Name="reser_c_eprecio_alquiler" ColumnName="reser_c_eprecio_alquiler" />
+                <ScalarProperty Name="reser_c_vdim_final" ColumnName="reser_c_vdim_final" />
+                <ScalarProperty Name="tipo_periodo_c_iid" ColumnName="tipo_periodo_c_iid" />
+                <ScalarProperty Name="esp_ocu_est_c_iid" ColumnName="esp_ocu_est_c_iid" />
+                <ScalarProperty Name="tip_asig_c_iid" ColumnName="tip_asig_c_iid" />
+                <ScalarProperty Name="reser_mast_c_iid" ColumnName="reser_mast_c_iid" />
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_RESERVA_DET">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_RESERVA_DET">
+                <ScalarProperty Name="mod_orig_c_iid" ColumnName="mod_orig_c_iid" />
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="reser_det_c_bactivo" ColumnName="reser_det_c_bactivo" />
+                <ScalarProperty Name="reser_det_c_dfech" ColumnName="reser_det_c_dfech" />
+                <ScalarProperty Name="reser_c_inum_orden" ColumnName="reser_c_inum_orden" />
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+                <ScalarProperty Name="reser_det_c_iid" ColumnName="reser_det_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_RESERVA_MASTER">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_RESERVA_MASTER">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="reser_mast_c_bactivo" ColumnName="reser_mast_c_bactivo" />
+                <ScalarProperty Name="ejec_c_cdoc_id" ColumnName="ejec_c_cdoc_id" />
+                <ScalarProperty Name="reser_mast_c_iid" ColumnName="reser_mast_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_TIPO_ASIGNACION">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_TIPO_ASIGNACION">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="tip_asig_c_bactivo" ColumnName="tip_asig_c_bactivo" />
+                <ScalarProperty Name="tip_asig_c_vnomb" ColumnName="tip_asig_c_vnomb" />
+                <ScalarProperty Name="tip_asig_c_iid" ColumnName="tip_asig_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DIO_PUB_T_TIPO_PERIODO">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_TIPO_PERIODO">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_TIPO_PERIODO">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="tipo_periodo_c_bactivo" ColumnName="tipo_periodo_c_bactivo" />
+                <ScalarProperty Name="tipo_periodo_c_vnomb" ColumnName="tipo_periodo_c_vnomb" />
+                <ScalarProperty Name="tipo_periodo_c_iid" ColumnName="tipo_periodo_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_DET_INSERTAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_DET_INSERTAR" />
+          <FunctionImportMapping FunctionImportName="DIO_SP_PUB_RESERVA_XSELECCION_DESACTIVAR" FunctionName="BD_DIONISIOModel.Store.DIO_SP_PUB_RESERVA_XSELECCION_DESACTIVAR" />
+          <FunctionImportMapping FunctionImportName="DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR" FunctionName="BD_DIONISIOModel.Store.DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR_Result">
+                <ScalarProperty Name="inm_c_vnomb" ColumnName="inm_c_vnomb" />
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
+                <ScalarProperty Name="pub_prod_c_iid" ColumnName="pub_prod_c_iid" />
+                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
+                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
+                <ScalarProperty Name="pub_elem_act_c_iid" ColumnName="pub_elem_act_c_iid" />
+                <ScalarProperty Name="pub_prod_c_vnomb" ColumnName="pub_prod_c_vnomb" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_base" ColumnName="pub_esp_c_emonto_tarifa_base" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_top" ColumnName="pub_esp_c_emonto_tarifa_top" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DIO_SP_PUB_RESERVA_DET_LISTAR" FunctionName="BD_DIONISIOModel.Store.DIO_SP_PUB_RESERVA_DET_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.DIO_SP_PUB_RESERVA_DET_LISTAR_Result">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_ACTUALIZAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_ACTUALIZAR" />
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_CERRAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_CERRAR" />
+          <FunctionImportMapping FunctionImportName="SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result">
+                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DIO_SP_REQUISITO_PUBLICIDAD_LISTAR" FunctionName="BD_DIONISIOModel.Store.DIO_SP_REQUISITO_PUBLICIDAD_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.DIO_SP_REQUISITO_PUBLICIDAD_LISTAR_Result">
+                <ScalarProperty Name="par_c_iid_Padre" ColumnName="par_c_iid_Padre" />
+                <ScalarProperty Name="CODIGO_ELEMENTO_ACTIVACION" ColumnName="CODIGO_ELEMENTO_ACTIVACION" />
+                <ScalarProperty Name="HTML" ColumnName="HTML" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_PRIORIDAD_MODIFICAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_PRIORIDAD_MODIFICAR" />
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_XIDMASTER_LISTAR" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_XIDMASTER_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.SP_PUB_RESERVA_XIDMASTER_LISTAR_Result">
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+                <ScalarProperty Name="inm_c_vnomb" ColumnName="inm_c_vnomb" />
+                <ScalarProperty Name="pub_prod_c_vnomb" ColumnName="pub_prod_c_vnomb" />
+                <ScalarProperty Name="pub_elem_act_c_vnomb" ColumnName="pub_elem_act_c_vnomb" />
+                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
+                <ScalarProperty Name="agencia" ColumnName="agencia" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="facturarA" ColumnName="facturarA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DIO_SP_PUB_APROB_RESERVA_LISTAR" FunctionName="BD_DIONISIOModel.Store.DIO_SP_PUB_APROB_RESERVA_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.DIO_SP_PUB_APROB_RESERVA_LISTAR_Result">
+                <ScalarProperty Name="MARCAR" ColumnName="MARCAR" />
+                <ScalarProperty Name="reser_mast_c_iid" ColumnName="reser_mast_c_iid" />
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+                <ScalarProperty Name="reser_c_dfech_inicio" ColumnName="reser_c_dfech_inicio" />
+                <ScalarProperty Name="reser_c_dfech_fin" ColumnName="reser_c_dfech_fin" />
+                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
+                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
+                <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="PRODUCTO" ColumnName="PRODUCTO" />
+                <ScalarProperty Name="ELEMENTO_ACTIVACION" ColumnName="ELEMENTO_ACTIVACION" />
+                <ScalarProperty Name="COD_ESPACIO" ColumnName="COD_ESPACIO" />
+                <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="AGENCIA" ColumnName="AGENCIA" />
+                <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+                <ScalarProperty Name="TIPO_PERIODO" ColumnName="TIPO_PERIODO" />
+                <ScalarProperty Name="EJECUTIVO" ColumnName="EJECUTIVO" />
+                <ScalarProperty Name="RESERVA" ColumnName="RESERVA" />
+                <ScalarProperty Name="PRECIOFINAL" ColumnName="PRECIOFINAL" />
+                <ScalarProperty Name="FACTURARA" ColumnName="FACTURARA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_VENDER" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_VENDER" />
+          <FunctionImportMapping FunctionImportName="DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER" FunctionName="BD_DIONISIOModel.Store.DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER_Result">
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
+                <ScalarProperty Name="pub_elem_act_c_iid" ColumnName="pub_elem_act_c_iid" />
+                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
+                <ScalarProperty Name="pub_prod_c_iid" ColumnName="pub_prod_c_iid" />
+                <ScalarProperty Name="inm_c_vnomb" ColumnName="inm_c_vnomb" />
+                <ScalarProperty Name="pub_prod_c_vnomb" ColumnName="pub_prod_c_vnomb" />
+                <ScalarProperty Name="pub_elem_act_c_vnomb" ColumnName="pub_elem_act_c_vnomb" />
+                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_base" ColumnName="pub_esp_c_emonto_tarifa_base" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_top" ColumnName="pub_esp_c_emonto_tarifa_top" />
+                <ScalarProperty Name="pub_esp_c_earea" ColumnName="pub_esp_c_earea" />
+                <ScalarProperty Name="pub_esp_c_vmedida" ColumnName="pub_esp_c_vmedida" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DIO_SP_PUB_RESERVA_PENDIENTE_XEJECUTIVO_LISTAR" FunctionName="BD_DIONISIOModel.Store.DIO_SP_PUB_RESERVA_PENDIENTE_XEJECUTIVO_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.DIO_SP_PUB_RESERVA_PENDIENTE_XEJECUTIVO_LISTAR_Result">
+                <ScalarProperty Name="MARCAR" ColumnName="MARCAR" />
+                <ScalarProperty Name="ejec_c_cdoc_id" ColumnName="ejec_c_cdoc_id" />
+                <ScalarProperty Name="reser_mast_c_iid" ColumnName="reser_mast_c_iid" />
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+                <ScalarProperty Name="reser_c_dfech_inicio" ColumnName="reser_c_dfech_inicio" />
+                <ScalarProperty Name="reser_c_dfech_fin" ColumnName="reser_c_dfech_fin" />
+                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
+                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
+                <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="PRODUCTO" ColumnName="PRODUCTO" />
+                <ScalarProperty Name="ELEMENTO_ACTIVACION" ColumnName="ELEMENTO_ACTIVACION" />
+                <ScalarProperty Name="COD_ESPACIO" ColumnName="COD_ESPACIO" />
+                <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="AGENCIA" ColumnName="AGENCIA" />
+                <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+                <ScalarProperty Name="TIPO_PERIODO" ColumnName="TIPO_PERIODO" />
+                <ScalarProperty Name="EJECUTIVO" ColumnName="EJECUTIVO" />
+                <ScalarProperty Name="RESERVA" ColumnName="RESERVA" />
+                <ScalarProperty Name="ESTADORESERVA" ColumnName="ESTADORESERVA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DIO_SP_CONSULTA_ESPACIO_RESERVADO" FunctionName="BD_DIONISIOModel.Store.DIO_SP_CONSULTA_ESPACIO_RESERVADO" />
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="BOMBERO" ZoomLevel="32">
+        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_CLIENTE" Width="1.5" PointX="5.75" PointY="7.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_COLABORADOR" Width="1.5" PointX="7.75" PointY="6.75" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_INMUEBLE" Width="1.5" PointX="9.75" PointY="6.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_PUB_ELEMENTO_ACTIVACION" Width="1.5" PointX="2.75" PointY="10.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_PUB_PRODUCTO" Width="1.5" PointX="7.75" PointY="10.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_T_PARAMETRO" Width="1.5" PointX="7.75" PointY="2.125" Height="2.364889322916667" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_T_PARAMETRO_DET" Width="1.5" PointX="10" PointY="1" Height="4.480205078124996" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_AGENCIA" Width="1.5" PointX="0.75" PointY="8.5" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Width="1.5" PointX="0.75" PointY="4.125" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_MARCA" Width="1.5" PointX="0.75" PointY="11.625" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Width="1.5" PointX="3" PointY="1.25" Height="8.3262337239583388" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" Width="1.5" PointX="5.25" PointY="4" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER" Width="1.5" PointX="0.75" PointY="14.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION" Width="1.5" PointX="0.75" PointY="17.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_TIPO_PERIODO" Width="1.5" PointX="0.75" PointY="21" Height="2.3648893229166674" />
+        <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_T_PARAMETRO_DET" >
+          <ConnectorPoint PointX="9.25" PointY="3.3074446614583337" />
+          <ConnectorPoint PointX="10" PointY="3.3074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" >
+          <ConnectorPoint PointX="2.25" PointY="9.03811686197917" />
+          <ConnectorPoint PointX="3" PointY="9.03811686197917" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5" >
+          <ConnectorPoint PointX="2.25" PointY="5.4035953776041694" />
+          <ConnectorPoint PointX="3" PointY="5.4035953776041694" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6" >
+          <ConnectorPoint PointX="2.25" PointY="4.7017976888020847" />
+          <ConnectorPoint PointX="3" PointY="4.7017976888020847" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1" >
+          <ConnectorPoint PointX="2.25" PointY="13.583639322916667" />
+          <ConnectorPoint PointX="4.40625" PointY="13.583639322916667" />
+          <ConnectorPoint PointX="4.40625" PointY="9.5762337239583388" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" >
+          <ConnectorPoint PointX="4.5" PointY="5.374746093749998" />
+          <ConnectorPoint PointX="5.25" PointY="5.374746093749998" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER" >
+          <ConnectorPoint PointX="2.25" PointY="15.932444661458334" />
+          <ConnectorPoint PointX="4.3749975" PointY="15.932444661458334" />
+          <ConnectorPoint PointX="4.3749975" PointY="9.5762337239583388" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2" >
+          <ConnectorPoint PointX="2.25" PointY="19.057444661458334" />
+          <ConnectorPoint PointX="4.2604154166666666" PointY="19.057444661458334" />
+          <ConnectorPoint PointX="4.4270820833333326" PointY="19.057444661458334" />
+          <ConnectorPoint PointX="4.4375025" PointY="19.057444661458334" />
+          <ConnectorPoint PointX="4.4375025" PointY="9.5762337239583388" />
+        </AssociationConnector>
+        <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4" >
+          <ConnectorPoint PointX="2.25" PointY="22.182444661458334" />
+          <ConnectorPoint PointX="4.34374875" PointY="22.182444661458334" />
+          <ConnectorPoint PointX="4.34374875" PointY="9.5762337239583388" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

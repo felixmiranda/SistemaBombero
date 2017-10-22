@@ -1,0 +1,61 @@
+﻿
+/*!
+ * estilo para las leyendas dentro de una division.
+ */
+
+.fieldset
+{
+    border: 1px solid #2e6da4; 
+    -webkit-border-radius: 5px; 
+    -moz-border-radius: 5px; 
+    border-radius:5px;
+    padding-bottom:10px !important;
+}
+
+.fieldset legend
+{
+    text-align:left;
+    color:#05ca9;
+}
+legend
+{
+    border-bottom:0px !important;
+    }
+.txt
+{
+    MARGIN-LEFT: 5%;
+    width:auto;
+     margin-bottom: 5px;
+    text-align:left;
+    color:#237b96;
+    font-size:20;
+}
+
+/*!
+ * para que los campos sean obligatorios ---->>>>(*) de color rojo
+ */
+.requerido
+{
+    color:red;    
+}
+
+/*!
+ * para que los campos sean obligatorios ---->>>>(*) de color rojo
+ */
+.textoMenu
+{
+    color:#405ca9;  
+    font-size:19
+}
+.subtitulo1
+{
+    color:#237b96;    
+    font-size:17;  
+};  
+}
+.subtitulo2
+{
+    color:red;    
+}
+
+

@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_9F356E_Anubis_BOMBEROModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DB_9F356E_Anubis_BOMBEROModelStoreContainer">
+          <EntitySet Name="ADV_T_CONTROL_ACCESOS" EntityType="DB_9F356E_Anubis_BOMBEROModel.Store.ADV_T_CONTROL_ACCESOS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SGA_T_MENU" EntityType="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_MENU" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SGA_T_PERFIL" EntityType="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_PERFIL" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SGA_T_PERFIL_MENU" EntityType="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_PERFIL_MENU" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SGA_T_SISTEMA" EntityType="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_SISTEMA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SGA_T_USUARIO" EntityType="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_USUARIO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SGA_T_USUARIO_PERFIL" EntityType="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_USUARIO_PERFIL" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_SGA_T_MENU_SGA_T_MENU" Association="DB_9F356E_Anubis_BOMBEROModel.Store.FK_SGA_T_MENU_SGA_T_MENU">
+            <End Role="SGA_T_MENU" EntitySet="SGA_T_MENU" />
+            <End Role="SGA_T_MENU1" EntitySet="SGA_T_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_PERFIL_MENU_SGA_T_MENU" Association="DB_9F356E_Anubis_BOMBEROModel.Store.FK_SGA_T_PERFIL_MENU_SGA_T_MENU">
+            <End Role="SGA_T_MENU" EntitySet="SGA_T_MENU" />
+            <End Role="SGA_T_PERFIL_MENU" EntitySet="SGA_T_PERFIL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL" Association="DB_9F356E_Anubis_BOMBEROModel.Store.FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL">
+            <End Role="SGA_T_PERFIL" EntitySet="SGA_T_PERFIL" />
+            <End Role="SGA_T_PERFIL_MENU" EntitySet="SGA_T_PERFIL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_PERFIL_SGA_T_SISTEMA" Association="DB_9F356E_Anubis_BOMBEROModel.Store.FK_SGA_T_PERFIL_SGA_T_SISTEMA">
+            <End Role="SGA_T_SISTEMA" EntitySet="SGA_T_SISTEMA" />
+            <End Role="SGA_T_PERFIL" EntitySet="SGA_T_PERFIL" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ADV_T_CONTROL_ACCESOS">
+          <Key>
+            <PropertyRef Name="cont_acc_c_yid" />
+          </Key>
+          <Property Name="cont_acc_c_yid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="cont_acc_c_vusuario" Type="varchar" MaxLength="20" />
+          <Property Name="cont_acc_c_vclave" Type="varchar" MaxLength="20" />
+          <Property Name="cont_acc_c_vtipo" Type="varchar" MaxLength="20" />
+          <Property Name="cont_acc_c_vintento" Type="int" />
+          <Property Name="cont_acc_c_isistema" Type="int" />
+          <Property Name="cont_acc_c_vip" Type="varchar" MaxLength="30" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SGA_T_MENU">
+          <Key>
+            <PropertyRef Name="menu_c_iid" />
+          </Key>
+          <Property Name="menu_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="menu_c_iid_padre" Type="int" />
+          <Property Name="menu_c_vnomb" Type="varchar" MaxLength="100" />
+          <Property Name="menu_c_ynivel" Type="tinyint" />
+          <Property Name="menu_c_vpag_asp" Type="varchar" MaxLength="100" />
+          <Property Name="menu_c_vpag_asp2" Type="varchar" MaxLength="100" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SGA_T_PERFIL">
+          <Key>
+            <PropertyRef Name="perf_c_yid" />
+          </Key>
+          <Property Name="perf_c_yid" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="perf_c_vnomb" Type="varchar" MaxLength="50" />
+          <Property Name="perf_c_vdesc" Type="varchar" MaxLength="200" />
+          <Property Name="perf_c_cestado" Type="char" MaxLength="1" />
+          <Property Name="sist_c_iid" Type="int" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SGA_T_PERFIL_MENU">
+          <Key>
+            <PropertyRef Name="perf_c_yid" />
+            <PropertyRef Name="menu_c_iid" />
+          </Key>
+          <Property Name="perf_c_yid" Type="tinyint" Nullable="false" />
+          <Property Name="menu_c_iid" Type="int" Nullable="false" />
+          <Property Name="perf_menu_c_calta" Type="char" MaxLength="1" />
+          <Property Name="perf_menu_c_cmod" Type="char" MaxLength="1" />
+          <Property Name="perf_menu_c_celim" Type="char" MaxLength="1" />
+          <Property Name="perf_menu_c_cvisual" Type="char" MaxLength="1" />
+          <Property Name="perf_menu_c_cimpre" Type="char" MaxLength="1" />
+          <Property Name="perf_menu_c_cproc" Type="char" MaxLength="1" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SGA_T_SISTEMA">
+          <Key>
+            <PropertyRef Name="sist_c_iid" />
+          </Key>
+          <Property Name="sist_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sist_c_vnomb" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="sist_c_vdesc" Type="varchar" MaxLength="100" />
+          <Property Name="sist_c_vuso" Type="varchar" MaxLength="400" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SGA_T_USUARIO">
+          <Key>
+            <PropertyRef Name="usua_c_cdoc_id" />
+          </Key>
+          <Property Name="usua_c_cusu_red" Type="varchar" MaxLength="20" />
+          <Property Name="usua_c_cape_pat" Type="varchar" MaxLength="100" />
+          <Property Name="usua_c_cape_mat" Type="varchar" MaxLength="100" />
+          <Property Name="usua_c_cape_nombres" Type="varchar" MaxLength="100" />
+          <Property Name="usua_c_cdoc_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="usua_c_vcorreo1" Type="varchar" MaxLength="50" />
+          <Property Name="usua_c_vcorreo2" Type="varchar" MaxLength="50" />
+          <Property Name="usua_c_vcontrasena" Type="varchar" MaxLength="50" />
+          <Property Name="usua_c_vestado" Type="varchar" MaxLength="1" />
+          <Property Name="usua_c_vnuevacont" Type="varchar" MaxLength="1" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SGA_T_USUARIO_PERFIL">
+          <Key>
+            <PropertyRef Name="perf_c_yid" />
+            <PropertyRef Name="usua_c_cdoc_id" />
+          </Key>
+          <Property Name="perf_c_yid" Type="tinyint" Nullable="false" />
+          <Property Name="usua_c_cdoc_id" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="usua_perfil_c_cestado" Type="char" MaxLength="1" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="20" />
+          <Property Name="bita_c_vnom_completo_reg" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <Association Name="FK_SGA_T_MENU_SGA_T_MENU">
+          <End Role="SGA_T_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_MENU" Multiplicity="0..1" />
+          <End Role="SGA_T_MENU1" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_MENU">
+              <PropertyRef Name="menu_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_MENU1">
+              <PropertyRef Name="menu_c_iid_padre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_PERFIL_MENU_SGA_T_MENU">
+          <End Role="SGA_T_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_MENU" Multiplicity="1" />
+          <End Role="SGA_T_PERFIL_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_PERFIL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_MENU">
+              <PropertyRef Name="menu_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_PERFIL_MENU">
+              <PropertyRef Name="menu_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL">
+          <End Role="SGA_T_PERFIL" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_PERFIL" Multiplicity="1" />
+          <End Role="SGA_T_PERFIL_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_PERFIL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PERFIL">
+              <PropertyRef Name="perf_c_yid" />
+            </Principal>
+            <Dependent Role="SGA_T_PERFIL_MENU">
+              <PropertyRef Name="perf_c_yid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_PERFIL_SGA_T_SISTEMA">
+          <End Role="SGA_T_SISTEMA" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_SISTEMA" Multiplicity="1" />
+          <End Role="SGA_T_PERFIL" Type="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_T_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SISTEMA">
+              <PropertyRef Name="sist_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_PERFIL">
+              <PropertyRef Name="sist_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DIO_SP_EJECUTIVO_BTL_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SGA_SP_LISTAR_HIJOS_MENU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC_CODUSUARIO" Type="char" Mode="In" />
+          <Parameter Name="PC_CODMENUPRINCIPAL" Type="int" Mode="In" />
+          <Parameter Name="SISTEMA" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SGA_SP_LISTAR_PADRES_MENU" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC_CODUSUARIO" Type="char" Mode="In" />
+          <Parameter Name="SISTEMA" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SGA_SP_OBTENER_MENU_X_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usua_c_cdoc_id" Type="varchar" Mode="In" />
+          <Parameter Name="menu_c_vpag_asp" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SGA_SP_USUARIO_PERMISO_ASP_CONSULTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usua_c_cdoc_id" Type="varchar" Mode="In" />
+          <Parameter Name="menu_c_vpag_asp" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SGA_SP_VALIDAR_USUARIO_DA_SELECCIONAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pv_usua_c_cusu_red" Type="varchar" Mode="In" />
+          <Parameter Name="pi_Sistema" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SGA_SP_VALIDAR_USUARIO_SELECCIONAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="pv_usua_c_cusu_red" Type="varchar" Mode="In" />
+          <Parameter Name="pv_usua_c_vcontrasena" Type="varchar" Mode="In" />
+          <Parameter Name="pi_Sistema" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SGA_SP_VERIFICAR_ACCESO_USUARIO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PC_CODUSUARIO" Type="char" Mode="In" />
+          <Parameter Name="SISTEMA" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_9F356E_Anubis_BOMBEROModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SGADB_BOMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADV_T_CONTROL_ACCESOS" EntityType="DB_9F356E_Anubis_BOMBEROModel.ADV_T_CONTROL_ACCESOS" />
+          <EntitySet Name="SGA_T_MENU" EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU" />
+          <EntitySet Name="SGA_T_PERFIL" EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL" />
+          <EntitySet Name="SGA_T_PERFIL_MENU" EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL_MENU" />
+          <EntitySet Name="SGA_T_SISTEMA" EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_SISTEMA" />
+          <EntitySet Name="SGA_T_USUARIO" EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_USUARIO" />
+          <EntitySet Name="SGA_T_USUARIO_PERFIL" EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_USUARIO_PERFIL" />
+          <AssociationSet Name="FK_SGA_T_MENU_SGA_T_MENU" Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_MENU_SGA_T_MENU">
+            <End Role="SGA_T_MENU" EntitySet="SGA_T_MENU" />
+            <End Role="SGA_T_MENU1" EntitySet="SGA_T_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_PERFIL_MENU_SGA_T_MENU" Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_MENU">
+            <End Role="SGA_T_MENU" EntitySet="SGA_T_MENU" />
+            <End Role="SGA_T_PERFIL_MENU" EntitySet="SGA_T_PERFIL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL" Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL">
+            <End Role="SGA_T_PERFIL" EntitySet="SGA_T_PERFIL" />
+            <End Role="SGA_T_PERFIL_MENU" EntitySet="SGA_T_PERFIL_MENU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SGA_T_PERFIL_SGA_T_SISTEMA" Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_SGA_T_SISTEMA">
+            <End Role="SGA_T_SISTEMA" EntitySet="SGA_T_SISTEMA" />
+            <End Role="SGA_T_PERFIL" EntitySet="SGA_T_PERFIL" />
+          </AssociationSet>
+          <FunctionImport Name="SGA_SP_OBTENER_MENU_X_USUARIO" ReturnType="Collection(DB_9F356E_Anubis_BOMBEROModel.SGA_SP_OBTENER_MENU_X_USUARIO_Result)">
+            <Parameter Name="usua_c_cdoc_id" Mode="In" Type="String" />
+            <Parameter Name="menu_c_vpag_asp" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SGA_SP_VALIDAR_USUARIO_DA_SELECCIONAR" ReturnType="Collection(DB_9F356E_Anubis_BOMBEROModel.SGA_SP_VALIDAR_USUARIO_DA_SELECCIONAR_Result)">
+            <Parameter Name="pv_usua_c_cusu_red" Mode="In" Type="String" />
+            <Parameter Name="pi_Sistema" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SGA_SP_VALIDAR_USUARIO_SELECCIONAR" ReturnType="Collection(DB_9F356E_Anubis_BOMBEROModel.SGA_SP_VALIDAR_USUARIO_SELECCIONAR_Result)">
+            <Parameter Name="pv_usua_c_cusu_red" Mode="In" Type="String" />
+            <Parameter Name="pv_usua_c_vcontrasena" Mode="In" Type="String" />
+            <Parameter Name="pi_Sistema" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ObtenerMenuPadres" EntitySet="SGA_T_MENU" ReturnType="Collection(DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU)">
+            <Parameter Name="PC_CODUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="SISTEMA" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ObtenerMenuHijos" EntitySet="SGA_T_MENU" ReturnType="Collection(DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU)">
+            <Parameter Name="PC_CODUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="PC_CODMENUPRINCIPAL" Mode="In" Type="Int32" />
+            <Parameter Name="SISTEMA" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="VerificarAccesoSistema" ReturnType="Collection(String)">
+            <Parameter Name="PC_CODUSUARIO" Mode="In" Type="String" />
+            <Parameter Name="SISTEMA" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SGA_SP_USUARIO_PERMISO_ASP_CONSULTAR" ReturnType="Collection(DB_9F356E_Anubis_BOMBEROModel.SGA_SP_USUARIO_PERMISO_ASP_CONSULTAR_Result)">
+            <Parameter Name="usua_c_cdoc_id" Mode="In" Type="String" />
+            <Parameter Name="menu_c_vpag_asp" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DIO_SP_EJECUTIVO_BTL_LISTAR" ReturnType="Collection(DB_9F356E_Anubis_BOMBEROModel.DIO_SP_EJECUTIVO_BTL_LISTAR_Result)" />
+        </EntityContainer>
+        <EntityType Name="ADV_T_CONTROL_ACCESOS">
+          <Key>
+            <PropertyRef Name="cont_acc_c_yid" />
+          </Key>
+          <Property Name="cont_acc_c_yid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cont_acc_c_vusuario" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="cont_acc_c_vclave" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="cont_acc_c_vtipo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="cont_acc_c_vintento" Type="Int32" />
+          <Property Name="cont_acc_c_isistema" Type="Int32" />
+          <Property Name="cont_acc_c_vip" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_zfec_reg" Type="DateTime" />
+          <Property Name="bita_c_vusu_red_reg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_vnom_completo_reg" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_MENU">
+          <Key>
+            <PropertyRef Name="menu_c_iid" />
+          </Key>
+          <Property Name="menu_c_iid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="menu_c_iid_padre" Type="Int32" />
+          <Property Name="menu_c_vnomb" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="menu_c_ynivel" Type="Byte" />
+          <Property Name="menu_c_vpag_asp" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="menu_c_vpag_asp2" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_zfec_reg" Type="DateTime" />
+          <Property Name="bita_c_vusu_red_reg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_vnom_completo_reg" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SGA_T_MENU1" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_MENU_SGA_T_MENU" FromRole="SGA_T_MENU" ToRole="SGA_T_MENU1" />
+          <NavigationProperty Name="SGA_T_MENU2" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_MENU_SGA_T_MENU" FromRole="SGA_T_MENU1" ToRole="SGA_T_MENU" />
+          <NavigationProperty Name="SGA_T_PERFIL_MENU" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_MENU" FromRole="SGA_T_MENU" ToRole="SGA_T_PERFIL_MENU" />
+        </EntityType>
+        <EntityType Name="SGA_T_PERFIL">
+          <Key>
+            <PropertyRef Name="perf_c_yid" />
+          </Key>
+          <Property Name="perf_c_yid" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="perf_c_vnomb" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="perf_c_vdesc" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="perf_c_cestado" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="sist_c_iid" Type="Int32" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="DateTime" />
+          <Property Name="bita_c_vusu_red_reg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_vnom_completo_reg" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SGA_T_PERFIL_MENU" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL" FromRole="SGA_T_PERFIL" ToRole="SGA_T_PERFIL_MENU" />
+          <NavigationProperty Name="SGA_T_SISTEMA" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_SGA_T_SISTEMA" FromRole="SGA_T_PERFIL" ToRole="SGA_T_SISTEMA" />
+        </EntityType>
+        <EntityType Name="SGA_T_PERFIL_MENU">
+          <Key>
+            <PropertyRef Name="perf_c_yid" />
+            <PropertyRef Name="menu_c_iid" />
+          </Key>
+          <Property Name="perf_c_yid" Type="Byte" Nullable="false" />
+          <Property Name="menu_c_iid" Type="Int32" Nullable="false" />
+          <Property Name="perf_menu_c_calta" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="perf_menu_c_cmod" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="perf_menu_c_celim" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="perf_menu_c_cvisual" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="perf_menu_c_cimpre" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="perf_menu_c_cproc" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="bita_c_zfec_reg" Type="DateTime" />
+          <Property Name="bita_c_vusu_red_reg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_vnom_completo_reg" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SGA_T_MENU" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_MENU" FromRole="SGA_T_PERFIL_MENU" ToRole="SGA_T_MENU" />
+          <NavigationProperty Name="SGA_T_PERFIL" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL" FromRole="SGA_T_PERFIL_MENU" ToRole="SGA_T_PERFIL" />
+        </EntityType>
+        <EntityType Name="SGA_T_SISTEMA">
+          <Key>
+            <PropertyRef Name="sist_c_iid" />
+          </Key>
+          <Property Name="sist_c_iid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sist_c_vnomb" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="sist_c_vdesc" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="sist_c_vuso" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_zfec_reg" Type="DateTime" />
+          <Property Name="bita_c_vusu_red_reg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_vnom_completo_reg" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SGA_T_PERFIL" Relationship="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_SGA_T_SISTEMA" FromRole="SGA_T_SISTEMA" ToRole="SGA_T_PERFIL" />
+        </EntityType>
+        <EntityType Name="SGA_T_USUARIO">
+          <Key>
+            <PropertyRef Name="usua_c_cdoc_id" />
+          </Key>
+          <Property Name="usua_c_cusu_red" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_cape_pat" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_cape_mat" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_cape_nombres" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_cdoc_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_vcorreo1" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_vcorreo2" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_vcontrasena" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_vestado" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="usua_c_vnuevacont" Type="String" MaxLength="1" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_zfec_reg" Type="DateTime" />
+          <Property Name="bita_c_vusu_red_reg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_vnom_completo_reg" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SGA_T_USUARIO_PERFIL">
+          <Key>
+            <PropertyRef Name="perf_c_yid" />
+            <PropertyRef Name="usua_c_cdoc_id" />
+          </Key>
+          <Property Name="perf_c_yid" Type="Byte" Nullable="false" />
+          <Property Name="usua_c_cdoc_id" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="usua_perfil_c_cestado" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="bita_c_zfec_reg" Type="DateTime" />
+          <Property Name="bita_c_vusu_red_reg" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="bita_c_vnom_completo_reg" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_SGA_T_MENU_SGA_T_MENU">
+          <End Role="SGA_T_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU" Multiplicity="0..1" />
+          <End Role="SGA_T_MENU1" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_MENU">
+              <PropertyRef Name="menu_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_MENU1">
+              <PropertyRef Name="menu_c_iid_padre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_PERFIL_MENU_SGA_T_MENU">
+          <End Role="SGA_T_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU" Multiplicity="1" />
+          <End Role="SGA_T_PERFIL_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_MENU">
+              <PropertyRef Name="menu_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_PERFIL_MENU">
+              <PropertyRef Name="menu_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL">
+          <End Role="SGA_T_PERFIL" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL" Multiplicity="1" />
+          <End Role="SGA_T_PERFIL_MENU" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL_MENU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_PERFIL">
+              <PropertyRef Name="perf_c_yid" />
+            </Principal>
+            <Dependent Role="SGA_T_PERFIL_MENU">
+              <PropertyRef Name="perf_c_yid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SGA_T_PERFIL_SGA_T_SISTEMA">
+          <End Role="SGA_T_SISTEMA" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_SISTEMA" Multiplicity="1" />
+          <End Role="SGA_T_PERFIL" Type="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SGA_T_SISTEMA">
+              <PropertyRef Name="sist_c_iid" />
+            </Principal>
+            <Dependent Role="SGA_T_PERFIL">
+              <PropertyRef Name="sist_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SGA_SP_OBTENER_MENU_X_USUARIO_Result">
+          <Property Type="Int32" Name="menu_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="menu_c_iid_padre" Nullable="true" />
+          <Property Type="String" Name="menu_c_vnomb" Nullable="true" MaxLength="100" />
+          <Property Type="Byte" Name="menu_c_ynivel" Nullable="true" />
+          <Property Type="String" Name="menu_c_vpag_asp" Nullable="true" MaxLength="100" />
+          <Property Type="Byte" Name="perf_c_yid" Nullable="false" />
+          <Property Type="String" Name="NombreCompleto" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SGA_SP_VALIDAR_USUARIO_DA_SELECCIONAR_Result">
+          <Property Type="String" Name="usua_c_cusu_red" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="usua_c_cape_pat" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="usua_c_cape_mat" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="usua_c_cape_nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="usua_c_cdoc_id" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="usua_c_vcorreo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="usua_c_vcorreo2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="usua_c_vnuevacont" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" Nullable="true" Precision="23" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="bita_c_vnom_completo_reg" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SGA_SP_VALIDAR_USUARIO_SELECCIONAR_Result">
+          <Property Type="String" Name="usua_c_cusu_red" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="usua_c_cape_pat" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="usua_c_cape_mat" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="usua_c_cape_nombres" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="usua_c_cdoc_id" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="usua_c_vcorreo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="usua_c_vcorreo2" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="usua_c_vnuevacont" Nullable="true" MaxLength="1" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" Nullable="true" Precision="23" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="bita_c_vnom_completo_reg" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SGA_SP_USUARIO_PERMISO_ASP_CONSULTAR_Result">
+          <Property Type="Int32" Name="Column1" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="DIO_SP_EJECUTIVO_BTL_LISTAR_Result">
+          <Property Type="String" Name="usua_c_cdoc_id" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nombCompletoEjecutivo" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_9F356E_Anubis_BOMBEROModelStoreContainer" CdmEntityContainer="SGADB_BOMEntities">
+          <EntitySetMapping Name="ADV_T_CONTROL_ACCESOS">
+            <EntityTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.ADV_T_CONTROL_ACCESOS">
+              <MappingFragment StoreEntitySet="ADV_T_CONTROL_ACCESOS">
+                <ScalarProperty Name="cont_acc_c_yid" ColumnName="cont_acc_c_yid" />
+                <ScalarProperty Name="cont_acc_c_vusuario" ColumnName="cont_acc_c_vusuario" />
+                <ScalarProperty Name="cont_acc_c_vclave" ColumnName="cont_acc_c_vclave" />
+                <ScalarProperty Name="cont_acc_c_vtipo" ColumnName="cont_acc_c_vtipo" />
+                <ScalarProperty Name="cont_acc_c_vintento" ColumnName="cont_acc_c_vintento" />
+                <ScalarProperty Name="cont_acc_c_isistema" ColumnName="cont_acc_c_isistema" />
+                <ScalarProperty Name="cont_acc_c_vip" ColumnName="cont_acc_c_vip" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGA_T_MENU">
+            <EntityTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU">
+              <MappingFragment StoreEntitySet="SGA_T_MENU">
+                <ScalarProperty Name="menu_c_iid" ColumnName="menu_c_iid" />
+                <ScalarProperty Name="menu_c_iid_padre" ColumnName="menu_c_iid_padre" />
+                <ScalarProperty Name="menu_c_vnomb" ColumnName="menu_c_vnomb" />
+                <ScalarProperty Name="menu_c_ynivel" ColumnName="menu_c_ynivel" />
+                <ScalarProperty Name="menu_c_vpag_asp" ColumnName="menu_c_vpag_asp" />
+                <ScalarProperty Name="menu_c_vpag_asp2" ColumnName="menu_c_vpag_asp2" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGA_T_PERFIL">
+            <EntityTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL">
+              <MappingFragment StoreEntitySet="SGA_T_PERFIL">
+                <ScalarProperty Name="perf_c_yid" ColumnName="perf_c_yid" />
+                <ScalarProperty Name="perf_c_vnomb" ColumnName="perf_c_vnomb" />
+                <ScalarProperty Name="perf_c_vdesc" ColumnName="perf_c_vdesc" />
+                <ScalarProperty Name="perf_c_cestado" ColumnName="perf_c_cestado" />
+                <ScalarProperty Name="sist_c_iid" ColumnName="sist_c_iid" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGA_T_PERFIL_MENU">
+            <EntityTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL_MENU">
+              <MappingFragment StoreEntitySet="SGA_T_PERFIL_MENU">
+                <ScalarProperty Name="perf_c_yid" ColumnName="perf_c_yid" />
+                <ScalarProperty Name="menu_c_iid" ColumnName="menu_c_iid" />
+                <ScalarProperty Name="perf_menu_c_calta" ColumnName="perf_menu_c_calta" />
+                <ScalarProperty Name="perf_menu_c_cmod" ColumnName="perf_menu_c_cmod" />
+                <ScalarProperty Name="perf_menu_c_celim" ColumnName="perf_menu_c_celim" />
+                <ScalarProperty Name="perf_menu_c_cvisual" ColumnName="perf_menu_c_cvisual" />
+                <ScalarProperty Name="perf_menu_c_cimpre" ColumnName="perf_menu_c_cimpre" />
+                <ScalarProperty Name="perf_menu_c_cproc" ColumnName="perf_menu_c_cproc" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGA_T_SISTEMA">
+            <EntityTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_T_SISTEMA">
+              <MappingFragment StoreEntitySet="SGA_T_SISTEMA">
+                <ScalarProperty Name="sist_c_iid" ColumnName="sist_c_iid" />
+                <ScalarProperty Name="sist_c_vnomb" ColumnName="sist_c_vnomb" />
+                <ScalarProperty Name="sist_c_vdesc" ColumnName="sist_c_vdesc" />
+                <ScalarProperty Name="sist_c_vuso" ColumnName="sist_c_vuso" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGA_T_USUARIO">
+            <EntityTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_T_USUARIO">
+              <MappingFragment StoreEntitySet="SGA_T_USUARIO">
+                <ScalarProperty Name="usua_c_cusu_red" ColumnName="usua_c_cusu_red" />
+                <ScalarProperty Name="usua_c_cape_pat" ColumnName="usua_c_cape_pat" />
+                <ScalarProperty Name="usua_c_cape_mat" ColumnName="usua_c_cape_mat" />
+                <ScalarProperty Name="usua_c_cape_nombres" ColumnName="usua_c_cape_nombres" />
+                <ScalarProperty Name="usua_c_cdoc_id" ColumnName="usua_c_cdoc_id" />
+                <ScalarProperty Name="usua_c_vcorreo1" ColumnName="usua_c_vcorreo1" />
+                <ScalarProperty Name="usua_c_vcorreo2" ColumnName="usua_c_vcorreo2" />
+                <ScalarProperty Name="usua_c_vcontrasena" ColumnName="usua_c_vcontrasena" />
+                <ScalarProperty Name="usua_c_vestado" ColumnName="usua_c_vestado" />
+                <ScalarProperty Name="usua_c_vnuevacont" ColumnName="usua_c_vnuevacont" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SGA_T_USUARIO_PERFIL">
+            <EntityTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_T_USUARIO_PERFIL">
+              <MappingFragment StoreEntitySet="SGA_T_USUARIO_PERFIL">
+                <ScalarProperty Name="perf_c_yid" ColumnName="perf_c_yid" />
+                <ScalarProperty Name="usua_c_cdoc_id" ColumnName="usua_c_cdoc_id" />
+                <ScalarProperty Name="usua_perfil_c_cestado" ColumnName="usua_perfil_c_cestado" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SGA_SP_OBTENER_MENU_X_USUARIO" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_SP_OBTENER_MENU_X_USUARIO">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_SP_OBTENER_MENU_X_USUARIO_Result">
+                <ScalarProperty Name="menu_c_iid" ColumnName="menu_c_iid" />
+                <ScalarProperty Name="menu_c_iid_padre" ColumnName="menu_c_iid_padre" />
+                <ScalarProperty Name="menu_c_vnomb" ColumnName="menu_c_vnomb" />
+                <ScalarProperty Name="menu_c_ynivel" ColumnName="menu_c_ynivel" />
+                <ScalarProperty Name="menu_c_vpag_asp" ColumnName="menu_c_vpag_asp" />
+                <ScalarProperty Name="perf_c_yid" ColumnName="perf_c_yid" />
+                <ScalarProperty Name="NombreCompleto" ColumnName="NombreCompleto" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SGA_SP_VALIDAR_USUARIO_DA_SELECCIONAR" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_SP_VALIDAR_USUARIO_DA_SELECCIONAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_SP_VALIDAR_USUARIO_DA_SELECCIONAR_Result">
+                <ScalarProperty Name="usua_c_cusu_red" ColumnName="usua_c_cusu_red" />
+                <ScalarProperty Name="usua_c_cape_pat" ColumnName="usua_c_cape_pat" />
+                <ScalarProperty Name="usua_c_cape_mat" ColumnName="usua_c_cape_mat" />
+                <ScalarProperty Name="usua_c_cape_nombres" ColumnName="usua_c_cape_nombres" />
+                <ScalarProperty Name="usua_c_cdoc_id" ColumnName="usua_c_cdoc_id" />
+                <ScalarProperty Name="usua_c_vcorreo" ColumnName="usua_c_vcorreo" />
+                <ScalarProperty Name="usua_c_vcorreo2" ColumnName="usua_c_vcorreo2" />
+                <ScalarProperty Name="usua_c_vnuevacont" ColumnName="usua_c_vnuevacont" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SGA_SP_VALIDAR_USUARIO_SELECCIONAR" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_SP_VALIDAR_USUARIO_SELECCIONAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_SP_VALIDAR_USUARIO_SELECCIONAR_Result">
+                <ScalarProperty Name="usua_c_cusu_red" ColumnName="usua_c_cusu_red" />
+                <ScalarProperty Name="usua_c_cape_pat" ColumnName="usua_c_cape_pat" />
+                <ScalarProperty Name="usua_c_cape_mat" ColumnName="usua_c_cape_mat" />
+                <ScalarProperty Name="usua_c_cape_nombres" ColumnName="usua_c_cape_nombres" />
+                <ScalarProperty Name="usua_c_cdoc_id" ColumnName="usua_c_cdoc_id" />
+                <ScalarProperty Name="usua_c_vcorreo" ColumnName="usua_c_vcorreo" />
+                <ScalarProperty Name="usua_c_vcorreo2" ColumnName="usua_c_vcorreo2" />
+                <ScalarProperty Name="usua_c_vnuevacont" ColumnName="usua_c_vnuevacont" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_vnom_completo_reg" ColumnName="bita_c_vnom_completo_reg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ObtenerMenuPadres" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_SP_LISTAR_PADRES_MENU" />
+          <FunctionImportMapping FunctionImportName="ObtenerMenuHijos" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_SP_LISTAR_HIJOS_MENU" />
+          <FunctionImportMapping FunctionImportName="VerificarAccesoSistema" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_SP_VERIFICAR_ACCESO_USUARIO" />
+          <FunctionImportMapping FunctionImportName="SGA_SP_USUARIO_PERMISO_ASP_CONSULTAR" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.SGA_SP_USUARIO_PERMISO_ASP_CONSULTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.SGA_SP_USUARIO_PERMISO_ASP_CONSULTAR_Result">
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DIO_SP_EJECUTIVO_BTL_LISTAR" FunctionName="DB_9F356E_Anubis_BOMBEROModel.Store.DIO_SP_EJECUTIVO_BTL_LISTAR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_9F356E_Anubis_BOMBEROModel.DIO_SP_EJECUTIVO_BTL_LISTAR_Result">
+                <ScalarProperty Name="usua_c_cdoc_id" ColumnName="usua_c_cdoc_id" />
+                <ScalarProperty Name="nombCompletoEjecutivo" ColumnName="nombCompletoEjecutivo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="ANUBIS" ZoomLevel="72">
+        <EntityTypeShape EntityType="DB_9F356E_Anubis_BOMBEROModel.ADV_T_CONTROL_ACCESOS" Width="1.5" PointX="5.75" PointY="0.75" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_MENU" Width="1.5" PointX="0.75" PointY="1.125" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL" Width="1.5" PointX="0.75" PointY="5.25" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_PERFIL_MENU" Width="1.5" PointX="3" PointY="1" Height="3.5186979166666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_SISTEMA" Width="1.5" PointX="1.5" PointY="9.5" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_USUARIO" Width="1.5" PointX="3.75" PointY="5.75" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_9F356E_Anubis_BOMBEROModel.SGA_T_USUARIO_PERFIL" Width="1.5" PointX="5.75" PointY="4.75" Height="2.1725878906249996" IsExpanded="true" />
+        <AssociationConnector Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_MENU_SGA_T_MENU" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.2819230769230767" PointY="4.451396484375" />
+          <ConnectorPoint PointX="1.2819230769230767" PointY="4.701396484375" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="4.701396484375" />
+          <ConnectorPoint PointX="1.7284615384615383" PointY="4.451396484375" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_MENU" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.7881982421875" />
+          <ConnectorPoint PointX="3" PointY="2.7881982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_MENU_SGA_T_PERFIL" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.46875" />
+          <ConnectorPoint PointX="3.34375" PointY="5.46875" />
+          <ConnectorPoint PointX="3.34375" PointY="4.5186979166666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="DB_9F356E_Anubis_BOMBEROModel.FK_SGA_T_PERFIL_SGA_T_SISTEMA" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.875" PointY="9.5" />
+          <ConnectorPoint PointX="1.875" PointY="8.1917936197916656" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

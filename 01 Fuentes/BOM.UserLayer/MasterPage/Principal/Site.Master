@@ -1,0 +1,129 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="BOM.UserLayer.MasterPage.Principal.Site" %>
+<!DOCTYPE html>
+<html class="gt-ie8 gt-ie9 not-ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+<head id="Head1" runat="server">
+    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>Publicidad</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+    <!-- Open Sans font from Google CDN -->
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin" rel="stylesheet" type="text/css"/>
+
+    <link href="~/Styles/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/styles/pixel-admin.min.css" rel="stylesheet" type="text/css" />
+
+	<link href="~/Recursos/Styles/widgets.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="~/Styles/styles/pages.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/styles/rtl.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/styles/themes.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Styles/styles/easyTables.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Styles/styles/realplaza.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="~/favicon.ico" type="image/x-icon"/>
+    <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
+	<!--[if lt IE 9]>
+		<script src="~/Recursos/Styles/ie.min.js"></script>
+	<![endif]-->
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="theme-purple-hills main-menu-animated">
+
+
+<form id="frmPrincipal" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server">
+                                    </asp:ScriptManager>
+        <script>            var init = [];</script>
+        <div id="main-wrapper">
+
+	        <div id="main-navbar" class="navbar navbar-inverse" style="border-bottom:2px solid #025865" role="navigation" >
+		        <button type="button" id="main-menu-toggle"><i class="navbar-icon fa fa-bars icon"></i><span class="hide-menu-text">OCULTAR</span></button>
+		
+		        <div class="navbar-inner">
+			        <div class="navbar-header realPlaza" style="background: #237b96 !important; height:46px !important">
+                        
+				        <!-- Logo -->
+				        <asp:LinkButton ID="LinkButton1" CausesValidation="false" CssClass="navbar-brand" runat="server" PostBackUrl="~/Interfaces/Default/Default.aspx">
+                                <asp:Image ID="imgLogo" runat="server"  ImageUrl="~/Images/logo_real_blanco2.png" />					        
+                                
+				        </asp:LinkButton>
+				        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse"><i class="navbar-icon fa fa-bars"></i></button>
+
+			        </div>
+
+			        <div id="main-navbar-collapse" class="collapse navbar-collapse main-navbar-collapse">
+				        <div>
+					        <ul class="nav navbar-nav">
+						
+					        </ul> 
+
+					        <div class="right clearfix">
+						        <ul class="nav navbar-nav pull-right right-navbar-nav">
+                                    
+
+							        <li class="dropdown">
+								        <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown">
+									        <span><asp:Label ID="lblNombreUsuario" runat="server" Text="Label"></asp:Label></span>
+                                            <span class="fa fa-user signin-form-icon"></span>
+								        </a>
+								        <ul class="dropdown-menu">
+									        <li><asp:LinkButton ID="lnkCerrarSesion" runat="server" CausesValidation="false"  OnClick="lnkbtnSalir_Click"><i class="dropdown-icon fa fa-power-off"></i>&nbsp;&nbsp;Salir</asp:LinkButton></li>
+								        </ul>
+							        </li>
+						        </ul>
+					        </div>
+				        </div>
+			        </div> 
+		        </div> 
+	        </div>
+	        <div id="main-menu" role="navigation">
+		        <div id="main-menu-inner">
+			        <div class="menu-content top" id="menu-content-demo" >
+				        
+			        </div>
+			        <ul class="navigation" >
+				            <asp:Literal ID="litMenuPrincipal" runat="server"></asp:Literal>
+			        </ul>
+		        </div> 
+	        </div>
+	        <div id="content-wrapper">
+                <asp:ContentPlaceHolder id="MainContent" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div> 
+	        <div id="main-menu-bg"></div>
+        </div>
+
+        
+	        <script type="text/javascript">	            window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">' + "<" + "/script>"); </script>
+       
+        <script src="<%=ResolveClientUrl("~/Scripts/bootstrap.min.js") %>"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/pixel-admin.min.js") %>"></script>
+        <script src="<%=ResolveClientUrl("~/Scripts/realplaza.js") %>"></script>
+        <script type="text/javascript">
+            var inPageMaster = 1;
+            $(document).ready(function () {
+                setTimeout(function () {
+                    if (inPageMaster.length > 0) {
+                        var refLink = $("a[href='" + inPageMaster + "']");
+                        var refLi = refLink.parent();
+                        refLi.addClass("active");
+                        var refLiParent = refLi.parent().parent();
+                        refLiParent.addClass("open");
+                        refLiParent.addClass("active")
+                    }
+                }, 500);
+            });
+
+            init.push(function () {
+                // Javascript code here
+            });
+            window.PixelAdmin.start(init);
+        </script>
+    </form>
+</body>
+</html>
