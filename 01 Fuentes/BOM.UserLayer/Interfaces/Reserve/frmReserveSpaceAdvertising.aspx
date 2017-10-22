@@ -1112,6 +1112,27 @@
                                     </label>
                                 </div>
                             </div>
+                            <div style="clear: both; padding-top: 15px">
+                                <div style="width: 50%; float: left; text-align: left;">
+                                    <div class="control-label">
+                                        <label class="control-label">
+                                            Imagenes:
+                                        </label>
+                                    </div>
+                                    <%--<label id="Label3" runat="server" style="font-weight: normal">
+                                    </label>--%>
+                                    <div id="rondellCarousel">
+                                        <asp:Repeater ID="repeaterImage" runat="server">
+                                            <ItemTemplate>
+                                               <a href="<%#Container.DataItem %>">
+                                                    <img src="<%#Container.DataItem %>" />
+                                               </a>
+                                                
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </div>
+                                </div>
+                            </div>
                             <%--  <button type="button" class="btn btn-primary">OK</button>--%>
                         </div>
                     </div>

@@ -14,6 +14,8 @@ using System.Web.Configuration;
 using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Text;
+using System.Collections;
+using System.Configuration;
 namespace BOM.UserLayer.Interfaces.Reserve
 {
     public partial class frmReserveSpaceAdvertising : System.Web.UI.Page
@@ -574,7 +576,8 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 pub_esp_c_vmaterial = "",
                 pub_esp_c_vdesc = "",
                 pu_esp_c_earea = "",
-                pub_esp_c_vrestriccion = ""
+                pub_esp_c_vrestriccion = "",
+                pub_esp_imagenes = ""
             };
             var lista = new[] { obj }.ToList();
             if (o[ps_result]["diffgr:diffgram"][ps_DataSet] == null)
@@ -602,7 +605,9 @@ namespace BOM.UserLayer.Interfaces.Reserve
                             pub_esp_c_vmaterial = UIFunciones.f_StringIsNull(item.Value["diffgr:diffgram"][ps_DataSet][ps_DataTable]["PUB_ESP_C_VMATERIAL"]),
                             pub_esp_c_vdesc = UIFunciones.f_StringIsNull(item.Value["diffgr:diffgram"][ps_DataSet][ps_DataTable]["PUB_ESP_C_VDESC"]),
                             pu_esp_c_earea = UIFunciones.f_StringIsNull(item.Value["diffgr:diffgram"][ps_DataSet][ps_DataTable]["PUB_ESP_C_EAREA"]),
-                            pub_esp_c_vrestriccion = UIFunciones.f_StringIsNull(item.Value["diffgr:diffgram"][ps_DataSet][ps_DataTable]["PUB_ESP_C_VRESTRICCION"])
+                            pub_esp_c_vrestriccion = UIFunciones.f_StringIsNull(item.Value["diffgr:diffgram"][ps_DataSet][ps_DataTable]["PUB_ESP_C_VRESTRICCION"]),
+                            pub_esp_imagenes = UIFunciones.f_StringIsNull(item.Value["diffgr:diffgram"][ps_DataSet][ps_DataTable]["IMAGENES"])
+                            
                         });
 
                         break;
@@ -618,6 +623,17 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 lblUbicacionPopinfo.InnerText = HttpUtility.HtmlDecode(lista[0].pub_esp_c_vubicacion.ToString());
                 lbleareaPopinfo.InnerText = HttpUtility.HtmlDecode(lista[0].pu_esp_c_earea.ToString()) + " m2";
 
+                //string rutaImagenFTP = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["rutaImagen"]);
+                //string rutaImagenFTP = ConfigurationManager.AppSettings["rutaImagen"]);
+                ArrayList ListaImagen = new ArrayList();
+                string[] Archivos = System.IO.Directory.GetFiles(Server.MapPath("~/Images"), "*.*");
+                foreach (string archivo in Archivos)
+                {
+                    ListaImagen.Add("~/Images/" + System.IO.Path.GetFileName(archivo));
+                }
+                repeaterImage.DataSource = ListaImagen;
+                repeaterImage.DataBind();
+                
                 if (lista[0].pub_prod_c_vnomb.ToString() == "INDOOR")
                     lbltexto_elementoPopInfo.InnerText = "Elemento:";
                 else if (lista[0].pub_prod_c_vnomb.ToString() == "BTL") lbltexto_elementoPopInfo.InnerText = "Tipo de Activación:";
