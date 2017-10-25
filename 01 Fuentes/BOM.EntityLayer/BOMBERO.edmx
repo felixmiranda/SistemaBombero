@@ -466,9 +466,9 @@
         </Function>
         <Function Name="DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
           <Parameter Name="pv_inmueble" Type="varchar" Mode="In" />
-          <Parameter Name="pv_cliente" Type="varchar" Mode="In" />
           <Parameter Name="pv_ejecutivo" Type="varchar" Mode="In" />
           <Parameter Name="pv_estado" Type="int" Mode="In" />
+          <Parameter Name="pv_producto" Type="int" Mode="In" />
         </Function>
         <Function Name="DIO_SP_PUB_RESERVA_DET_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
           <Parameter Name="pi_reser_c_iid" Type="int" Mode="In" />
@@ -740,9 +740,9 @@
           </FunctionImport>
           <FunctionImport Name="DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS" ReturnType="Collection(BD_DIONISIOModel.DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result)">
             <Parameter Name="pv_inmueble" Mode="In" Type="String" />
-            <Parameter Name="pv_cliente" Mode="In" Type="String" />
             <Parameter Name="pv_ejecutivo" Mode="In" Type="String" />
             <Parameter Name="pv_estado" Mode="In" Type="Int32" />
+            <Parameter Name="pv_producto" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result">
@@ -1199,17 +1199,16 @@
           <Property Type="String" Name="PRODUCTO" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="ELEMENTO_ACTIVACION" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="COD_ESPACIO" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="DESC_ESPACIO" Nullable="false" MaxLength="1" />
-          <Property Type="String" Name="TIPO_ASIGNACION" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="DESC_ESPACIO" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="TIPO_ASIGNACION" Nullable="true" MaxLength="12" />
           <Property Type="String" Name="CLIENTE" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="MARCAR" Nullable="false" />
           <Property Type="String" Name="AGENCIA" Nullable="false" MaxLength="200" />
-          <Property Type="String" Name="FECHA_INICIO" Nullable="false" MaxLength="1" />
-          <Property Type="String" Name="FECHA_FIN" Nullable="false" MaxLength="1" />
-          <Property Type="DateTime" Name="reser_c_dfech_inicio" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="reser_c_dfech_fin" Nullable="true" Precision="23" />
-          <Property Type="String" Name="RESERVA" Nullable="false" MaxLength="1" />
+          <Property Type="DateTime" Name="FECHA_INICIO" Nullable="true" Precision="23" />
+          <Property Type="DateTime" Name="FECHA_FIN" Nullable="true" Precision="23" />
+          <Property Type="String" Name="RESERVA" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="ESTADORESERVA" Nullable="true" MaxLength="9" />
+          <Property Type="Decimal" Name="PRECIO_ALQUILER" Nullable="true" Precision="18" Scale="2" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1604,10 +1603,9 @@
                 <ScalarProperty Name="AGENCIA" ColumnName="AGENCIA" />
                 <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
                 <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
-                <ScalarProperty Name="reser_c_dfech_inicio" ColumnName="reser_c_dfech_inicio" />
-                <ScalarProperty Name="reser_c_dfech_fin" ColumnName="reser_c_dfech_fin" />
                 <ScalarProperty Name="RESERVA" ColumnName="RESERVA" />
                 <ScalarProperty Name="ESTADORESERVA" ColumnName="ESTADORESERVA" />
+                <ScalarProperty Name="PRECIO_ALQUILER" ColumnName="PRECIO_ALQUILER" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1631,7 +1629,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="BOMBERO" ZoomLevel="106">
+      <Diagram Name="BOMBERO" ZoomLevel="53">
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_CLIENTE" Width="1.5" PointX="5.75" PointY="7.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_COLABORADOR" Width="1.5" PointX="7.75" PointY="6.75" Height="2.5571907552083388" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_INMUEBLE" Width="1.5" PointX="9.75" PointY="6.75" Height="2.3648893229166674" />

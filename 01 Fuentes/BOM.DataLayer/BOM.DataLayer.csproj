@@ -49,6 +49,7 @@
     <Compile Include="Interfaces\Reserve\ApproveSpaceSoldDA.cs" />
     <Compile Include="Interfaces\Reserve\MyReservationsDA.cs" />
     <Compile Include="Interfaces\Reserve\ReserveSpaceAdvertisingDA.cs" />
+    <Compile Include="Interfaces\Reserve\SpaceAdvertinsingReportDA.cs" />
     <Compile Include="SeguridadDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="temporalDA.cs" />

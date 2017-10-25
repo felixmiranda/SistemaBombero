@@ -69,6 +69,14 @@
                                 </asp:DropDownList>
 
                             </div>
+                            <div class="form-group">
+                                 <label class="sr-only">
+                                    Estado </label>
+                                <asp:DropDownList CssClass="form-control" Style="width: 100%;" ID="ddlEstado"
+                                    runat="server" AutoPostBack="true">
+                                </asp:DropDownList>
+
+                            </div>
                           <%--  <div class="form-group">
                                 <label class="sr-only">
                                     Cliente</label>
@@ -80,7 +88,7 @@
                                     CompletionInterval="100">
                                 </ajaxToolkit:AutoCompleteExtender>
                             </div>--%>
-                             <div class="form-group">
+                           <%--  <div class="form-group">
                                 <label class="sr-only">
                                     Estado</label>
                                 <asp:TextBox ID="txtEstado" onkeypress="return NoJavaScript(event)" Style="width: 100%;"
@@ -90,7 +98,7 @@
                                     UseContextKey="True" FirstRowSelected="True" MinimumPrefixLength="1" ShowOnlyCurrentWordInCompletionListItem="true"
                                     CompletionInterval="100">
                                 </ajaxToolkit:AutoCompleteExtender>
-                            </div>
+                            </div>--%>
                             <asp:LinkButton ID="btnBuscar" CssClass="btn btn-labeled btn-primary" OnClick="btnBuscar_Click"
                                 runat="server"><span class="btn-label icon fa fa-search"></span>Buscar</asp:LinkButton>
                         </div>
@@ -99,7 +107,7 @@
                 <div class="row" style="overflow: auto">
                     <asp:GridView ID="gvReservas" runat="server" CssClass="table table-bordered" AutoGenerateColumns="False"
                         HeaderStyle-CssClass="tbl_cabecerareal" ShowHeaderWhenEmpty="True" EmptyDataText="No se han encontrado reservas en la base de datos."
-                        DataKeyNames="MARCAR,ejec_c_cdoc_id,reser_mast_c_iid,reser_c_iid,pub_esp_c_iid,reser_c_dfech_inicio,reser_c_dfech_fin,pub_esp_c_vcod"
+                        DataKeyNames="INMUEBLE,MARCA,EJECUTIVO,PRODUCTO,ELEMENTO_ACTIVACION,COD_ESPACIO,DESC_ESPACIO,TIPO_ASIGNACION,CLIENTE,MARCAR, AGENCIA, FECHA_INICIO, FECHA_FIN, RESERVA, ESTADORESERVA, PRECIO_ALQUILER"
                         OnRowCommand="gvReservas_RowCommand"  
                         OnRowDataBound="gvReservas_RowDataBound" Width="2500px" 
                         onselectedindexchanged="gvReservas_SelectedIndexChanged">
@@ -109,10 +117,23 @@
                                     <asp:LinkButton ID="lkReservaMaster" runat="server" CommandName="editarReserva"
                                         CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' Text="Editar"></asp:LinkButton>
                                 </ItemTemplate>
+                                <ItemStyle CssClass="row_acciones" />
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="INMUEBLE">
                                 <ItemTemplate>
                                     <asp:Label ID="lblInmueble" runat="server" Text='<%# Eval("INMUEBLE") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle CssClass="columGv"></ItemStyle>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="MARCA">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblMarca" runat="server" Text='<%# Eval("MARCA") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle CssClass="columGv"></ItemStyle>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="EJECUTIVO">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblEjecutivo" runat="server" Text='<%# Eval("EJECUTIVO") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
@@ -134,15 +155,21 @@
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="CLIENTE">
+                            <asp:TemplateField HeaderText="DESC. ESPACIO">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblCliente" runat="server" Text='<%# Eval("CLIENTE") %>'></asp:Label>
+                                    <asp:Label ID="lblDescEspacio" runat="server" Text='<%# Eval("DESC_ESPACIO") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="MARCA">
+                            <asp:TemplateField HeaderText="TIPO ASIGNACION">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblMarca" runat="server" Text='<%# Eval("MARCA") %>'></asp:Label>
+                                    <asp:Label ID="lblTipoAsignacion" runat="server" Text='<%# Eval("TIPO_ASIGNACION") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle CssClass="columGv"></ItemStyle>
+                            </asp:TemplateField>
+                             <asp:TemplateField HeaderText="CLIENTE">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblCliente" runat="server" Text='<%# Eval("CLIENTE") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
@@ -152,31 +179,38 @@
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="PERIODO">
+                            <asp:TemplateField HeaderText="FECHA INICIO">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblPeriodo" runat="server" Text='<%# Eval("PERIODO") %>'></asp:Label>
+                                    <asp:Label ID="lblFechaInicio" runat="server" Text='<%# Eval("FECHA_INICIO") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="TIPO PERIODO">
+                            <asp:TemplateField HeaderText="FECHA FIN">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblTipoPeriodo" runat="server" Text='<%# Eval("TIPO_PERIODO") %>'></asp:Label>
+                                    <asp:Label ID="lblFechaFin" runat="server" Text='<%# Eval("FECHA_FIN") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="EJECUTIVO">
+                            <asp:TemplateField HeaderText="RESERVA">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblEjecutivo" runat="server" Text='<%# Eval("EJECUTIVO") %>'></asp:Label>
+                                    <asp:Label ID="lblReserva" runat="server" Text='<%# Eval("RESERVA") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="ESTADO RESERVA">
+                             <asp:TemplateField HeaderText="ESTADO RESERVA">
                                 <ItemTemplate>
-                                    <asp:Label ID="lblPrecioFinalgv" runat="server" Text='<%# Eval("ESTADORESERVA") %>'></asp:Label>
+                                    <asp:Label ID="lblEstadoReserva" runat="server" Text='<%# Eval("ESTADORESERVA") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle CssClass="columGv"></ItemStyle>
+                            </asp:TemplateField>
+                             <asp:TemplateField HeaderText="PRECIO_ALQUILER">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblPrecioAlquiler" runat="server" Text='<%# Eval("PRECIO_ALQUILER") %>'></asp:Label>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
                         </Columns>
+                        <HeaderStyle CssClass="tbl_cabecerareal" />
                     </asp:GridView>
                 </div>
             </ContentTemplate>

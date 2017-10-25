@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\Reserve\ApproveSpaceSoldBL.cs" />
     <Compile Include="Interfaces\Reserve\MyReservationsBL.cs" />
     <Compile Include="Interfaces\Reserve\ReserveSpaceAdvertisingBL.cs" />
+    <Compile Include="Interfaces\Reserve\SpaceAdvertinsingReportBL.cs" />
     <Compile Include="SeguridadBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="temporalBL.cs" />

@@ -67,22 +67,13 @@ namespace BOM.UserLayer.Interfaces.Reserve {
         protected global::System.Web.UI.WebControls.DropDownList ddlProducto;
         
         /// <summary>
-        /// txtEstado control.
+        /// ddlEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstado;
-        
-        /// <summary>
-        /// AutoCompleteExtender3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.AutoCompleteExtender AutoCompleteExtender3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstado;
         
         /// <summary>
         /// btnBuscar control.

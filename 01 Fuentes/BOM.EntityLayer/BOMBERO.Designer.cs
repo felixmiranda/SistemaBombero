@@ -1354,10 +1354,10 @@ namespace BOM.EntityLayer
         /// No Metadata Documentation available.
         /// </summary>
         /// <param name="pv_inmueble">No Metadata Documentation available.</param>
-        /// <param name="pv_cliente">No Metadata Documentation available.</param>
         /// <param name="pv_ejecutivo">No Metadata Documentation available.</param>
         /// <param name="pv_estado">No Metadata Documentation available.</param>
-        public ObjectResult<DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result> DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS(global::System.String pv_inmueble, global::System.String pv_cliente, global::System.String pv_ejecutivo, Nullable<global::System.Int32> pv_estado)
+        /// <param name="pv_producto">No Metadata Documentation available.</param>
+        public ObjectResult<DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result> DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS(global::System.String pv_inmueble, global::System.String pv_ejecutivo, Nullable<global::System.Int32> pv_estado, Nullable<global::System.Int32> pv_producto)
         {
             ObjectParameter pv_inmuebleParameter;
             if (pv_inmueble != null)
@@ -1367,16 +1367,6 @@ namespace BOM.EntityLayer
             else
             {
                 pv_inmuebleParameter = new ObjectParameter("pv_inmueble", typeof(global::System.String));
-            }
-    
-            ObjectParameter pv_clienteParameter;
-            if (pv_cliente != null)
-            {
-                pv_clienteParameter = new ObjectParameter("pv_cliente", pv_cliente);
-            }
-            else
-            {
-                pv_clienteParameter = new ObjectParameter("pv_cliente", typeof(global::System.String));
             }
     
             ObjectParameter pv_ejecutivoParameter;
@@ -1399,7 +1389,17 @@ namespace BOM.EntityLayer
                 pv_estadoParameter = new ObjectParameter("pv_estado", typeof(global::System.Int32));
             }
     
-            return base.ExecuteFunction<DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result>("DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS", pv_inmuebleParameter, pv_clienteParameter, pv_ejecutivoParameter, pv_estadoParameter);
+            ObjectParameter pv_productoParameter;
+            if (pv_producto.HasValue)
+            {
+                pv_productoParameter = new ObjectParameter("pv_producto", pv_producto);
+            }
+            else
+            {
+                pv_productoParameter = new ObjectParameter("pv_producto", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result>("DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS", pv_inmuebleParameter, pv_ejecutivoParameter, pv_estadoParameter, pv_productoParameter);
         }
 
         #endregion
@@ -6465,15 +6465,11 @@ namespace BOM.EntityLayer
         /// <param name="pRODUCTO">Initial value of the PRODUCTO property.</param>
         /// <param name="eLEMENTO_ACTIVACION">Initial value of the ELEMENTO_ACTIVACION property.</param>
         /// <param name="cOD_ESPACIO">Initial value of the COD_ESPACIO property.</param>
-        /// <param name="dESC_ESPACIO">Initial value of the DESC_ESPACIO property.</param>
-        /// <param name="tIPO_ASIGNACION">Initial value of the TIPO_ASIGNACION property.</param>
         /// <param name="cLIENTE">Initial value of the CLIENTE property.</param>
         /// <param name="mARCAR">Initial value of the MARCAR property.</param>
         /// <param name="aGENCIA">Initial value of the AGENCIA property.</param>
-        /// <param name="fECHA_INICIO">Initial value of the FECHA_INICIO property.</param>
-        /// <param name="fECHA_FIN">Initial value of the FECHA_FIN property.</param>
         /// <param name="rESERVA">Initial value of the RESERVA property.</param>
-        public static DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result CreateDIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result(global::System.String iNMUEBLE, global::System.String mARCA, global::System.String pRODUCTO, global::System.String eLEMENTO_ACTIVACION, global::System.String cOD_ESPACIO, global::System.String dESC_ESPACIO, global::System.String tIPO_ASIGNACION, global::System.String cLIENTE, global::System.Int32 mARCAR, global::System.String aGENCIA, global::System.String fECHA_INICIO, global::System.String fECHA_FIN, global::System.String rESERVA)
+        public static DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result CreateDIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result(global::System.String iNMUEBLE, global::System.String mARCA, global::System.String pRODUCTO, global::System.String eLEMENTO_ACTIVACION, global::System.String cOD_ESPACIO, global::System.String cLIENTE, global::System.Int32 mARCAR, global::System.String aGENCIA, global::System.String rESERVA)
         {
             DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result = new DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result();
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.INMUEBLE = iNMUEBLE;
@@ -6481,13 +6477,9 @@ namespace BOM.EntityLayer
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.PRODUCTO = pRODUCTO;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.ELEMENTO_ACTIVACION = eLEMENTO_ACTIVACION;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.COD_ESPACIO = cOD_ESPACIO;
-            dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.DESC_ESPACIO = dESC_ESPACIO;
-            dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.TIPO_ASIGNACION = tIPO_ASIGNACION;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.CLIENTE = cLIENTE;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.MARCAR = mARCAR;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.AGENCIA = aGENCIA;
-            dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.FECHA_INICIO = fECHA_INICIO;
-            dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.FECHA_FIN = fECHA_FIN;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.RESERVA = rESERVA;
             return dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result;
         }
@@ -6643,7 +6635,7 @@ namespace BOM.EntityLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DESC_ESPACIO
         {
@@ -6655,7 +6647,7 @@ namespace BOM.EntityLayer
             {
                 OnDESC_ESPACIOChanging(value);
                 ReportPropertyChanging("DESC_ESPACIO");
-                _DESC_ESPACIO = StructuralObject.SetValidValue(value, false);
+                _DESC_ESPACIO = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("DESC_ESPACIO");
                 OnDESC_ESPACIOChanged();
             }
@@ -6667,7 +6659,7 @@ namespace BOM.EntityLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TIPO_ASIGNACION
         {
@@ -6679,7 +6671,7 @@ namespace BOM.EntityLayer
             {
                 OnTIPO_ASIGNACIONChanging(value);
                 ReportPropertyChanging("TIPO_ASIGNACION");
-                _TIPO_ASIGNACION = StructuralObject.SetValidValue(value, false);
+                _TIPO_ASIGNACION = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("TIPO_ASIGNACION");
                 OnTIPO_ASIGNACIONChanged();
             }
@@ -6763,9 +6755,9 @@ namespace BOM.EntityLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String FECHA_INICIO
+        public Nullable<global::System.DateTime> FECHA_INICIO
         {
             get
             {
@@ -6775,21 +6767,21 @@ namespace BOM.EntityLayer
             {
                 OnFECHA_INICIOChanging(value);
                 ReportPropertyChanging("FECHA_INICIO");
-                _FECHA_INICIO = StructuralObject.SetValidValue(value, false);
+                _FECHA_INICIO = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("FECHA_INICIO");
                 OnFECHA_INICIOChanged();
             }
         }
-        private global::System.String _FECHA_INICIO;
-        partial void OnFECHA_INICIOChanging(global::System.String value);
+        private Nullable<global::System.DateTime> _FECHA_INICIO;
+        partial void OnFECHA_INICIOChanging(Nullable<global::System.DateTime> value);
         partial void OnFECHA_INICIOChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String FECHA_FIN
+        public Nullable<global::System.DateTime> FECHA_FIN
         {
             get
             {
@@ -6799,62 +6791,14 @@ namespace BOM.EntityLayer
             {
                 OnFECHA_FINChanging(value);
                 ReportPropertyChanging("FECHA_FIN");
-                _FECHA_FIN = StructuralObject.SetValidValue(value, false);
+                _FECHA_FIN = StructuralObject.SetValidValue(value);
                 ReportPropertyChanged("FECHA_FIN");
                 OnFECHA_FINChanged();
             }
         }
-        private global::System.String _FECHA_FIN;
-        partial void OnFECHA_FINChanging(global::System.String value);
+        private Nullable<global::System.DateTime> _FECHA_FIN;
+        partial void OnFECHA_FINChanging(Nullable<global::System.DateTime> value);
         partial void OnFECHA_FINChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> reser_c_dfech_inicio
-        {
-            get
-            {
-                return _reser_c_dfech_inicio;
-            }
-            set
-            {
-                Onreser_c_dfech_inicioChanging(value);
-                ReportPropertyChanging("reser_c_dfech_inicio");
-                _reser_c_dfech_inicio = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("reser_c_dfech_inicio");
-                Onreser_c_dfech_inicioChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _reser_c_dfech_inicio;
-        partial void Onreser_c_dfech_inicioChanging(Nullable<global::System.DateTime> value);
-        partial void Onreser_c_dfech_inicioChanged();
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
-        [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> reser_c_dfech_fin
-        {
-            get
-            {
-                return _reser_c_dfech_fin;
-            }
-            set
-            {
-                Onreser_c_dfech_finChanging(value);
-                ReportPropertyChanging("reser_c_dfech_fin");
-                _reser_c_dfech_fin = StructuralObject.SetValidValue(value);
-                ReportPropertyChanged("reser_c_dfech_fin");
-                Onreser_c_dfech_finChanged();
-            }
-        }
-        private Nullable<global::System.DateTime> _reser_c_dfech_fin;
-        partial void Onreser_c_dfech_finChanging(Nullable<global::System.DateTime> value);
-        partial void Onreser_c_dfech_finChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -6903,6 +6847,30 @@ namespace BOM.EntityLayer
         private global::System.String _ESTADORESERVA;
         partial void OnESTADORESERVAChanging(global::System.String value);
         partial void OnESTADORESERVAChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PRECIO_ALQUILER
+        {
+            get
+            {
+                return _PRECIO_ALQUILER;
+            }
+            set
+            {
+                OnPRECIO_ALQUILERChanging(value);
+                ReportPropertyChanging("PRECIO_ALQUILER");
+                _PRECIO_ALQUILER = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PRECIO_ALQUILER");
+                OnPRECIO_ALQUILERChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PRECIO_ALQUILER;
+        partial void OnPRECIO_ALQUILERChanging(Nullable<global::System.Decimal> value);
+        partial void OnPRECIO_ALQUILERChanged();
 
         #endregion
 
