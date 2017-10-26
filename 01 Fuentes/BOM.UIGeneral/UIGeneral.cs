@@ -655,7 +655,7 @@ namespace BOM.UIGeneral
             {
                 wb.Worksheets.Add(pobj_dt);
 
-                Response.Clear();
+                //Response.Clear();
                 Response.Buffer = true;
                 Response.Charset = "";
                 Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
@@ -699,6 +699,7 @@ namespace BOM.UIGeneral
             }
             return dtConvert;
         }
+
         /// <summary>
         /// Descripción: Funcion para centrar cualqueir texto enviado como parametro
         /// Autor: Jhon Edson Tello Lumbreras / RPEXT038

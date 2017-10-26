@@ -6469,7 +6469,8 @@ namespace BOM.EntityLayer
         /// <param name="mARCAR">Initial value of the MARCAR property.</param>
         /// <param name="aGENCIA">Initial value of the AGENCIA property.</param>
         /// <param name="rESERVA">Initial value of the RESERVA property.</param>
-        public static DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result CreateDIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result(global::System.String iNMUEBLE, global::System.String mARCA, global::System.String pRODUCTO, global::System.String eLEMENTO_ACTIVACION, global::System.String cOD_ESPACIO, global::System.String cLIENTE, global::System.Int32 mARCAR, global::System.String aGENCIA, global::System.String rESERVA)
+        /// <param name="pRECIO_ALQUILER">Initial value of the PRECIO_ALQUILER property.</param>
+        public static DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result CreateDIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result(global::System.String iNMUEBLE, global::System.String mARCA, global::System.String pRODUCTO, global::System.String eLEMENTO_ACTIVACION, global::System.String cOD_ESPACIO, global::System.String cLIENTE, global::System.Int32 mARCAR, global::System.String aGENCIA, global::System.String rESERVA, global::System.Decimal pRECIO_ALQUILER)
         {
             DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result = new DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result();
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.INMUEBLE = iNMUEBLE;
@@ -6481,6 +6482,7 @@ namespace BOM.EntityLayer
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.MARCAR = mARCAR;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.AGENCIA = aGENCIA;
             dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.RESERVA = rESERVA;
+            dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result.PRECIO_ALQUILER = pRECIO_ALQUILER;
             return dIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result;
         }
 
@@ -6757,7 +6759,7 @@ namespace BOM.EntityLayer
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> FECHA_INICIO
+        public global::System.String FECHA_INICIO
         {
             get
             {
@@ -6767,13 +6769,13 @@ namespace BOM.EntityLayer
             {
                 OnFECHA_INICIOChanging(value);
                 ReportPropertyChanging("FECHA_INICIO");
-                _FECHA_INICIO = StructuralObject.SetValidValue(value);
+                _FECHA_INICIO = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FECHA_INICIO");
                 OnFECHA_INICIOChanged();
             }
         }
-        private Nullable<global::System.DateTime> _FECHA_INICIO;
-        partial void OnFECHA_INICIOChanging(Nullable<global::System.DateTime> value);
+        private global::System.String _FECHA_INICIO;
+        partial void OnFECHA_INICIOChanging(global::System.String value);
         partial void OnFECHA_INICIOChanged();
     
         /// <summary>
@@ -6781,7 +6783,7 @@ namespace BOM.EntityLayer
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public Nullable<global::System.DateTime> FECHA_FIN
+        public global::System.String FECHA_FIN
         {
             get
             {
@@ -6791,13 +6793,13 @@ namespace BOM.EntityLayer
             {
                 OnFECHA_FINChanging(value);
                 ReportPropertyChanging("FECHA_FIN");
-                _FECHA_FIN = StructuralObject.SetValidValue(value);
+                _FECHA_FIN = StructuralObject.SetValidValue(value, true);
                 ReportPropertyChanged("FECHA_FIN");
                 OnFECHA_FINChanged();
             }
         }
-        private Nullable<global::System.DateTime> _FECHA_FIN;
-        partial void OnFECHA_FINChanging(Nullable<global::System.DateTime> value);
+        private global::System.String _FECHA_FIN;
+        partial void OnFECHA_FINChanging(global::System.String value);
         partial void OnFECHA_FINChanged();
     
         /// <summary>
@@ -6851,9 +6853,9 @@ namespace BOM.EntityLayer
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Decimal> PRECIO_ALQUILER
+        public global::System.Decimal PRECIO_ALQUILER
         {
             get
             {
@@ -6868,8 +6870,8 @@ namespace BOM.EntityLayer
                 OnPRECIO_ALQUILERChanged();
             }
         }
-        private Nullable<global::System.Decimal> _PRECIO_ALQUILER;
-        partial void OnPRECIO_ALQUILERChanging(Nullable<global::System.Decimal> value);
+        private global::System.Decimal _PRECIO_ALQUILER;
+        partial void OnPRECIO_ALQUILERChanging(global::System.Decimal value);
         partial void OnPRECIO_ALQUILERChanged();
 
         #endregion

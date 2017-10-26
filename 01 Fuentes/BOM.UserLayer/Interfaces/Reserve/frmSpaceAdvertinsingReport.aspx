@@ -112,13 +112,13 @@
                         OnRowDataBound="gvReservas_RowDataBound" Width="2500px" 
                         onselectedindexchanged="gvReservas_SelectedIndexChanged">
                         <Columns>
-                            <asp:TemplateField ItemStyle-CssClass="row_acciones">
+                     <%--       <asp:TemplateField ItemStyle-CssClass="row_acciones">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lkReservaMaster" runat="server" CommandName="editarReserva"
                                         CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' Text="Editar"></asp:LinkButton>
                                 </ItemTemplate>
                                 <ItemStyle CssClass="row_acciones" />
-                            </asp:TemplateField>
+                            </asp:TemplateField>--%>
                             <asp:TemplateField HeaderText="INMUEBLE">
                                 <ItemTemplate>
                                     <asp:Label ID="lblInmueble" runat="server" Text='<%# Eval("INMUEBLE") %>'></asp:Label>
@@ -213,6 +213,13 @@
                         <HeaderStyle CssClass="tbl_cabecerareal" />
                     </asp:GridView>
                 </div>
+                          <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <asp:Button ID="btnExportarExcel" class="btn btn-primary" Style="float: left; width: 200px;"
+                                            runat="server" Text=" Exportar XLS" onclick="btnExportarExcel_Click" ></asp:Button>
+                                       
+                                    </div>
+                                </div>
             </ContentTemplate>
         </asp:UpdatePanel>
         <br />

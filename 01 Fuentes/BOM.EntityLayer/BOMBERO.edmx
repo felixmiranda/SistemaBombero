@@ -1204,11 +1204,11 @@
           <Property Type="String" Name="CLIENTE" Nullable="false" MaxLength="200" />
           <Property Type="Int32" Name="MARCAR" Nullable="false" />
           <Property Type="String" Name="AGENCIA" Nullable="false" MaxLength="200" />
-          <Property Type="DateTime" Name="FECHA_INICIO" Nullable="true" Precision="23" />
-          <Property Type="DateTime" Name="FECHA_FIN" Nullable="true" Precision="23" />
+          <Property Type="String" Name="FECHA_INICIO" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FECHA_FIN" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="RESERVA" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="ESTADORESERVA" Nullable="true" MaxLength="9" />
-          <Property Type="Decimal" Name="PRECIO_ALQUILER" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="PRECIO_ALQUILER" Nullable="false" Precision="18" Scale="2" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
