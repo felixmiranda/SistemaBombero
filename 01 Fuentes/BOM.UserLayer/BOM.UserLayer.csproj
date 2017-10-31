@@ -99,6 +99,7 @@
     <Content Include="Images\Cargando.gif" />
     <Content Include="Images\collapsed.png" />
     <Content Include="Images\collapsed2.png" />
+    <Content Include="Images\Ejemplo01.jpg" />
     <Content Include="Images\logo-login-advance.gif" />
     <Content Include="Images\logo-pie-realplaza.gif" />
     <Content Include="Images\logo_real_blanco.png" />
@@ -118,6 +119,7 @@
     <Content Include="js\jquery.min.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-ui-extras.js" />
+    <Content Include="Scripts\jquery.fancybox.min.js" />
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -131,6 +133,7 @@
     <Content Include="Styles\styles\controls.css" />
     <Content Include="Styles\styles\acordion.css" />
     <Content Include="Styles\styles\easyTables.css" />
+    <Content Include="Styles\styles\jquery.fancybox.min.css" />
     <Content Include="Styles\styles\jquery.rondell.css" />
     <Content Include="Styles\styles\pages.min.css" />
     <Content Include="Styles\styles\pixel-admin.min.css" />
