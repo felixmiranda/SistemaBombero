@@ -623,14 +623,24 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 lblUbicacionPopinfo.InnerText = HttpUtility.HtmlDecode(lista[0].pub_esp_c_vubicacion.ToString());
                 lbleareaPopinfo.InnerText = HttpUtility.HtmlDecode(lista[0].pu_esp_c_earea.ToString()) + " m2";
 
+                string imagesContent = HttpUtility.HtmlDecode(lista[0].pub_esp_imagenes.ToString());
+
+                List<string> regularImages = new List<string>();
+                List<string> miniImages = new List<string>();
+                if (imagesContent.Length > 0)
+                {
+                    List<string> listImages = imagesContent.Split('|').ToList();
+                    regularImages = listImages.Where(i => !i.Contains(".min.")).ToList();
+                    miniImages = listImages.Where(i => i.Contains(".min.")).ToList();
+                }
+
                 //string rutaImagenFTP = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["rutaImagen"]);
                 string rutaImagenFTP = ConfigurationManager.AppSettings["rutaImagen"];
 
                 ArrayList ListaImagen = new ArrayList();
-                string[] Archivos = System.IO.Directory.GetFiles(Server.MapPath("~/Images"), "*.*");
-                foreach (string archivo in Archivos)
+                foreach (string archivo in miniImages)
                 {
-                    ListaImagen.Add("~/Images/" + System.IO.Path.GetFileName(archivo));
+                    ListaImagen.Add(rutaImagenFTP + System.IO.Path.GetFileName(archivo));
                 }
                 repeaterImage.DataSource = ListaImagen;
                 repeaterImage.DataBind();
@@ -958,7 +968,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
                     ScriptManager.RegisterStartupScript(Page, this.GetType(), "error", "javascript:f_AbrirPopAccion();", true);
                 }
             }
-            catch (Exception)
+            catch (Exception ex )
             {
                 
                 throw;
@@ -1151,7 +1161,8 @@ namespace BOM.UserLayer.Interfaces.Reserve
             List<DIO_PUB_T_TIPO_ASIGNACION> lista = _blReserveSpace.f_listar_pub_tipo_asignacionBL();
             if (lista.Count > 0)
             {
-                UIPage.Fill(lista, "tip_asig_c_iid", "tip_asig_c_vnomb", ddlTipoAsignacion, "SELECCIONE", "0");
+                //UIPage.Fill(lista, "tip_asig_c_iid", "tip_asig_c_vnomb", ddlTipoAsignacion, "SELECCIONE", "0");
+                UIPage.Fill(lista, "tip_asig_c_iid", "tip_asig_c_vnomb", ddlTipoAsignacion, null, null);
             }
         }
 
@@ -1231,6 +1242,48 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 m_EliminarFechaTabla(gvFechasReserva, Convert.ToInt32(lblidespacioReserva.Text), iIndex);
             }
         }
+
+        private void m_EliminarFechaTablaPrincipal(GridView gvFechasReserva, int pi_despacioReserva, int pi_Index)
+        {
+            Dictionary<int, List<DateTime>> dicFechas;
+            if (ViewState["TempDicFecha"] != null)
+                dicFechas = (Dictionary<int, List<DateTime>>)ViewState["TempDicFecha"];
+            else
+                dicFechas = new Dictionary<int, List<DateTime>>();
+            if (dicFechas == null)
+                dicFechas = new Dictionary<int, List<DateTime>>();
+            List<DateTime> lisFechas = dicFechas[pi_despacioReserva];
+
+            lisFechas.Remove(lisFechas[pi_Index]);
+            gvFechasReservaPrincipal.DataSource = lisFechas;
+            gvFechasReservaPrincipal.DataBind();
+            ViewState["TempDicFecha"] = dicFechas;
+        }
+        private void m_AgregarFechaPrincipal(GridView gvFechasReserva, int pi_despacioReserva, DateTime pdt_Fecha)
+        {
+            Dictionary<int, List<DateTime>> dicFechas;
+            if (ViewState["TempDicFecha"] != null)
+                dicFechas = (Dictionary<int, List<DateTime>>)ViewState["TempDicFecha"];
+            else
+                dicFechas = new Dictionary<int, List<DateTime>>();
+            if (dicFechas == null)
+                dicFechas = new Dictionary<int, List<DateTime>>();
+            List<DateTime> lisFechas;
+            if (dicFechas.ContainsKey(pi_despacioReserva))
+                lisFechas = dicFechas[pi_despacioReserva];
+            else
+            {
+                dicFechas.Add(pi_despacioReserva, new List<DateTime>());
+                lisFechas = dicFechas[pi_despacioReserva];
+            }
+            if (!lisFechas.Contains(pdt_Fecha))
+                if (pdt_Fecha > DateTime.Now)
+                    lisFechas.Add(pdt_Fecha);
+            lisFechas.Sort();
+            gvFechasReservaPrincipal.DataSource = lisFechas;
+            gvFechasReservaPrincipal.DataBind();
+            ViewState["TempDicFecha"] = dicFechas;
+        }
         private void m_EliminarFechaTabla(GridView gvFechasReserva, int pi_despacioReserva, int pi_Index)
         {
             Dictionary<int, List<DateTime>> dicFechas;
@@ -1294,36 +1347,97 @@ namespace BOM.UserLayer.Interfaces.Reserve
             {
                 mensajeFinal = "- Seleccione el ejecutivo BTL.<br/>";
             }
-            foreach (DataListItem control in dtlistEspacios.Controls)
+
+            if (!chkAplicarPeriodoTodos.Checked)
             {
-                mensajeTab = "";
-                //
-                Label nombTabReserva = control.FindControl("lblnombTabReserva") as Label;
-                //
-                DropDownList ddlElementoReserva = control.FindControl("ddlElementoReserva") as DropDownList;
-                TextBox txtDescActivacionReserva = control.FindControl("txtDescActivacionReserva") as TextBox;
-                DropDownList ddlTipoAsignacion = control.FindControl("ddlTipoAsignacion") as DropDownList;
-                TextBox txtDimensionReserva = control.FindControl("txtDimensionReserva") as TextBox;
-                TextBox txtPrecioFinReserva = control.FindControl("txtPrecioFinReserva") as TextBox;
-
-                RadioButton rbIntermitenteReserva = control.FindControl("rbIntermitenteReserva") as RadioButton;
-                RadioButton rbContinuoReserva = control.FindControl("rbContinuoReserva") as RadioButton;
-
-                TextBox txtfechaDesdeReserva = control.FindControl("txtfechaDesdeReserva") as TextBox;
-                TextBox txtfechaHastaReserva = control.FindControl("txtfechaHastaReserva") as TextBox;
-
-                GridView gvfechasReserva = control.FindControl("gvFechasReserva") as GridView;
-
-                Label lblidproductoReserva = control.FindControl("lblidproductoReserva") as Label;
-
-                mensajeTab = f_validarControlesxTab(Convert.ToInt32(lblidproductoReserva.Text), ddlElementoReserva, txtDescActivacionReserva, ddlTipoAsignacion,
-                              txtDimensionReserva, txtPrecioFinReserva, rbIntermitenteReserva, rbContinuoReserva,
-                              txtfechaDesdeReserva, txtfechaHastaReserva, gvfechasReserva);
-               
-                if (mensajeTab != "")
+                foreach (DataListItem control in dtlistEspacios.Controls)
                 {
-                    mensajeFinal += "* " + nombTabReserva.Text + "<br/>" + mensajeTab + "<br/>";
+                    mensajeTab = "";
+                    //
+                    Label nombTabReserva = control.FindControl("lblnombTabReserva") as Label;
+                    //
+                    DropDownList ddlElementoReserva = control.FindControl("ddlElementoReserva") as DropDownList;
+                    TextBox txtDescActivacionReserva = control.FindControl("txtDescActivacionReserva") as TextBox;
+                    DropDownList ddlTipoAsignacion = control.FindControl("ddlTipoAsignacion") as DropDownList;
+                    TextBox txtDimensionReserva = control.FindControl("txtDimensionReserva") as TextBox;
+                    TextBox txtPrecioFinReserva = control.FindControl("txtPrecioFinReserva") as TextBox;
+
+                    RadioButton rbIntermitenteReserva = control.FindControl("rbIntermitenteReserva") as RadioButton;
+                    RadioButton rbContinuoReserva = control.FindControl("rbContinuoReserva") as RadioButton;
+
+                    TextBox txtfechaDesdeReserva = control.FindControl("txtfechaDesdeReserva") as TextBox;
+                    TextBox txtfechaHastaReserva = control.FindControl("txtfechaHastaReserva") as TextBox;
+
+                    GridView gvfechasReserva = control.FindControl("gvFechasReserva") as GridView;
+
+                    Label lblidproductoReserva = control.FindControl("lblidproductoReserva") as Label;
+
+                    mensajeTab = f_validarControlesxTab(Convert.ToInt32(lblidproductoReserva.Text), ddlElementoReserva, txtDescActivacionReserva, ddlTipoAsignacion,
+                                  txtDimensionReserva, txtPrecioFinReserva, rbIntermitenteReserva, rbContinuoReserva,
+                                  txtfechaDesdeReserva, txtfechaHastaReserva, gvfechasReserva);
+
+                    if (mensajeTab != "")
+                    {
+                        mensajeFinal += "* " + nombTabReserva.Text + "<br/>" + mensajeTab + "<br/>";
+                    }
+               
                 }
+
+
+            }
+            else
+            {
+                if (rbContinuoReservaPrincipal.Checked)
+                {
+                    bool rangofechasCorrecto = true;
+                    if (txtfechaDesdeReservaPrincipal.Text.Trim() == "")
+                    {
+                        mensajeFinal += "- Ingrese la fecha DESDE del periodo continuo.<br/>";
+                        rangofechasCorrecto = false;
+                    }
+
+                    else if (!fechaValida(txtfechaDesdeReservaPrincipal.Text.Trim()))
+                    {
+                        mensajeFinal += "- Fecha DESDE del periodo continuo inválida.<br/>";
+                        rangofechasCorrecto = false;
+                    }
+
+                    if (txtfechaHastaReservaPrincipal.Text.Trim() == "")
+                    {
+                        mensajeFinal += "- Ingrese la fecha HASTA del periodo continuo.<br/>";
+                        rangofechasCorrecto = false;
+                    }
+                    else if (!fechaValida(txtfechaHastaReservaPrincipal.Text.Trim()))
+                    {
+                        mensajeFinal += "- Fecha HASTA del periodo continuo inválida.<br/>";
+                        rangofechasCorrecto = false;
+                    }
+                    if (rangofechasCorrecto)
+                    {
+                        // validar mayor en fechas 
+                        string fechaActual = DateTime.Today.ToShortDateString();
+                        string fechaDesde = Convert.ToDateTime(txtfechaDesdeReservaPrincipal.Text.Trim()).ToShortDateString();
+                        string fechaHasta = Convert.ToDateTime(txtfechaHastaReservaPrincipal.Text.Trim()).ToShortDateString();
+                        DateTime dfechaDesde = Convert.ToDateTime(fechaDesde);
+                        DateTime dfechaHasta = Convert.ToDateTime(fechaHasta);
+                        DateTime dfechaActual = Convert.ToDateTime(fechaActual);
+                        if (dfechaDesde < dfechaActual)
+                            mensajeFinal += "- La fecha DESDE no debe ser menor a la fecha actual.</br>";
+                        if (dfechaDesde > dfechaHasta) //fecha desde es mayor que fecha hasta
+                        {
+                            mensajeFinal += "- La fecha DESDE no debe ser mayor a la fecha HASTA.</br>";
+                        }
+                    }
+                }
+                if (rbIntermitenteReservaPrincipal.Checked)
+                {
+                //TODO: Pendiente fechas principal FMR 
+                    if ((gvFechasReservaPrincipal.Rows.Count == 0))
+                    {
+                        mensajeFinal += "- Seleccione fecha(s) para la reserva en el periodo intermitente.</br>";
+                    }
+                }
+
             }
 
             return mensajeFinal;
@@ -1340,14 +1454,14 @@ namespace BOM.UserLayer.Interfaces.Reserve
             {
                 msjvalidacionTab += "  - Seleccione el tipo de activación.<br/>";
             }
-            if (txtDescActivacionReserva.Text.Trim() == "")
-            {
-                msjvalidacionTab += "  - Ingrese la descripción de ativación o elemento.<br/>";
-            }
-            if (Convert.ToInt16(ddlTipoAsignacion.SelectedValue) == 0)
-            {
-                msjvalidacionTab += "  - Seleccione el tipo de asignación.<br/>";
-            }
+            //if (txtDescActivacionReserva.Text.Trim() == "")
+            //{
+            //    msjvalidacionTab += "  - Ingrese la descripción de ativación o elemento.<br/>";
+            //}
+            //if (Convert.ToInt16(ddlTipoAsignacion.SelectedValue) == 0)
+            //{
+            //    msjvalidacionTab += "  - Seleccione el tipo de asignación.<br/>";
+            //}
             if (idproducto == 2)//si es BTL validar que no sea opcional
             {
                 if (txtDimensionReserva.Text.Trim() == "")
@@ -1499,13 +1613,28 @@ namespace BOM.UserLayer.Interfaces.Reserve
 
                             RadioButton rbIntermitenteReserva = control.FindControl("rbIntermitenteReserva") as RadioButton;
                             RadioButton rbContinuoReserva = control.FindControl("rbContinuoReserva") as RadioButton;
-                            if (rbContinuoReserva.Checked)
+
+                            if (!chkAplicarPeriodoTodos.Checked)
                             {
-                                objReserva.tipo_periodo_c_iid = 1;//CONTINUO
+                                if (rbContinuoReserva.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 1;//CONTINUO
+                                }
+                                else if (rbIntermitenteReserva.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 2;//INTERMITENTE
+                                }
                             }
-                            else if (rbIntermitenteReserva.Checked)
+                            else
                             {
-                                objReserva.tipo_periodo_c_iid = 2;//INTERMITENTE
+                                if (rbContinuoReservaPrincipal.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 1;
+                                }
+                                else if (rbIntermitenteReservaPrincipal.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 2; 
+                                }
                             }
 
                             DropDownList ddlElementoReserva = control.FindControl("ddlElementoReserva") as DropDownList;
@@ -1545,7 +1674,15 @@ namespace BOM.UserLayer.Interfaces.Reserve
                             {
                                 TextBox txtfechaDesdeReserva = control.FindControl("txtfechaDesdeReserva") as TextBox;
                                 TextBox txtfechaHastaReserva = control.FindControl("txtfechaHastaReserva") as TextBox;
-                                fechasValidadas = guardarDetalleReservaContinuo(txtfechaDesdeReserva, txtfechaHastaReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                if (!chkAplicarPeriodoTodos.Checked)
+                                {
+                                    fechasValidadas = guardarDetalleReservaContinuo(txtfechaDesdeReserva, txtfechaHastaReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                else
+                                {
+                                    fechasValidadas = guardarDetalleReservaContinuo(txtfechaDesdeReservaPrincipal, txtfechaHastaReservaPrincipal, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                
                                 if (!string.IsNullOrEmpty(fechasValidadas))
                                 {
                                     if (_blReserveSpace.f_eliminar_Reserva_CopadaTotalmenteBL(idReserva))
@@ -1560,7 +1697,15 @@ namespace BOM.UserLayer.Interfaces.Reserve
                             else if (objReserva.tipo_periodo_c_iid == 2)//PERIODO INTERMITENTE
                             {
                                 GridView gvReserva = control.FindControl("gvFechasReserva") as GridView;
-                                fechasValidadas = guardarDetalleReservaIntermitente(gvReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                if (!chkAplicarPeriodoTodos.Checked)
+                                {
+                                    fechasValidadas = guardarDetalleReservaIntermitente(gvReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                else
+                                {
+                                    fechasValidadas = guardarDetalleReservaIntermitente(gvFechasReservaPrincipal, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                
                                 if (!string.IsNullOrEmpty(fechasValidadas))
                                 {
                                     if (_blReserveSpace.f_eliminar_Reserva_CopadaTotalmenteBL(idReserva))
@@ -1577,14 +1722,30 @@ namespace BOM.UserLayer.Interfaces.Reserve
                             Label lblidespacioReserva = control.FindControl("lblidespacioReserva") as Label;
                             RadioButton rbIntermitenteReserva = control.FindControl("rbIntermitenteReserva") as RadioButton;
                             RadioButton rbContinuoReserva = control.FindControl("rbContinuoReserva") as RadioButton;
-                            if (rbContinuoReserva.Checked)
+
+                            if (!chkAplicarPeriodoTodos.Checked)
                             {
-                                objReserva.tipo_periodo_c_iid = 1;//CONTINUO
+                                if (rbContinuoReserva.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 1;//CONTINUO
+                                }
+                                else if (rbIntermitenteReserva.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 2;//INTERMITENTE
+                                }
                             }
-                            else if (rbIntermitenteReserva.Checked)
+                            else
                             {
-                                objReserva.tipo_periodo_c_iid = 2;//INTERMITENTE
+                                if (rbContinuoReservaPrincipal.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 1;
+                                }
+                                else if (rbIntermitenteReservaPrincipal.Checked)
+                                {
+                                    objReserva.tipo_periodo_c_iid = 2;
+                                }
                             }
+                            
                             DropDownList ddlElementoReserva = control.FindControl("ddlElementoReserva") as DropDownList;
                             DropDownList ddlTipoAsignacion = control.FindControl("ddlTipoAsignacion") as DropDownList;
                             objReserva.pub_esp_c_iid = Convert.ToInt16(lblidespacioReserva.Text);
@@ -1624,7 +1785,15 @@ namespace BOM.UserLayer.Interfaces.Reserve
                             {
                                 TextBox txtfechaDesdeReserva = control.FindControl("txtfechaDesdeReserva") as TextBox;
                                 TextBox txtfechaHastaReserva = control.FindControl("txtfechaHastaReserva") as TextBox;
-                                fechasValidadas = guardarDetalleReservaContinuo(txtfechaDesdeReserva, txtfechaHastaReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                if (!chkAplicarPeriodoTodos.Checked)
+                                {
+                                    fechasValidadas = guardarDetalleReservaContinuo(txtfechaDesdeReserva, txtfechaHastaReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                else
+                                {
+                                    fechasValidadas = guardarDetalleReservaContinuo(txtfechaDesdeReservaPrincipal, txtfechaHastaReservaPrincipal, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                
                                 if (!string.IsNullOrEmpty(fechasValidadas))
                                 {
                                     if (_blReserveSpace.f_eliminar_Reserva_CopadaTotalmenteBL(idReserva))
@@ -1639,7 +1808,15 @@ namespace BOM.UserLayer.Interfaces.Reserve
                             else if (objReserva.tipo_periodo_c_iid == 2)//PERIODO INTERMITENTE
                             {
                                 GridView gvReserva = control.FindControl("gvFechasReserva") as GridView;
-                                fechasValidadas = guardarDetalleReservaIntermitente(gvReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                if (!chkAplicarPeriodoTodos.Checked)
+                                {
+                                    fechasValidadas = guardarDetalleReservaIntermitente(gvReserva, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                else
+                                {
+                                    fechasValidadas = guardarDetalleReservaIntermitente(gvFechasReservaPrincipal, idReserva, objReserva.tipo_periodo_c_iid, objReserva.pub_esp_c_iid);
+                                }
+                                
                                 if (!string.IsNullOrEmpty(fechasValidadas))
                                 {
                                     if (_blReserveSpace.f_eliminar_Reserva_CopadaTotalmenteBL(idReserva))
@@ -2024,6 +2201,117 @@ namespace BOM.UserLayer.Interfaces.Reserve
             }
         }
         #endregion
+
+        protected void rbContinuoReservaPrincipal_CheckedChanged(object sender, EventArgs e)
+        {
+
+            txtfechaDesdeReservaPrincipal.Enabled = true;
+            txtfechaHastaReservaPrincipal.Enabled = true;
+            //FRMR
+            //RadioButton rbContinuoReservaPrincipal = (RadioButton)sender;
+            //DataListItem datalistPadrePrincipal = (DataListItem)rbContinuoReservaPrincipal.NamingContainer;
+            //RadioButton rbIntermitenteReservaPrincipal = (RadioButton)datalistPadrePrincipal.FindControl("rbIntermitenteReservaPrincipal");
+            //TextBox txtfechaDesdeReservaPrincipal = (TextBox)datalistPadrePrincipal.FindControl("txtfechaDesdeReservaPrincipal");
+            //TextBox txtfechaHastaReservaPrincipal = (TextBox)datalistPadrePrincipal.FindControl("txtfechaHastaReservaPrincipal");
+            //Calendar calendarFechasReservaPrincipal = (Calendar)datalistPadrePrincipal.FindControl("calendarFechasReservaPrincipal");
+            //GridView gvFechasReservaPrincipal = (GridView)datalistPadrePrincipal.FindControl("gvFechasReservaPrincipal");
+            //Label lblidespacioReservaPrincipal = (Label)datalistPadrePrincipal.FindControl("lblidespacioReservaPrincipal");
+
+            Dictionary<int, List<DateTime>> dicFechas;
+            if (ViewState["TempDicFecha"] != null)
+                dicFechas = (Dictionary<int, List<DateTime>>)ViewState["TempDicFecha"];
+            else
+                dicFechas = new Dictionary<int, List<DateTime>>();
+            if (dicFechas == null)
+                dicFechas = new Dictionary<int, List<DateTime>>();
+
+            //dicFechas[Convert.ToInt32(lblidespacioReservaPrincipal.Text)] = new List<DateTime>();
+            gvFechasReservaPrincipal.DataSource = new List<DateTime>();
+            gvFechasReservaPrincipal.DataBind();
+            ViewState["TempDicFecha"] = dicFechas;
+
+            rbIntermitenteReservaPrincipal.Checked = false;
+            txtfechaDesdeReservaPrincipal.Enabled = true;
+            txtfechaHastaReservaPrincipal.Enabled = true;
+            calendarFechasReservaPrincipal.Visible = false;
+            gvFechasReservaPrincipal.Visible = false;
+        }
+
+        protected void rbIntermitenteReservaPrincipal_CheckedChanged(object sender, EventArgs e)
+        {
+            
+            //FRMR
+            //RadioButton rbIntermitenteReservaPrincipal = (RadioButton)sender;
+            //DataListItem datalistPadrePrincipal = (DataListItem)rbIntermitenteReservaPrincipal.NamingContainer;
+            //RadioButton rbContinuoReservaPrincipal = (RadioButton)datalistPadrePrincipal.FindControl("rbContinuoReservaPrincipal");
+            //TextBox txtfechaDesdeReservaPrincipal = (TextBox)datalistPadrePrincipal.FindControl("txtfechaDesdeReservaPrincipal");
+            //TextBox txtfechaHastaReservaPrincipal = (TextBox)datalistPadrePrincipal.FindControl("txtfechaHastaReservaPrincipal");
+            //Calendar calendarFechasReservaPrincipal = (Calendar)datalistPadrePrincipal.FindControl("calendarFechasReservaPrincipal");
+            //GridView gvFechasReservaPrincipal = (GridView)datalistPadrePrincipal.FindControl("gvFechasReservaPrincipal");
+
+            txtfechaDesdeReservaPrincipal.Text = "";
+            txtfechaHastaReservaPrincipal.Text = "";
+
+            rbContinuoReservaPrincipal.Checked = false;
+            txtfechaDesdeReservaPrincipal.Enabled = false;
+            txtfechaHastaReservaPrincipal.Enabled = false;
+            calendarFechasReservaPrincipal.Visible = true;
+            gvFechasReservaPrincipal.Visible = true;
+        }
+
+        protected void calendarFechasReservaPrincipal_SelectionChanged(object sender, EventArgs e)
+        {
+            Dictionary<int, List<DateTime>> dicPrincFechas;
+            
+            Calendar calendarReserva = (Calendar)sender;
+            var fecha = calendarReserva.SelectedDate;
+            dicPrincFechas = (Dictionary<int, List<DateTime>>)ViewState["TempDicFecha"];
+            //DataListItem datalistPadre = (DataListItem)calendarReserva.NamingContainer;
+            //GridView gvReserva = (GridView)datalistPadre.FindControl("gvFechasReserva");
+            
+            //Label lblidespacioReserva = datalistPadre.FindControl("lblidespacioReserva") as Label;
+            foreach (var itemFec in dicPrincFechas)
+            {
+                m_AgregarFecha(gvFechasReservaPrincipal, Convert.ToInt32(itemFec.Key), calendarReserva.SelectedDate);
+            }
+            //m_AgregarFechaPrincipal(gvFechasReservaPrincipal, Convert.ToInt32(lblidespacioReserva.Text), calendarReserva.SelectedDate);
+            //m_AgregarFechaPrincipal(gvFechasReservaPrincipal,dicPrincFechas.ContainsKey( calendarReserva.SelectedDate);
+            calendarReserva.SelectedDate = new DateTime();
+        }
+
+        protected void gvFechasPrincipal_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Eliminar")
+            {
+                Dictionary<int, List<DateTime>> dicPrincFechas;
+                GridView gvFechasReserva = (GridView)sender;
+                dicPrincFechas = (Dictionary<int, List<DateTime>>)ViewState["TempDicFecha"];
+                //DataListItem datalistPadre = (DataListItem)gvFechasReserva.NamingContainer;
+                //Label lblidespacioReserva = datalistPadre.FindControl("lblidespacioReserva") as Label;
+
+                int iIndex = Convert.ToInt32(e.CommandArgument);
+
+                foreach (var itemToDelete in dicPrincFechas)
+                {
+                    m_EliminarFechaTablaPrincipal(gvFechasReserva, Convert.ToInt32(itemToDelete.Key), iIndex);
+                }
+                //m_EliminarFechaTablaPrincipal(gvFechasReserva, Convert.ToInt32(lblidespacioReserva.Text), iIndex);
+            }
+        }
+
+        protected void chkAplicarPeriodoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkAplicarPeriodoTodos.Checked)
+            {
+                rbContinuoReservaPrincipal.Enabled = true;
+                rbIntermitenteReservaPrincipal.Enabled = true;
+            }
+            else
+            {
+                rbContinuoReservaPrincipal.Enabled = false;
+                rbIntermitenteReservaPrincipal.Enabled = false;
+            }
+        }
     }
 
 }

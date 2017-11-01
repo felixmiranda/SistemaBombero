@@ -542,6 +542,69 @@
                                         </div>
                                     </div>
                                 </div>
+                                <%--Agregar codigo en esta parte FMR--%>
+                                 <div class="row" style="padding-top: 15px">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="col-xs-12 col-sm-12 col-md-12">
+                                            <asp:CheckBox ID="chkAplicarPeriodoTodos" runat="server" 
+                                                Text="Aplicar Periodo a todos los espacios" style="text-align: left !important" 
+                                                AutoPostBack="True" oncheckedchanged="chkAplicarPeriodoTodos_CheckedChanged" />
+                                            <%--<label class="control-label" style="text-align: left !important">
+                                                Periodo</label>--%>
+                                            <br />
+                                        </div>
+                                        <div class="col-xs-12 col-sm-5 col-md-5" style="padding-top: 15px">
+                                            <asp:RadioButton ID="rbContinuoReservaPrincipal" runat="server" Width="130px" Text="Continuo"
+                                                OnCheckedChanged="rbContinuoReservaPrincipal_CheckedChanged" 
+                                                AutoPostBack="true" Checked="True" Enabled="False" 
+                                                GroupName="PeriodoPrincipal" />
+                                            <div style="clear: both;">
+                                                <div style="width: 50%; float: left; text-align: left;">
+                                                    <asp:TextBox ID="txtfechaDesdeReservaPrincipal" runat="server" CssClass="form-control mydatepickerclass"
+                                                        Placeholder="Desde" onkeypress="return NoJavaScript(event)" 
+                                                        Enabled="False"></asp:TextBox>
+                                                </div>
+                                                <div style="width: 50%; float: left; text-align: left; padding-left: 15px">
+                                                    <asp:TextBox ID="txtfechaHastaReservaPrincipal" runat="server" CssClass="form-control mydatepickerclass"
+                                                        Placeholder="Hasta" onkeypress="return NoJavaScript(event)" 
+                                                        Enabled="False"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-7 col-md-7" style="padding-top: 15px">
+                                            <asp:RadioButton ID="rbIntermitenteReservaPrincipal" runat="server" 
+                                                Width="130px" Text="Intermitente"
+                                                OnCheckedChanged="rbIntermitenteReservaPrincipal_CheckedChanged" 
+                                                AutoPostBack="true" Visible="True" Enabled="False" 
+                                                GroupName="PeriodoPrincipal" />
+                                            <div style="clear: both;">
+                                                <div style="width: 50%; float: left; text-align: left; padding-left: 15px;">
+                                                    <asp:Calendar ID="calendarFechasReservaPrincipal" runat="server" 
+                                                        CssClass="mCalendar" OtherMonthDayStyle-CssClass="csOtroDia"
+                                                            TitleStyle-CssClass="csCalendarEstilo" OnSelectionChanged="calendarFechasReservaPrincipal_SelectionChanged"
+                                                        Visible="False" ></asp:Calendar>
+                                                </div>
+                                                <div style="width: 50%; float: left; text-align: left; padding-left: 15px; overflow: auto;">
+                                                    <asp:GridView ID="gvFechasReservaPrincipal" runat="server" AutoGenerateColumns="false" DataKeyNames="Date"
+                                                        CellSpacing="2" CellPadding="4" Width="200px" GridLines="None" BorderWidth="1px"
+                                                        ShowHeader="False" OnRowCommand="gvFechasPrincipal_RowCommand" Visible="False">
+                                                        <Columns>
+                                                            <asp:BoundField DataField="Date" HeaderStyle-Width="150px" DataFormatString="{0:dd/MM/yyyy}" />
+                                                            <asp:TemplateField ShowHeader="False" HeaderStyle-Width="20px">
+                                                                <ItemTemplate>
+                                                                    <asp:LinkButton ID="lnkbtnEliminarPrincipal" runat="server" CommandName="Eliminar" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"
+                                                                        ToolTip="Eliminar">X</asp:LinkButton>
+                                                                </ItemTemplate>
+                                                                <ItemStyle Font-Bold="true" />
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>  
+                                </div>
+                                <%--FIN DE CODIGO FMR--%>
                                 <br />
                                 <div class="row">
                                     <asp:DataList ID="dtlistEspacios" runat="server" Style="width: 100%" OnItemDataBound="dtlistEspacios_ItemDataBound">
@@ -613,7 +676,7 @@
                                                                                 <div style="clear: both;">
                                                                                     <div style="width: 100%; float: left; text-align: left;">
                                                                                         <label class="control-label" style="text-align: left !important">
-                                                                                            Descripción de activación o elemento <span class="requerido">(*)</span></label>
+                                                                                            Descripción de activación o elemento </label>
                                                                                         <br />
                                                                                         <asp:TextBox ID="txtDescActivacionReserva" MaxLength="500" CssClass="form-control"
                                                                                             Style="width: 100%; resize: none" runat="server" TextMode="MultiLine" onkeypress="return NoJavaScript(event)"></asp:TextBox>
@@ -646,7 +709,7 @@
                                                                                 <div style="clear: both;">
                                                                                     <div style="width: 50%; float: left; text-align: left;">
                                                                                         <label class="control-label" style="text-align: left !important">
-                                                                                            Tipo de Asignación <span class="requerido">(*)</span></label>
+                                                                                            Tipo de Asignación </label>
                                                                                         <br />
                                                                                         <%--<asp:UpdatePanel ID="UpdatePanel4" runat="server" UpdateMode="Conditional">
                                                                                             <ContentTemplate>--%>
@@ -1124,10 +1187,9 @@
                                     <div id="rondellCarousel">
                                         <asp:Repeater ID="repeaterImage" runat="server">
                                             <ItemTemplate>
-                                               <a href="<%# Container.DataItem %>">
+                                                    <a data-fancybox="gallery" href="<%# Container.DataItem.ToString().Replace(".min","") %>">
                                                     <img src="<%# Container.DataItem %>" />
                                                </a>
-                                                
                                             </ItemTemplate>
                                         </asp:Repeater>
                                     </div>

@@ -365,9 +365,9 @@ namespace BOM.DataLayer.Interfaces.Reserve
                 }
                 return Convert.ToInt16(pi_cabecera.Value);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw ;
             }
         }
         public void f_actualizar_reserva_cabeceraDA(DIO_PUB_T_RESERVA obj)

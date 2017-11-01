@@ -274,6 +274,69 @@ namespace BOM.UserLayer.Interfaces.Reserve {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblfechavencimientoReserva;
         
         /// <summary>
+        /// chkAplicarPeriodoTodos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox chkAplicarPeriodoTodos;
+        
+        /// <summary>
+        /// rbContinuoReservaPrincipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbContinuoReservaPrincipal;
+        
+        /// <summary>
+        /// txtfechaDesdeReservaPrincipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtfechaDesdeReservaPrincipal;
+        
+        /// <summary>
+        /// txtfechaHastaReservaPrincipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtfechaHastaReservaPrincipal;
+        
+        /// <summary>
+        /// rbIntermitenteReservaPrincipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbIntermitenteReservaPrincipal;
+        
+        /// <summary>
+        /// calendarFechasReservaPrincipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar calendarFechasReservaPrincipal;
+        
+        /// <summary>
+        /// gvFechasReservaPrincipal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvFechasReservaPrincipal;
+        
+        /// <summary>
         /// dtlistEspacios control.
         /// </summary>
         /// <remarks>

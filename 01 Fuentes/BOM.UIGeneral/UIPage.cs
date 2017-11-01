@@ -50,10 +50,14 @@ namespace BOM.UIGeneral
             Cbo.DataValueField = ValueField;
             Cbo.DataTextField = TextField;
 
-            if (strEmptyText.Length != 0 && strEmptyValue.Length != 0)
+            if (!String.IsNullOrEmpty(strEmptyValue) && !String.IsNullOrEmpty(strEmptyText))
             {
-                Cbo.Items.Add(new ListItem(strEmptyText, strEmptyValue));
+                if (strEmptyText.Length != 0 && strEmptyValue.Length != 0)
+                {
+                    Cbo.Items.Add(new ListItem(strEmptyText, strEmptyValue));
+                }    
             }
+            
 
             if (Lst != null)
             {
