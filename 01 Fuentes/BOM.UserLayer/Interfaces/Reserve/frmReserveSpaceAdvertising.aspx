@@ -1255,14 +1255,17 @@
                                             CssClass="table table-bordered" HeaderStyle-CssClass="tbl_cabecerareal" Style="font-size: 10;
                                             text-align: center;">
                                             <Columns>
-                                                <asp:BoundField DataField="fecha" HeaderText="FECHA" DataFormatString="{0:dd/MM/yyyy}">
-                                                    <HeaderStyle Width="15%" CssClass="HeaderOcupacion" />
+                                               <asp:BoundField DataField="fecha" HeaderText="FECHA" DataFormatString="{0:dd/MM/yyyy}">
+                                                    <HeaderStyle Width="10%" CssClass="HeaderOcupacion" />
                                                 </asp:BoundField>
                                                 <asp:BoundField DataField="estado" HeaderText="ESTADO">
-                                                    <HeaderStyle Width="15%" CssClass="HeaderOcupacion" />
+                                                    <HeaderStyle Width="10%" CssClass="HeaderOcupacion" />
                                                 </asp:BoundField>
                                                 <asp:BoundField DataField="detalle" HeaderText="DETALLE">
-                                                    <HeaderStyle CssClass="HeaderOcupacion" />
+                                                    <HeaderStyle Width="40%" CssClass="HeaderOcupacion" />
+                                                </asp:BoundField>
+                                                <asp:BoundField DataField="ClienteMarca" HeaderText="CLIENTE - MARCA">
+                                                    <HeaderStyle Width="40%" CssClass="HeaderOcupacion" />
                                                 </asp:BoundField>
                                             </Columns>
                                         </asp:GridView>

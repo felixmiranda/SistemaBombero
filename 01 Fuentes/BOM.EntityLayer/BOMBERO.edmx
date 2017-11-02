@@ -753,6 +753,7 @@
           <Property Type="DateTime" Name="fecha" Nullable="true" Precision="23" />
           <Property Type="String" Name="estado" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="detalle" Nullable="true" />
+          <Property Type="String" Name="ClienteMarca" Nullable="false" MaxLength="403" />
         </ComplexType>
         <EntityType Name="ADV_T_CLIENTE">
           <Key>
@@ -1231,6 +1232,7 @@
                 <ScalarProperty Name="fecha" ColumnName="fecha" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="ClienteMarca" ColumnName="ClienteMarca" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

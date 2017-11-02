@@ -8314,10 +8314,12 @@ namespace BOM.EntityLayer
         /// Crear un nuevo objeto SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result.
         /// </summary>
         /// <param name="estado">Valor inicial de la propiedad estado.</param>
-        public static SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result CreateSP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result(global::System.String estado)
+        /// <param name="clienteMarca">Valor inicial de la propiedad ClienteMarca.</param>
+        public static SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result CreateSP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result(global::System.String estado, global::System.String clienteMarca)
         {
             SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result sP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result = new SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result();
             sP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result.estado = estado;
+            sP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result.ClienteMarca = clienteMarca;
             return sP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result;
         }
 
@@ -8396,6 +8398,30 @@ namespace BOM.EntityLayer
         private global::System.String _detalle;
         partial void OndetalleChanging(global::System.String value);
         partial void OndetalleChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ClienteMarca
+        {
+            get
+            {
+                return _ClienteMarca;
+            }
+            set
+            {
+                OnClienteMarcaChanging(value);
+                ReportPropertyChanging("ClienteMarca");
+                _ClienteMarca = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("ClienteMarca");
+                OnClienteMarcaChanged();
+            }
+        }
+        private global::System.String _ClienteMarca;
+        partial void OnClienteMarcaChanging(global::System.String value);
+        partial void OnClienteMarcaChanged();
 
         #endregion
 
