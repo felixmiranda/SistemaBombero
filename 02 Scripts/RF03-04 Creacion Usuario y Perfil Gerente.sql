@@ -1,4 +1,12 @@
 
+-- EL CORRELATIVO SE OBTIENE DEL PASO 1
+
+-- 21 -> GERENTE DE MALL
+declare @PerfilNuevo int
+
+select @PerfilNuevo = perf_c_yid from [dbo].[SGA_T_PERFIL]
+where perf_c_vnomb = 'Gerente de Mall'
+
 INSERT INTO [dbo].[SGA_T_USUARIO]
            ([usua_c_cusu_red]
            ,[usua_c_cape_pat]
@@ -38,7 +46,7 @@ INSERT INTO [dbo].[SGA_T_USUARIO_PERFIL]
            ,[bita_c_vusu_red_reg]
            ,[bita_c_vnom_completo_reg])
      VALUES
-           (21
+           (@PerfilNuevo
            ,'18216010'
            ,'A'
            ,GETDATE()

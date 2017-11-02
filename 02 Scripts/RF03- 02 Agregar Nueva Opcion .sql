@@ -1,3 +1,7 @@
+declare @Menu_c_iid int 
+
+select @Menu_c_iid = Menu_c_iid from SGA_T_MENU where menu_c_vnomb = 'PUBLICIDAD'
+
 --REGISTRAR NUEVO SUB MENU
 INSERT INTO SGA_T_MENU (
 		menu_c_iid_padre, 
@@ -9,7 +13,7 @@ INSERT INTO SGA_T_MENU (
 		bita_c_vusu_red_reg, 
 		bita_c_vnom_completo_reg
 ) VALUES (
-		1022, -- MENU PADRE
+		@Menu_c_iid, -- MENU PADRE
 		'Reporte de espacio publicitario', 
 		2, -- NIVEL - SUB MENU
 		'/Interfaces/Reserve/frmSpaceAdvertinsingReport.aspx', 
