@@ -280,6 +280,11 @@
                                     AutoPostBack="true">
                                 </asp:DropDownList>
                             </div>
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4" style="text-align: right;padding-top: 26px;padding-right: 15px;">
+                                <asp:CheckBox ID="chkSoloDisponible" runat="server" Text="Solo disponibles"/>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-xs-12 col-sm-6 col-md-6">

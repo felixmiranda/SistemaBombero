@@ -35,6 +35,7 @@ namespace BOM.BusinessLayer.Interfaces.Reserve
         IList<DIO_SP_REQUISITO_PUBLICIDAD_LISTAR_Result> f_ListarConfiguracionRequisitosBL();
         int f_cerrar_ReservaBL(int idMaster);
         IList<SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result> f_obtenerEspaciosNoDisponiblesBL(string cadena_espacios_sw,DateTime fechaDesde,DateTime fechaHasta);
+        IList<SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result> f_obtenerReservaEspaciosNoDisponiblesBL(string cadena_espacios_sw, DateTime fechaDesde, DateTime fechaHasta);
         void f_modificar_Prioridad_ReservaBL(int idReservaAfecto);
 
         List<DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER_Result> f_listar_reservas_pendientes_xidmasterBL(int reser_mast_c_iid);
@@ -84,7 +85,10 @@ namespace BOM.BusinessLayer.Interfaces.Reserve
         {
             return new ReserveSpaceAdvertisingDA().f_obtenerEspaciosNoDisponiblesDA(cadena_espacios_sw, fechaDesde, fechaHasta);
         }
-
+        public IList<SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result> f_obtenerReservaEspaciosNoDisponiblesBL(string cadena_espacios_sw, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return new ReserveSpaceAdvertisingDA().f_obtenerReservaEspaciosNoDisponiblesDA(cadena_espacios_sw, fechaDesde, fechaHasta);
+        }
         
         public List<DIO_PUB_T_TIPO_ASIGNACION> f_listar_pub_tipo_asignacionBL()
         {

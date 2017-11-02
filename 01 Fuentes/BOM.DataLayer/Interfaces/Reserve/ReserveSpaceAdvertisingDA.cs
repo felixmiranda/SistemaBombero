@@ -35,6 +35,7 @@ namespace BOM.DataLayer.Interfaces.Reserve
         IList<DIO_SP_REQUISITO_PUBLICIDAD_LISTAR_Result> f_ListarConfiguracionRequisitosDA();
         int f_cerrar_ReservaDA(int idMaster);
         IList<SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result> f_obtenerEspaciosNoDisponiblesDA(string cadena_espacios_sw, DateTime fechaDesde, DateTime fechaHasta);
+        IList<SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result> f_obtenerReservaEspaciosNoDisponiblesDA(string cadena_espacios_sw, DateTime fechaDesde, DateTime fechaHasta);
         void f_modificar_Prioridad_ReservaDA(int idReservaAfecto);
 
         List<DIO_SP_PUB_RESERVA_PENDIENTE_XID_MASTER_Result> f_listar_reservas_pendientes_xidmasterDA(int idmaster);
@@ -251,7 +252,23 @@ namespace BOM.DataLayer.Interfaces.Reserve
                 throw;
             }
         }
-
+        public IList<SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result> f_obtenerReservaEspaciosNoDisponiblesDA(string cadena_espacios_sw, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            try
+            {
+                using (BD_DIONISIOEntities contexto = new BD_DIONISIOEntities())
+                {
+                    return contexto.SP_PUB_RESERVA_LISTA_NO_DISPONIBLE(
+                        fechaDesde,
+                        fechaHasta,
+                        cadena_espacios_sw).ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         public List<DIO_SP_PUB_RESERVA_ENMEMORIA_XIDMASTER_LISTAR_Result> f_listar_reservas_enmemoria_xidmasterDA(int reser_mast_c_iid)
         {
             try

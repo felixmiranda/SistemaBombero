@@ -277,11 +277,15 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 }
                 else cadena_espacios_sw += "," + item.PUB_ESP_C_IID;
             }
-            IList<SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result> lst_no_disponibles = new List<SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result>();
+            IList<SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result> lst_no_disponibles = new List<SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result>();
             
             _blReserveSpace = new ReserveSpaceAdvertisingBL();
-            //lst_no_disponibles = _blReserveSpace.f_obtenerEspaciosNoDisponiblesBL(cadena_espacios_sw, 
-            //    Convert.ToDateTime(txtfechaDesdeFiltro.Text.Trim()), Convert.ToDateTime(txtfechaHastaFiltro.Text.Trim()));
+            if (chkSoloDisponible.Checked)
+            {
+                lst_no_disponibles = _blReserveSpace.f_obtenerReservaEspaciosNoDisponiblesBL(cadena_espacios_sw,
+                Convert.ToDateTime(txtfechaDesdeFiltro.Text.Trim()), Convert.ToDateTime(txtfechaHastaFiltro.Text.Trim()));
+            }
+            
             var listTemp = new[] { obj }.ToList();
             listTemp.Clear();
             foreach (var item in lista)
@@ -308,12 +312,12 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 return 0;
             }
         }
-        bool EspacioDisponible(int idespacio, IList<SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result> lst_no_disponibles)
+        bool EspacioDisponible(int idespacio, IList<SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result> lst_no_disponibles)
         {
             bool ver = true;
-            foreach (SP_PUB_ESPACIOS_NO_DISPONIBLE_LISTAR_Result obj in lst_no_disponibles)
+            foreach (SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result obj in lst_no_disponibles)
             {
-                if (obj.pub_esp_c_iid == idespacio)
+                if (obj.pub_esp_c_idd == idespacio)
                 {
                     ver = false;
                     break;
