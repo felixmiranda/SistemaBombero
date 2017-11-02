@@ -2,8 +2,8 @@
 USE DIONISIO
 go
 
-CREATE PROCEDURE SP_EnvioCorreo_03_dias_Antes_Reserva_Vendida
-----Descripción		: Store procedure . Envio de corroe 03 dias antes de la fecha fin de la reserva VENDIDA.
+CREATE PROCEDURE SP_EnvioCorreo_01_dias_Antes_Reserva
+----Descripción		: Store procedure . Envio de corroe 01 dias antes del vencimiento de la reserva.
 ----Retorno			: ------
 ----Notas			: N/A
 ----Autor y CodRed	: Felix Miranda / 
@@ -27,8 +27,9 @@ inner join [PUBLICIDAD].[DIO_PUB_T_MARCA] MAR on MAR.marc_c_icod = RE.marc_c_ico
 INNER JOIN [ADVANCE].[ADV_T_INMUEBLE] I ON I.inm_c_icod = RE.inm_c_icod
 INNER JOIN [ANUBIS_BOM].dbo.[SGA_T_USUARIO] U on u.usua_c_cdoc_id = ma.ejec_c_cdoc_id
 where 
-DATEDIFF(DAY,Convert(varchar(10),GETDATE(),103),Convert(varchar(10),RE.reser_c_dfech_vencimiento,103) ) = 3
-and re.esp_ocu_est_c_iid = 3 --Reserva VENDIDA
+DATEDIFF(DAY,Convert(varchar(10),GETDATE(),103),Convert(varchar(10),RE.reser_c_dfech_vencimiento,103) ) = 1
+and re.esp_ocu_est_c_iid = 2 and re.reser_c_flat_bpendiente = 0
+
 
 declare @TableDinamica nvarchar(max);
 declare @RowsMax int 
