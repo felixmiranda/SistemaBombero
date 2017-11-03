@@ -20,9 +20,7 @@ select @Menu_c_iid_02  = Menu_c_iid  from SGA_T_MENU where menu_c_vnomb = 'Reser
 select @Menu_c_iid_03  = Menu_c_iid  from SGA_T_MENU where menu_c_vnomb = 'Aprobación de espacio vendido'
 select @Menu_c_iid_04  = Menu_c_iid  from SGA_T_MENU where menu_c_vnomb = 'Reporte de espacio publicitario'
 
-'Reserva de espacio publicitario'
-'Aprobación de espacio vendido'
-'Reporte de espacio publicitario'
+
 
 
 INSERT INTO SGA_T_PERFIL_MENU (
@@ -50,7 +48,7 @@ INSERT INTO SGA_T_PERFIL_MENU (
 		'SISTEMA',
 		'SISTEMA'
 );
-GO
+
 
 INSERT INTO SGA_T_PERFIL_MENU (
 		perf_c_yid,
@@ -77,7 +75,7 @@ INSERT INTO SGA_T_PERFIL_MENU (
 		'SISTEMA',
 		'SISTEMA'
 );
-GO
+
 
 INSERT INTO SGA_T_PERFIL_MENU (
 		perf_c_yid,
@@ -104,7 +102,7 @@ INSERT INTO SGA_T_PERFIL_MENU (
 		'SISTEMA',
 		'SISTEMA'
 );
-GO
+
 
 INSERT INTO SGA_T_PERFIL_MENU (
 		perf_c_yid,
@@ -131,7 +129,7 @@ INSERT INTO SGA_T_PERFIL_MENU (
 		'SISTEMA',
 		'SISTEMA'
 );
-GO
+
 INSERT INTO SGA_T_PERFIL_MENU (
 		perf_c_yid,
 		menu_c_iid,

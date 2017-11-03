@@ -1,5 +1,16 @@
+IF EXISTS ( SELECT * 
+            FROM   sysobjects 
+            WHERE  id = object_id(N'[PUBLICIDAD].[SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR]') 
+                   and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+BEGIN
+    DROP PROCEDURE [PUBLICIDAD].[SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR]
+END
 
-ALTER procedure [PUBLICIDAD].[SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR]
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE procedure [PUBLICIDAD].[SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR]
 --------Descripción		: SP que devuelve el detalle de la ocupacion por espacio y elemento entre un rago de fechas.
 --------Retorno			: Lista de los espacios x FILTRO multiple 
 --------Notas				: N/A

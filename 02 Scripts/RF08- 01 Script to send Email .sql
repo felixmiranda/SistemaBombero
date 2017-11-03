@@ -1,8 +1,17 @@
+IF EXISTS ( SELECT * 
+            FROM   sysobjects 
+            WHERE  id = object_id(N'[PUBLICIDAD].[SP_EnvioCorreo_03_dias_Antes_Reserva_Vendida]') 
+                   and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+BEGIN
+    DROP PROCEDURE [PUBLICIDAD].[SP_EnvioCorreo_03_dias_Antes_Reserva_Vendida]
+END
 
-USE DIONISIO
-go
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-CREATE PROCEDURE SP_EnvioCorreo_03_dias_Antes_Reserva_Vendida
+CREATE PROCEDURE [PUBLICIDAD].SP_EnvioCorreo_03_dias_Antes_Reserva_Vendida
 ----Descripción		: Store procedure . Envio de corroe 03 dias antes de la fecha fin de la reserva VENDIDA.
 ----Retorno			: ------
 ----Notas			: N/A
@@ -26,9 +35,12 @@ INNER JOIN PUBLICIDAD.DIO_PUB_T_RESERVA  RE on ma.reser_mast_c_iid = re.reser_ma
 inner join [PUBLICIDAD].[DIO_PUB_T_MARCA] MAR on MAR.marc_c_icod = RE.marc_c_icod
 INNER JOIN [ADVANCE].[ADV_T_INMUEBLE] I ON I.inm_c_icod = RE.inm_c_icod
 INNER JOIN [ANUBIS_BOM].dbo.[SGA_T_USUARIO] U on u.usua_c_cdoc_id = ma.ejec_c_cdoc_id
-where 
-DATEDIFF(DAY,Convert(varchar(10),GETDATE(),103),Convert(varchar(10),RE.reser_c_dfech_vencimiento,103) ) = 3
-and re.esp_ocu_est_c_iid = 3 --Reserva VENDIDA
+WHERE
+DATEDIFF(DAY,Convert(varchar(10),GETDATE(),103),Convert(varchar(10), (select max(reser_det_c_dfech) from PUBLICIDAD.DIO_PUB_T_RESERVA_DET det where det.reser_c_iid = re.reser_c_iid ) ,103) ) = 3
+and re.esp_ocu_est_c_iid = 3 --Reserva VENDIDA 
+
+--DATEDIFF(DAY,Convert(varchar(10),GETDATE(),103),Convert(varchar(10),RE.reser_c_dfech_vencimiento,103) ) = 3
+--and re.esp_ocu_est_c_iid = 3 --Reserva VENDIDA
 
 declare @TableDinamica nvarchar(max);
 declare @RowsMax int 
@@ -85,8 +97,11 @@ N'			<p><b>Nota:</b> <i>El presente correo ha sido generado y enviado en forma a
 N'		</div>' +
 N'<div>'
 drop table #ReservasPorVencer
-print @TableHtml
-EXEC msdb.dbo.sp_send_dbmail @recipients='felixmiranda.net@gmail.com', --@Correo
+
+-----------------------------------------------------------------------------------------
+-- CAMBIOS DE ACUERDO A LOS PARAMETROS QUE SE TIENEN EN PRODUCCION 
+-----------------------------------------------------------------------------------------
+EXEC msdb.dbo.sp_send_dbmail @recipients=@Correo
 @profile_name = 'Felix Miranda',
 @subject = 'Alerta vencimiento Reserva',
 @body = @TableHtml,

@@ -1,8 +1,18 @@
+IF EXISTS ( SELECT * 
+            FROM   sysobjects 
+            WHERE  id = object_id(N'[PUBLICIDAD].[SP_EnvioCorreo_01_dias_Antes_Reserva]') 
+                   and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+BEGIN
+    DROP PROCEDURE [PUBLICIDAD].[SP_EnvioCorreo_01_dias_Antes_Reserva]
+END
 
-USE DIONISIO
-go
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-CREATE PROCEDURE SP_EnvioCorreo_01_dias_Antes_Reserva
+
+CREATE PROCEDURE [PUBLICIDAD].SP_EnvioCorreo_01_dias_Antes_Reserva
 ----Descripción		: Store procedure . Envio de corroe 01 dias antes del vencimiento de la reserva.
 ----Retorno			: ------
 ----Notas			: N/A
@@ -86,8 +96,10 @@ N'			<p><b>Nota:</b> <i>El presente correo ha sido generado y enviado en forma a
 N'		</div>' +
 N'<div>'
 drop table #ReservasPorVencer
-print @TableHtml
-EXEC msdb.dbo.sp_send_dbmail @recipients='felixmiranda.net@gmail.com', --@Correo
+-----------------------------------------------------------------------------------------
+-- CAMBIOS DE ACUERDO A LOS PARAMETROS QUE SE TIENEN EN PRODUCCION 
+-----------------------------------------------------------------------------------------
+EXEC msdb.dbo.sp_send_dbmail @recipients=@Correo
 @profile_name = 'Felix Miranda',
 @subject = 'Alerta vencimiento Reserva',
 @body = @TableHtml,

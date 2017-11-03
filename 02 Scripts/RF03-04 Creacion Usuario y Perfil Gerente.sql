@@ -35,7 +35,7 @@ INSERT INTO [dbo].[SGA_T_USUARIO]
            ,getdate()
            ,'SISTEMA'
            ,'USUARIO GERENTE DE MALL')
-GO
+
 
 
 INSERT INTO [dbo].[SGA_T_USUARIO_PERFIL]
