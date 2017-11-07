@@ -109,8 +109,8 @@
             <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
           </AssociationSet>
         </EntityContainer>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_CLIENTE' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_CLIENTE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="ADV_T_CLIENTE">
           <Key>
@@ -126,8 +126,8 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_COLABORADOR' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_COLABORADOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="ADV_T_COLABORADOR">
           <Key>
@@ -142,8 +142,8 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_INMUEBLE' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_INMUEBLE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="ADV_T_INMUEBLE">
           <Key>
@@ -160,8 +160,8 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_PUB_ELEMENTO_ACTIVACION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_PUB_ELEMENTO_ACTIVACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="ADV_T_PUB_ELEMENTO_ACTIVACION">
           <Key>
@@ -178,8 +178,8 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_PUB_PRODUCTO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_PUB_PRODUCTO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="ADV_T_PUB_PRODUCTO">
           <Key>
@@ -269,7 +269,7 @@
           </Key>
           <Property Name="reser_c_iid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="reser_mast_c_iid" Type="int" Nullable="false" />
-          <Property Name="tip_asig_c_iid" Type="int" Nullable="false" />
+          <Property Name="tip_asig_c_iid" Type="int" />
           <Property Name="esp_ocu_est_c_iid" Type="int" Nullable="false" />
           <Property Name="tipo_periodo_c_iid" Type="int" Nullable="false" />
           <Property Name="reser_c_vdim_final" Type="varchar" MaxLength="500" />
@@ -396,7 +396,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DIO_PUB_T_RESERVA2">
-          <End Role="DIO_PUB_T_TIPO_ASIGNACION" Type="BD_DIONISIOModel.Store.DIO_PUB_T_TIPO_ASIGNACION" Multiplicity="1" />
+          <End Role="DIO_PUB_T_TIPO_ASIGNACION" Type="BD_DIONISIOModel.Store.DIO_PUB_T_TIPO_ASIGNACION" Multiplicity="0..1" />
           <End Role="DIO_PUB_T_RESERVA" Type="BD_DIONISIOModel.Store.DIO_PUB_T_RESERVA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="DIO_PUB_T_TIPO_ASIGNACION">
@@ -543,11 +543,6 @@
           <Parameter Name="bita_c_vnomb_completo_reg" Type="varchar" Mode="In" />
           <Parameter Name="id_cabecera" Type="int" Mode="InOut" />
         </Function>
-        <Function Name="SP_PUB_RESERVA_LISTA_NO_DISPONIBLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
-          <Parameter Name="fechaInicio" Type="date" Mode="In" />
-          <Parameter Name="fechafin" Type="date" Mode="In" />
-          <Parameter Name="espaciosId" Type="nvarchar(max)" Mode="In" />
-        </Function>
         <Function Name="SP_PUB_RESERVA_MASTER_INSERTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
           <Parameter Name="pc_ejec_c_cdoc_id" Type="char" Mode="In" />
           <Parameter Name="pi_bita_c_vusu_red_reg" Type="varchar" Mode="In" />
@@ -626,7 +621,6 @@
           <EntitySet Name="DIO_PUB_T_AGENCIA" EntityType="BD_DIONISIOModel.DIO_PUB_T_AGENCIA" />
           <EntitySet Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntityType="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
           <EntitySet Name="DIO_PUB_T_MARCA" EntityType="BD_DIONISIOModel.DIO_PUB_T_MARCA" />
-          <EntitySet Name="DIO_PUB_T_RESERVA" EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA" />
           <EntitySet Name="DIO_PUB_T_RESERVA_DET" EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" />
           <EntitySet Name="DIO_PUB_T_RESERVA_MASTER" EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER" />
           <EntitySet Name="DIO_PUB_T_TIPO_ASIGNACION" EntityType="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION" />
@@ -634,38 +628,6 @@
           <AssociationSet Name="FK_DIO_T_PARAMETRO_DET" Association="BD_DIONISIOModel.FK_DIO_T_PARAMETRO_DET">
             <End Role="DIO_T_PARAMETRO" EntitySet="DIO_T_PARAMETRO" />
             <End Role="DIO_T_PARAMETRO_DET" EntitySet="DIO_T_PARAMETRO_DET" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DIO_PUB_T_RESERVA0" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0">
-            <End Role="DIO_PUB_T_AGENCIA" EntitySet="DIO_PUB_T_AGENCIA" />
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
-          </AssociationSet>
-          <AssociationSet Name="PK_DIO_PUB_T_RESERVA5" Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5">
-            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
-          </AssociationSet>
-          <AssociationSet Name="PK_DIO_PUB_T_RESERVA6" Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6">
-            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DIO_PUB_T_RESERVA1" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1">
-            <End Role="DIO_PUB_T_MARCA" EntitySet="DIO_PUB_T_MARCA" />
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_DET" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET">
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
-            <End Role="DIO_PUB_T_RESERVA_DET" EntitySet="DIO_PUB_T_RESERVA_DET" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_MASTER" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER">
-            <End Role="DIO_PUB_T_RESERVA_MASTER" EntitySet="DIO_PUB_T_RESERVA_MASTER" />
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DIO_PUB_T_RESERVA2" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2">
-            <End Role="DIO_PUB_T_TIPO_ASIGNACION" EntitySet="DIO_PUB_T_TIPO_ASIGNACION" />
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
-          </AssociationSet>
-          <AssociationSet Name="FK_DIO_PUB_T_RESERVA4" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4">
-            <End Role="DIO_PUB_T_TIPO_PERIODO" EntitySet="DIO_PUB_T_TIPO_PERIODO" />
-            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
           </AssociationSet>
           <FunctionImport Name="SP_PUB_RESERVA_DET_INSERTAR">
             <Parameter Name="pi_reser_c_iid" Mode="In" Type="Int32" />
@@ -748,6 +710,39 @@
             <Parameter Name="fechafin" Mode="In" Type="DateTime" />
             <Parameter Name="espaciosId" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="DIO_PUB_T_RESERVA" EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA" />
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA0" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0">
+            <End Role="DIO_PUB_T_AGENCIA" EntitySet="DIO_PUB_T_AGENCIA" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="PK_DIO_PUB_T_RESERVA5" Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5">
+            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="PK_DIO_PUB_T_RESERVA6" Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6">
+            <End Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" EntitySet="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA1" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1">
+            <End Role="DIO_PUB_T_MARCA" EntitySet="DIO_PUB_T_MARCA" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_DET" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET">
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+            <End Role="DIO_PUB_T_RESERVA_DET" EntitySet="DIO_PUB_T_RESERVA_DET" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA_MASTER" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER">
+            <End Role="DIO_PUB_T_RESERVA_MASTER" EntitySet="DIO_PUB_T_RESERVA_MASTER" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA2" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2">
+            <End Role="DIO_PUB_T_TIPO_ASIGNACION" EntitySet="DIO_PUB_T_TIPO_ASIGNACION" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DIO_PUB_T_RESERVA4" Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4">
+            <End Role="DIO_PUB_T_TIPO_PERIODO" EntitySet="DIO_PUB_T_TIPO_PERIODO" />
+            <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
+          </AssociationSet>
           </EntityContainer>
         <ComplexType Name="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result">
           <Property Type="DateTime" Name="fecha" Nullable="true" Precision="23" />
@@ -872,8 +867,8 @@
           <Property Type="DateTime" Name="bita_c_zfec_reg" />
           <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" FromRole="DIO_PUB_T_AGENCIA" ToRole="DIO_PUB_T_RESERVA" />
           <Property Type="String" Name="agen_c_vnomb_comercial" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" FromRole="DIO_PUB_T_AGENCIA" ToRole="DIO_PUB_T_RESERVA" />
         </EntityType>
         <EntityType Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
           <Key>
@@ -900,51 +895,6 @@
           <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1" FromRole="DIO_PUB_T_MARCA" ToRole="DIO_PUB_T_RESERVA" />
         </EntityType>
-        <EntityType Name="DIO_PUB_T_RESERVA">
-          <Key>
-            <PropertyRef Name="reser_c_iid" />
-          </Key>
-          <Property Type="Int32" Name="reser_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="reser_mast_c_iid" Nullable="false" />
-          <Property Type="Int32" Name="tip_asig_c_iid" Nullable="false" />
-          <Property Type="Int32" Name="esp_ocu_est_c_iid" Nullable="false" />
-          <Property Type="Int32" Name="tipo_periodo_c_iid" Nullable="false" />
-          <Property Type="String" Name="reser_c_vdim_final" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="reser_c_eprecio_alquiler" Precision="18" Scale="2" />
-          <Property Type="String" Name="reser_c_vdesc_activacion" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="reser_c_vcomen_activacion" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="reser_c_dfech_vencimiento" />
-          <Property Type="Boolean" Name="reser_c_flat_bpendiente" Nullable="false" />
-          <Property Type="DateTime" Name="reser_c_dfech_inicio" />
-          <Property Type="DateTime" Name="reser_c_dfech_fin" />
-          <Property Type="String" Name="cli_c_vdoc_id" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="marc_c_icod" />
-          <Property Type="String" Name="agen_c_vdoc_id" MaxLength="11" FixedLength="false" Unicode="false" />
-          <Property Type="Boolean" Name="reser_mast_c_fac_bagencia" />
-          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
-          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
-          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="pub_prod_c_iid" Nullable="false" />
-          <Property Type="Int32" Name="pub_elem_act_c_iid" Nullable="false" />
-          <Property Type="String" Name="pub_esp_c_vmedida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Decimal" Name="pub_esp_c_earea" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_base" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_top" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="Boolean" Name="reser_c_bactivo" Nullable="false" />
-          <Property Type="DateTime" Name="bita_c_zfec_reg" />
-          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DIO_PUB_T_AGENCIA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_AGENCIA" />
-          <NavigationProperty Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
-          <NavigationProperty Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO1" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
-          <NavigationProperty Name="DIO_PUB_T_MARCA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_MARCA" />
-          <NavigationProperty Name="DIO_PUB_T_RESERVA_DET" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_RESERVA_DET" />
-          <NavigationProperty Name="DIO_PUB_T_RESERVA_MASTER" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_RESERVA_MASTER" />
-          <NavigationProperty Name="DIO_PUB_T_TIPO_ASIGNACION" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_TIPO_ASIGNACION" />
-          <NavigationProperty Name="DIO_PUB_T_TIPO_PERIODO" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_TIPO_PERIODO" />
-          <Property Type="Int32" Name="reser_c_icant_dias" />
-          <Property Type="String" Name="pub_prod_c_vnomb" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="DIO_PUB_T_RESERVA_DET">
           <Key>
             <PropertyRef Name="reser_det_c_iid" />
@@ -957,8 +907,8 @@
           <Property Type="DateTime" Name="bita_c_zfec_reg" />
           <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" FromRole="DIO_PUB_T_RESERVA_DET" ToRole="DIO_PUB_T_RESERVA" />
           <Property Type="Int32" Name="mod_orig_c_iid" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" FromRole="DIO_PUB_T_RESERVA_DET" ToRole="DIO_PUB_T_RESERVA" />
         </EntityType>
         <EntityType Name="DIO_PUB_T_RESERVA_MASTER">
           <Key>
@@ -1005,102 +955,6 @@
             </Principal>
             <Dependent Role="DIO_T_PARAMETRO_DET">
               <PropertyRef Name="par_c_iid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DIO_PUB_T_RESERVA0">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_AGENCIA" Role="DIO_PUB_T_AGENCIA" Multiplicity="0..1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_AGENCIA">
-              <PropertyRef Name="agen_c_vdoc_id" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="agen_c_vdoc_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PK_DIO_PUB_T_RESERVA5">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
-              <PropertyRef Name="esp_ocu_est_c_iid" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="esp_ocu_est_c_iid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="PK_DIO_PUB_T_RESERVA6">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
-              <PropertyRef Name="esp_ocu_est_c_iid" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="esp_ocu_est_c_iid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DIO_PUB_T_RESERVA1">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_MARCA" Role="DIO_PUB_T_MARCA" Multiplicity="0..1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_MARCA">
-              <PropertyRef Name="marc_c_icod" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="marc_c_icod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DIO_PUB_T_RESERVA_DET">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" Role="DIO_PUB_T_RESERVA_DET" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="reser_c_iid" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA_DET">
-              <PropertyRef Name="reser_c_iid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DIO_PUB_T_RESERVA_MASTER">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER" Role="DIO_PUB_T_RESERVA_MASTER" Multiplicity="1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_RESERVA_MASTER">
-              <PropertyRef Name="reser_mast_c_iid" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="reser_mast_c_iid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DIO_PUB_T_RESERVA2">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION" Role="DIO_PUB_T_TIPO_ASIGNACION" Multiplicity="1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_TIPO_ASIGNACION">
-              <PropertyRef Name="tip_asig_c_iid" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="tip_asig_c_iid" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_DIO_PUB_T_RESERVA4">
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_TIPO_PERIODO" Role="DIO_PUB_T_TIPO_PERIODO" Multiplicity="1" />
-          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DIO_PUB_T_TIPO_PERIODO">
-              <PropertyRef Name="tipo_periodo_c_iid" />
-            </Principal>
-            <Dependent Role="DIO_PUB_T_RESERVA">
-              <PropertyRef Name="tipo_periodo_c_iid" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1219,6 +1073,147 @@
           <Property Type="Int32" Name="pub_esp_c_idd" Nullable="false" />
           <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="1" />
         </ComplexType>
+        <EntityType Name="DIO_PUB_T_RESERVA">
+          <Key>
+            <PropertyRef Name="reser_c_iid" />
+          </Key>
+          <Property Type="Int32" Name="reser_c_iid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="reser_mast_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="tip_asig_c_iid" />
+          <Property Type="Int32" Name="esp_ocu_est_c_iid" Nullable="false" />
+          <Property Type="Int32" Name="tipo_periodo_c_iid" Nullable="false" />
+          <Property Type="String" Name="reser_c_vdim_final" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="reser_c_eprecio_alquiler" Precision="18" Scale="2" />
+          <Property Type="String" Name="reser_c_vdesc_activacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="reser_c_vcomen_activacion" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="reser_c_dfech_vencimiento" />
+          <Property Type="Boolean" Name="reser_c_flat_bpendiente" Nullable="false" />
+          <Property Type="DateTime" Name="reser_c_dfech_inicio" />
+          <Property Type="DateTime" Name="reser_c_dfech_fin" />
+          <Property Type="Int32" Name="reser_c_icant_dias" />
+          <Property Type="String" Name="cli_c_vdoc_id" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="marc_c_icod" />
+          <Property Type="String" Name="agen_c_vdoc_id" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="reser_mast_c_fac_bagencia" />
+          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
+          <Property Type="Int32" Name="pub_esp_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_esp_c_vcod" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="pub_prod_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_prod_c_vnomb" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="pub_elem_act_c_iid" Nullable="false" />
+          <Property Type="String" Name="pub_esp_c_vmedida" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="pub_esp_c_earea" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_base" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Decimal" Name="pub_esp_c_emonto_tarifa_top" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="Boolean" Name="reser_c_bactivo" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DIO_PUB_T_AGENCIA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_AGENCIA" />
+          <NavigationProperty Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+          <NavigationProperty Name="DIO_PUB_T_ESPACIO_OCUP_ESTADO1" Relationship="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_ESPACIO_OCUP_ESTADO" />
+          <NavigationProperty Name="DIO_PUB_T_MARCA" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_MARCA" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA_DET" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_RESERVA_DET" />
+          <NavigationProperty Name="DIO_PUB_T_RESERVA_MASTER" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_RESERVA_MASTER" />
+          <NavigationProperty Name="DIO_PUB_T_TIPO_ASIGNACION" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_TIPO_ASIGNACION" />
+          <NavigationProperty Name="DIO_PUB_T_TIPO_PERIODO" Relationship="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4" FromRole="DIO_PUB_T_RESERVA" ToRole="DIO_PUB_T_TIPO_PERIODO" />
+        </EntityType>
+        <Association Name="FK_DIO_PUB_T_RESERVA0">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_AGENCIA" Role="DIO_PUB_T_AGENCIA" Multiplicity="0..1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_AGENCIA">
+              <PropertyRef Name="agen_c_vdoc_id" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="agen_c_vdoc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_DIO_PUB_T_RESERVA5">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PK_DIO_PUB_T_RESERVA6">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_ESPACIO_OCUP_ESTADO">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="esp_ocu_est_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA1">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_MARCA" Role="DIO_PUB_T_MARCA" Multiplicity="0..1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_MARCA">
+              <PropertyRef Name="marc_c_icod" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="marc_c_icod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA_DET">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" Role="DIO_PUB_T_RESERVA_DET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="reser_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA_DET">
+              <PropertyRef Name="reser_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA_MASTER">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER" Role="DIO_PUB_T_RESERVA_MASTER" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_RESERVA_MASTER">
+              <PropertyRef Name="reser_mast_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="reser_mast_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA2">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION" Role="DIO_PUB_T_TIPO_ASIGNACION" Multiplicity="0..1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_TIPO_ASIGNACION">
+              <PropertyRef Name="tip_asig_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="tip_asig_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DIO_PUB_T_RESERVA4">
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_TIPO_PERIODO" Role="DIO_PUB_T_TIPO_PERIODO" Multiplicity="1" />
+          <End Type="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Role="DIO_PUB_T_RESERVA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DIO_PUB_T_TIPO_PERIODO">
+              <PropertyRef Name="tipo_periodo_c_iid" />
+            </Principal>
+            <Dependent Role="DIO_PUB_T_RESERVA">
+              <PropertyRef Name="tipo_periodo_c_iid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1373,44 +1368,6 @@
                 <ScalarProperty Name="marc_c_bactivo" ColumnName="marc_c_bactivo" />
                 <ScalarProperty Name="marc_c_vnomb" ColumnName="marc_c_vnomb" />
                 <ScalarProperty Name="marc_c_icod" ColumnName="marc_c_icod" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DIO_PUB_T_RESERVA">
-            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_RESERVA">
-              <MappingFragment StoreEntitySet="DIO_PUB_T_RESERVA">
-                <ScalarProperty Name="pub_prod_c_vnomb" ColumnName="pub_prod_c_vnomb" />
-                <ScalarProperty Name="reser_c_icant_dias" ColumnName="reser_c_icant_dias" />
-                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
-                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
-                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
-                <ScalarProperty Name="reser_c_bactivo" ColumnName="reser_c_bactivo" />
-                <ScalarProperty Name="pub_esp_c_emonto_tarifa_top" ColumnName="pub_esp_c_emonto_tarifa_top" />
-                <ScalarProperty Name="pub_esp_c_emonto_tarifa_base" ColumnName="pub_esp_c_emonto_tarifa_base" />
-                <ScalarProperty Name="pub_esp_c_earea" ColumnName="pub_esp_c_earea" />
-                <ScalarProperty Name="pub_esp_c_vmedida" ColumnName="pub_esp_c_vmedida" />
-                <ScalarProperty Name="pub_elem_act_c_iid" ColumnName="pub_elem_act_c_iid" />
-                <ScalarProperty Name="pub_prod_c_iid" ColumnName="pub_prod_c_iid" />
-                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
-                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
-                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
-                <ScalarProperty Name="reser_mast_c_fac_bagencia" ColumnName="reser_mast_c_fac_bagencia" />
-                <ScalarProperty Name="agen_c_vdoc_id" ColumnName="agen_c_vdoc_id" />
-                <ScalarProperty Name="marc_c_icod" ColumnName="marc_c_icod" />
-                <ScalarProperty Name="cli_c_vdoc_id" ColumnName="cli_c_vdoc_id" />
-                <ScalarProperty Name="reser_c_dfech_fin" ColumnName="reser_c_dfech_fin" />
-                <ScalarProperty Name="reser_c_dfech_inicio" ColumnName="reser_c_dfech_inicio" />
-                <ScalarProperty Name="reser_c_flat_bpendiente" ColumnName="reser_c_flat_bpendiente" />
-                <ScalarProperty Name="reser_c_dfech_vencimiento" ColumnName="reser_c_dfech_vencimiento" />
-                <ScalarProperty Name="reser_c_vcomen_activacion" ColumnName="reser_c_vcomen_activacion" />
-                <ScalarProperty Name="reser_c_vdesc_activacion" ColumnName="reser_c_vdesc_activacion" />
-                <ScalarProperty Name="reser_c_eprecio_alquiler" ColumnName="reser_c_eprecio_alquiler" />
-                <ScalarProperty Name="reser_c_vdim_final" ColumnName="reser_c_vdim_final" />
-                <ScalarProperty Name="tipo_periodo_c_iid" ColumnName="tipo_periodo_c_iid" />
-                <ScalarProperty Name="esp_ocu_est_c_iid" ColumnName="esp_ocu_est_c_iid" />
-                <ScalarProperty Name="tip_asig_c_iid" ColumnName="tip_asig_c_iid" />
-                <ScalarProperty Name="reser_mast_c_iid" ColumnName="reser_mast_c_iid" />
-                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1597,14 +1554,44 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="DIO_SP_CONSULTA_ESPACIO_RESERVADO" FunctionName="BD_DIONISIOModel.Store.DIO_SP_CONSULTA_ESPACIO_RESERVADO" />
-          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_LISTA_NO_DISPONIBLE" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_LISTA_NO_DISPONIBLE">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="BD_DIONISIOModel.SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result">
-                <ScalarProperty Name="pub_esp_c_idd" ColumnName="pub_esp_c_idd" />
+          <EntitySetMapping Name="DIO_PUB_T_RESERVA">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.DIO_PUB_T_RESERVA">
+              <MappingFragment StoreEntitySet="DIO_PUB_T_RESERVA">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="reser_c_bactivo" ColumnName="reser_c_bactivo" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_top" ColumnName="pub_esp_c_emonto_tarifa_top" />
+                <ScalarProperty Name="pub_esp_c_emonto_tarifa_base" ColumnName="pub_esp_c_emonto_tarifa_base" />
+                <ScalarProperty Name="pub_esp_c_earea" ColumnName="pub_esp_c_earea" />
+                <ScalarProperty Name="pub_esp_c_vmedida" ColumnName="pub_esp_c_vmedida" />
+                <ScalarProperty Name="pub_elem_act_c_iid" ColumnName="pub_elem_act_c_iid" />
+                <ScalarProperty Name="pub_prod_c_vnomb" ColumnName="pub_prod_c_vnomb" />
+                <ScalarProperty Name="pub_prod_c_iid" ColumnName="pub_prod_c_iid" />
                 <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
+                <ScalarProperty Name="pub_esp_c_iid" ColumnName="pub_esp_c_iid" />
+                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
+                <ScalarProperty Name="reser_mast_c_fac_bagencia" ColumnName="reser_mast_c_fac_bagencia" />
+                <ScalarProperty Name="agen_c_vdoc_id" ColumnName="agen_c_vdoc_id" />
+                <ScalarProperty Name="marc_c_icod" ColumnName="marc_c_icod" />
+                <ScalarProperty Name="cli_c_vdoc_id" ColumnName="cli_c_vdoc_id" />
+                <ScalarProperty Name="reser_c_icant_dias" ColumnName="reser_c_icant_dias" />
+                <ScalarProperty Name="reser_c_dfech_fin" ColumnName="reser_c_dfech_fin" />
+                <ScalarProperty Name="reser_c_dfech_inicio" ColumnName="reser_c_dfech_inicio" />
+                <ScalarProperty Name="reser_c_flat_bpendiente" ColumnName="reser_c_flat_bpendiente" />
+                <ScalarProperty Name="reser_c_dfech_vencimiento" ColumnName="reser_c_dfech_vencimiento" />
+                <ScalarProperty Name="reser_c_vcomen_activacion" ColumnName="reser_c_vcomen_activacion" />
+                <ScalarProperty Name="reser_c_vdesc_activacion" ColumnName="reser_c_vdesc_activacion" />
+                <ScalarProperty Name="reser_c_eprecio_alquiler" ColumnName="reser_c_eprecio_alquiler" />
+                <ScalarProperty Name="reser_c_vdim_final" ColumnName="reser_c_vdim_final" />
+                <ScalarProperty Name="tipo_periodo_c_iid" ColumnName="tipo_periodo_c_iid" />
+                <ScalarProperty Name="esp_ocu_est_c_iid" ColumnName="esp_ocu_est_c_iid" />
+                <ScalarProperty Name="tip_asig_c_iid" ColumnName="tip_asig_c_iid" />
+                <ScalarProperty Name="reser_mast_c_iid" ColumnName="reser_mast_c_iid" />
+                <ScalarProperty Name="reser_c_iid" ColumnName="reser_c_iid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1625,19 +1612,18 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="BOMBERO" ZoomLevel="53">
+      <Diagram Name="BOMBERO" ZoomLevel="78">
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_CLIENTE" Width="1.5" PointX="5.75" PointY="7.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_COLABORADOR" Width="1.5" PointX="7.75" PointY="6.75" Height="2.5571907552083388" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_INMUEBLE" Width="1.5" PointX="9.75" PointY="6.75" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_PUB_ELEMENTO_ACTIVACION" Width="1.5" PointX="2.75" PointY="10.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_PUB_ELEMENTO_ACTIVACION" Width="1.5" PointX="5.875" PointY="12.5" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_PUB_PRODUCTO" Width="1.5" PointX="7.75" PointY="10.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_T_PARAMETRO" Width="1.5" PointX="7.75" PointY="2.125" Height="2.364889322916667" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_T_PARAMETRO_DET" Width="1.5" PointX="10" PointY="1" Height="4.480205078124996" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_AGENCIA" Width="1.5" PointX="0.75" PointY="8.5" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_ESPACIO_OCUP_ESTADO" Width="1.5" PointX="0.75" PointY="4.125" Height="2.5571907552083388" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_MARCA" Width="1.5" PointX="0.75" PointY="11.625" Height="2.3648893229166674" />
-        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Width="1.5" PointX="3" PointY="1.25" Height="8.3262337239583388" />
-        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" Width="1.5" PointX="5.25" PointY="4" Height="2.749492187499996" />
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_DET" Width="1.5" PointX="5.875" PointY="3.75" Height="2.9417936197916656" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA_MASTER" Width="1.5" PointX="0.75" PointY="14.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_TIPO_ASIGNACION" Width="1.5" PointX="0.75" PointY="17.875" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_TIPO_PERIODO" Width="1.5" PointX="0.75" PointY="21" Height="2.3648893229166674" />
@@ -1645,45 +1631,52 @@
           <ConnectorPoint PointX="9.25" PointY="3.3074446614583337" />
           <ConnectorPoint PointX="10" PointY="3.3074446614583337" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="BD_DIONISIOModel.DIO_PUB_T_RESERVA" Width="2.25" PointX="3" PointY="3.375" Height="8.7108365885416674" />
         <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA0" >
-          <ConnectorPoint PointX="2.25" PointY="9.03811686197917" />
-          <ConnectorPoint PointX="3" PointY="9.03811686197917" />
+          <ConnectorPoint PointX="2.25" PointY="9.59375" />
+          <ConnectorPoint PointX="3" PointY="9.59375" />
         </AssociationConnector>
         <AssociationConnector Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA5" >
-          <ConnectorPoint PointX="2.25" PointY="5.4035953776041694" />
-          <ConnectorPoint PointX="3" PointY="5.4035953776041694" />
+          <ConnectorPoint PointX="2.25" PointY="5.4035953776041659" />
+          <ConnectorPoint PointX="3" PointY="5.4035953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="BD_DIONISIOModel.PK_DIO_PUB_T_RESERVA6" >
-          <ConnectorPoint PointX="2.25" PointY="4.7017976888020847" />
-          <ConnectorPoint PointX="3" PointY="4.7017976888020847" />
+          <ConnectorPoint PointX="2.25" PointY="4.7017976888020829" />
+          <ConnectorPoint PointX="3" PointY="4.7017976888020829" />
         </AssociationConnector>
         <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA1" >
           <ConnectorPoint PointX="2.25" PointY="13.583639322916667" />
-          <ConnectorPoint PointX="4.40625" PointY="13.583639322916667" />
-          <ConnectorPoint PointX="4.40625" PointY="9.5762337239583388" />
+          <ConnectorPoint PointX="3.3151004166666667" PointY="13.583639322916667" />
+          <ConnectorPoint PointX="3.4817670833333336" PointY="13.583639322916667" />
+          <ConnectorPoint PointX="3.7760391666666666" PointY="13.583639322916667" />
+          <ConnectorPoint PointX="3.9427058333333336" PointY="13.583639322916667" />
+          <ConnectorPoint PointX="4.78125" PointY="13.583639322916667" />
+          <ConnectorPoint PointX="4.78125" PointY="12.085836588541667" />
         </AssociationConnector>
         <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_DET" >
-          <ConnectorPoint PointX="4.5" PointY="5.374746093749998" />
-          <ConnectorPoint PointX="5.25" PointY="5.374746093749998" />
+          <ConnectorPoint PointX="5.25" PointY="5.2208968098958328" />
+          <ConnectorPoint PointX="5.875" PointY="5.2208968098958328" />
         </AssociationConnector>
         <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA_MASTER" >
-          <ConnectorPoint PointX="2.25" PointY="15.932444661458334" />
-          <ConnectorPoint PointX="4.3749975" PointY="15.932444661458334" />
-          <ConnectorPoint PointX="4.3749975" PointY="9.5762337239583388" />
+          <ConnectorPoint PointX="2.25" PointY="15.932444661458336" />
+          <ConnectorPoint PointX="3.3151004166666667" PointY="15.932444661458336" />
+          <ConnectorPoint PointX="3.4817670833333336" PointY="15.932444661458336" />
+          <ConnectorPoint PointX="3.8593725" PointY="15.932444661458336" />
+          <ConnectorPoint PointX="3.8593725" PointY="12.085836588541667" />
         </AssociationConnector>
         <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA2" >
           <ConnectorPoint PointX="2.25" PointY="19.057444661458334" />
-          <ConnectorPoint PointX="4.2604154166666666" PointY="19.057444661458334" />
-          <ConnectorPoint PointX="4.4270820833333326" PointY="19.057444661458334" />
-          <ConnectorPoint PointX="4.4375025" PointY="19.057444661458334" />
-          <ConnectorPoint PointX="4.4375025" PointY="9.5762337239583388" />
+          <ConnectorPoint PointX="3.3151004166666667" PointY="19.057444661458334" />
+          <ConnectorPoint PointX="3.4817670833333336" PointY="19.057444661458334" />
+          <ConnectorPoint PointX="5.0468775" PointY="19.057444661458334" />
+          <ConnectorPoint PointX="5.0468775" PointY="12.085836588541667" />
         </AssociationConnector>
         <AssociationConnector Association="BD_DIONISIOModel.FK_DIO_PUB_T_RESERVA4" >
           <ConnectorPoint PointX="2.25" PointY="22.182444661458334" />
-          <ConnectorPoint PointX="4.34374875" PointY="22.182444661458334" />
-          <ConnectorPoint PointX="4.34374875" PointY="9.5762337239583388" />
+          <ConnectorPoint PointX="3.39843375" PointY="22.182444661458334" />
+          <ConnectorPoint PointX="3.39843375" PointY="12.085836588541667" />
         </AssociationConnector>
-      </Diagram>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

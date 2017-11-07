@@ -135,7 +135,7 @@ namespace BOM.UserLayer.Entry.Access
                 }
             }
 
-            //bEstado = true; -- solo para pruebas locales
+            //bEstado = true; //solo para pruebas locales
             return bEstado;
         }
         public void m_MostrarError(String ps_Mensaje)

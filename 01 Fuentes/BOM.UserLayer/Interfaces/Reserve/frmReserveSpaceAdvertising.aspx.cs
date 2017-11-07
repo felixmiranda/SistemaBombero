@@ -1165,8 +1165,8 @@ namespace BOM.UserLayer.Interfaces.Reserve
             List<DIO_PUB_T_TIPO_ASIGNACION> lista = _blReserveSpace.f_listar_pub_tipo_asignacionBL();
             if (lista.Count > 0)
             {
-                //UIPage.Fill(lista, "tip_asig_c_iid", "tip_asig_c_vnomb", ddlTipoAsignacion, "SELECCIONE", "0");
-                UIPage.Fill(lista, "tip_asig_c_iid", "tip_asig_c_vnomb", ddlTipoAsignacion, null, null);
+                UIPage.Fill(lista, "tip_asig_c_iid", "tip_asig_c_vnomb", ddlTipoAsignacion, "SELECCIONE", "0");
+                //UIPage.Fill(lista, "tip_asig_c_iid", "tip_asig_c_vnomb", ddlTipoAsignacion, null, null);
             }
         }
 
@@ -1645,7 +1645,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
                             DropDownList ddlTipoAsignacion = control.FindControl("ddlTipoAsignacion") as DropDownList;
 
                             objReserva.pub_elem_act_c_iid = Convert.ToInt16(ddlElementoReserva.SelectedItem.Value);
-                            objReserva.tip_asig_c_iid = Convert.ToInt16(ddlTipoAsignacion.SelectedItem.Value);
+                            objReserva.tip_asig_c_iid = (Convert.ToInt32(ddlTipoAsignacion.SelectedItem.Value) == 0) ? (int?) null: Convert.ToInt32(ddlTipoAsignacion.SelectedItem.Value);
 
                             TextBox txtDescActivacionReserva = control.FindControl("txtDescActivacionReserva") as TextBox;
                             TextBox txtDimensionReserva = control.FindControl("txtDimensionReserva") as TextBox;
