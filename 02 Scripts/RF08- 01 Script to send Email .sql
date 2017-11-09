@@ -101,7 +101,7 @@ drop table #ReservasPorVencer
 -----------------------------------------------------------------------------------------
 -- CAMBIOS DE ACUERDO A LOS PARAMETROS QUE SE TIENEN EN PRODUCCION 
 -----------------------------------------------------------------------------------------
-EXEC msdb.dbo.sp_send_dbmail @recipients=@Correo
+EXEC msdb.dbo.sp_send_dbmail @recipients=@Correo,
 @profile_name = 'Felix Miranda',
 @subject = 'Alerta vencimiento Reserva',
 @body = @TableHtml,
