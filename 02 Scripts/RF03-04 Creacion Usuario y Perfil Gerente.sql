@@ -23,12 +23,12 @@ INSERT INTO [dbo].[SGA_T_USUARIO]
            ,[bita_c_vnom_completo_reg])
      VALUES
            ('RP2504'
-           ,'Miranda'
-           ,'Robles'
-           ,'Felix '
-           ,'18216010'
-           ,'felixmiranda.net@gmail.com'
-           ,'felix@mirros.pe'
+           ,'Garcia'
+           ,'Rojas'
+           ,'Jonathan '
+           ,'43116257'
+           ,'jonathan_g33@hotmail.com'
+           ,NULL
            ,'123456'
            ,'A'
            ,'1'
@@ -47,7 +47,7 @@ INSERT INTO [dbo].[SGA_T_USUARIO_PERFIL]
            ,[bita_c_vnom_completo_reg])
      VALUES
            (@PerfilNuevo
-           ,'18216010'
+           ,'43116257'
            ,'A'
            ,GETDATE()
            ,'SISTEMA'

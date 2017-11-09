@@ -10,6 +10,7 @@ namespace BOM.DataLayer
     public interface IInmuebleDA
     {
         List<ADV_T_INMUEBLE> ListarInmueblesRealPlazaDA();
+        List<LISTA_INMUEBLES_COLABORADOR_Result> ListarInmueblesPorColaboradorDA(string codigoColaborador);
     }
 
 
@@ -25,7 +26,13 @@ namespace BOM.DataLayer
                         select x).ToList();
             }
         }
-
+        public List<LISTA_INMUEBLES_COLABORADOR_Result> ListarInmueblesPorColaboradorDA(string codigoColaborador)
+        {
+            using(BD_DIONISIOEntities contexto = new BD_DIONISIOEntities())
+            {
+                return contexto.SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR(codigoColaborador).ToList();
+            }
+        }
         //table.Where(t => uids.Contains(t.uid));
     }
 

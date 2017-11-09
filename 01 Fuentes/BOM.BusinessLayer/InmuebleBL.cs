@@ -10,6 +10,7 @@ namespace BOM.BusinessLayer
     public interface IInmuebleBL
     {
         List<ADV_T_INMUEBLE> ListarInmueblesRealPlazaBL();
+        List<LISTA_INMUEBLES_COLABORADOR_Result> ListarInmueblesPorColaboradorBL(string codigoColaborador);
     }
 
 
@@ -18,6 +19,10 @@ namespace BOM.BusinessLayer
         public List<ADV_T_INMUEBLE> ListarInmueblesRealPlazaBL()
         {
             return new InmuebleDA().ListarInmueblesRealPlazaDA();
+        }
+        public List<LISTA_INMUEBLES_COLABORADOR_Result> ListarInmueblesPorColaboradorBL(string codigoColaborador)
+        {
+            return new InmuebleDA().ListarInmueblesPorColaboradorDA(codigoColaborador);
         }
 
     }

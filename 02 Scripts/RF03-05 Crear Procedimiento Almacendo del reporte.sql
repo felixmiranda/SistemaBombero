@@ -20,13 +20,13 @@ Notas			: --
 Autor y CodRed	: Felix Miranda
 Fecha y hora	: 22-10-2017
 Modificaciones	: --
-Ejecución		: exec [PUBLICIDAD].[DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS] 'REAL PLAZA CENTRO CIVICO','40974057',2,1
+Ejecución		: exec [PUBLICIDAD].[DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS] '14','0',0,0
 *****************************************/
 
---declare @pv_ejecutivo as char(8) ='40974057'
---declare @pv_inmueble as varchar(500) = 'REAL PLAZA CENTRO CIVICO'
---declare @pv_estado as int = 2
---declare @pv_producto as int = 2
+--declare @pv_ejecutivo as char(8) ='0'
+--declare @pv_inmueble as varchar(500) = '14'
+--declare @pv_estado as int = 0
+--declare @pv_producto as int = 0
 
 
 @pv_inmueble varchar(500),
@@ -45,9 +45,7 @@ FROM [PUBLICIDAD].[DIO_PUB_T_RESERVA_MASTER] MA
 	INNER JOIN [PUBLICIDAD].[DIO_PUB_T_RESERVA] RE ON MA.reser_mast_c_iid = RE.reser_mast_c_iid
 	INNER JOIN [ADVANCE].[ADV_T_INMUEBLE] I ON I.inm_c_icod = RE.inm_c_icod
 	LEFT JOIN [ADVANCE].[ADV_T_CLIENTE] CLI ON CLI.cli_c_vdoc_id = RE.cli_c_vdoc_id
-WHERE ISNULL(I.inm_c_vnomb,'') LIKE '%'+ @pv_inmueble +'%'
-
-
+WHERE (I.inm_c_icod = @pv_inmueble or @pv_inmueble='0')
 
 SELECT 
 
@@ -104,9 +102,11 @@ LEFT JOIN [PUBLICIDAD].[DIO_PUB_T_MARCA] MAR ON MAR.marc_c_icod = RE.marc_c_icod
 LEFT JOIN [ADVANCE].[ADV_T_CLIENTE] AG ON AG.cli_c_vdoc_id = RE.agen_c_vdoc_id
 LEFT JOIN [ADVANCE].[ADV_T_COLABORADOR] COL ON COL.colab_c_cdoc_id = MA.ejec_c_cdoc_id
 WHERE ma.reser_mast_c_iid in (select t.reser_mast_c_iid from @tmp_master t)
-	AND (ma.ejec_c_cdoc_id = @pv_ejecutivo or @pv_ejecutivo='')
+	AND (ma.ejec_c_cdoc_id = @pv_ejecutivo or @pv_ejecutivo='0')
 	AND (re.esp_ocu_est_c_iid=@pv_estado OR @pv_estado = '')
 	AND (re.pub_prod_c_iid = @pv_producto or @pv_producto = '') 
 	AND re.reser_c_bactivo=1 
---AND re.reser_c_flat_bpendiente in (0,1)
+AND (I.inm_c_icod = @pv_inmueble or @pv_inmueble='0')
 order by ma.reser_mast_c_iid
+
+

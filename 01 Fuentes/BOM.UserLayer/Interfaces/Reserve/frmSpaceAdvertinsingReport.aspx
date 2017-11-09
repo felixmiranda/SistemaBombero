@@ -45,14 +45,10 @@
                         <div class="form-inline">
                             <div class="form-group">
                                 <label class="sr-only">
-                                    Inmueble</label>
-                                <asp:TextBox ID="txtInmueble" onkeypress="return NoJavaScript(event)" Style="width: 100%;"
-                                    runat="server" CssClass="form-control" MaxLength="200" Placeholder="Inmueble..."></asp:TextBox>
-                                <ajaxToolkit:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" DelimiterCharacters=""
-                                    Enabled="True" ServicePath="" ServiceMethod="metodAutocompletarInmueble" TargetControlID="txtInmueble"
-                                    UseContextKey="True" FirstRowSelected="True" MinimumPrefixLength="1" ShowOnlyCurrentWordInCompletionListItem="true"
-                                    CompletionInterval="100">
-                                </ajaxToolkit:AutoCompleteExtender>
+                                    Ejecutivo Publicidad</label>
+                                <asp:DropDownList CssClass="form-control" Style="width: 100%;" ID="ddlInmueble"
+                                    runat="server" AutoPostBack="true">
+                                </asp:DropDownList>
                             </div>
                             <div class="form-group">
                                 <label class="sr-only">
@@ -203,7 +199,7 @@
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
-                             <asp:TemplateField HeaderText="PRECIO_ALQUILER">
+                             <asp:TemplateField HeaderText="PRECIO FINAL">
                                 <ItemTemplate>
                                     <asp:Label ID="lblPrecioAlquiler" runat="server" Text='<%# Eval("PRECIO_ALQUILER") %>'></asp:Label>
                                 </ItemTemplate>

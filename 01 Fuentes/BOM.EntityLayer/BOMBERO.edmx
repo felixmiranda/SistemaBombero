@@ -17,6 +17,17 @@
       [ADV_T_CLIENTE].[bita_c_vnomb_completo_reg] AS [bita_c_vnomb_completo_reg]
       FROM [ADVANCE].[ADV_T_CLIENTE] AS [ADV_T_CLIENTE]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ADV_T_COLAB_INM" EntityType="BD_DIONISIOModel.Store.ADV_T_COLAB_INM" store:Type="Tables" store:Schema="ADVANCE" store:Name="ADV_T_COLAB_INM">
+            <DefiningQuery>SELECT 
+      [ADV_T_COLAB_INM].[colab_c_cdoc_id] AS [colab_c_cdoc_id], 
+      [ADV_T_COLAB_INM].[colab_c_cusu_red] AS [colab_c_cusu_red], 
+      [ADV_T_COLAB_INM].[inm_c_icod] AS [inm_c_icod], 
+      [ADV_T_COLAB_INM].[perf_c_yid] AS [perf_c_yid], 
+      [ADV_T_COLAB_INM].[bita_c_zfec_reg] AS [bita_c_zfec_reg], 
+      [ADV_T_COLAB_INM].[bita_c_vusu_red_reg] AS [bita_c_vusu_red_reg], 
+      [ADV_T_COLAB_INM].[bita_c_vnomb_completo_reg] AS [bita_c_vnomb_completo_reg]
+      FROM [ADVANCE].[ADV_T_COLAB_INM] AS [ADV_T_COLAB_INM]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ADV_T_COLABORADOR" EntityType="BD_DIONISIOModel.Store.ADV_T_COLABORADOR" store:Type="Tables" store:Schema="ADVANCE" store:Name="ADV_T_COLABORADOR">
             <DefiningQuery>SELECT 
       [ADV_T_COLABORADOR].[colab_c_cdoc_id] AS [colab_c_cdoc_id], 
@@ -109,8 +120,8 @@
             <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
           </AssociationSet>
         </EntityContainer>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_CLIENTE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_CLIENTE' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="ADV_T_CLIENTE">
           <Key>
@@ -126,8 +137,26 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_COLABORADOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_COLAB_INM' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="ADV_T_COLAB_INM">
+          <Key>
+            <PropertyRef Name="colab_c_cdoc_id" />
+            <PropertyRef Name="colab_c_cusu_red" />
+            <PropertyRef Name="inm_c_icod" />
+            <PropertyRef Name="perf_c_yid" />
+          </Key>
+          <Property Name="colab_c_cdoc_id" Type="char" Nullable="false" MaxLength="8" />
+          <Property Name="colab_c_cusu_red" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="inm_c_icod" Type="int" Nullable="false" />
+          <Property Name="perf_c_yid" Type="int" Nullable="false" />
+          <Property Name="bita_c_zfec_reg" Type="datetime" />
+          <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
+          <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_COLABORADOR' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="ADV_T_COLABORADOR">
           <Key>
@@ -142,8 +171,8 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_INMUEBLE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_INMUEBLE' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="ADV_T_INMUEBLE">
           <Key>
@@ -160,8 +189,8 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_PUB_ELEMENTO_ACTIVACION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_PUB_ELEMENTO_ACTIVACION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="ADV_T_PUB_ELEMENTO_ACTIVACION">
           <Key>
@@ -178,8 +207,8 @@
           <Property Name="bita_c_vusu_red_reg" Type="varchar" MaxLength="10" />
           <Property Name="bita_c_vnomb_completo_reg" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-      warning 6002: The table/view 'DIONISIO.ADVANCE.ADV_T_PUB_PRODUCTO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'DIONISIO.ADVANCE.ADV_T_PUB_PRODUCTO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="ADV_T_PUB_PRODUCTO">
           <Key>
@@ -459,10 +488,19 @@
           <Parameter Name="numero_dia_util" Type="int" Mode="In" />
           <Parameter Name="dia_util" Type="varchar" Mode="InOut" />
         </Function>
+        <Function Name="SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADVANCE">
+          <Parameter Name="CodigoColaborador" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="DIO_SP_PUB_APROB_RESERVA_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
           <Parameter Name="pv_inmueble" Type="varchar" Mode="In" />
           <Parameter Name="pv_cliente" Type="varchar" Mode="In" />
           <Parameter Name="pv_ejecutivo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="pv_inmueble" Type="varchar" Mode="In" />
+          <Parameter Name="pv_ejecutivo" Type="varchar" Mode="In" />
+          <Parameter Name="pv_estado" Type="int" Mode="In" />
+          <Parameter Name="pv_producto" Type="int" Mode="In" />
         </Function>
         <Function Name="DIO_SP_PUB_RESERVA_DET_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
           <Parameter Name="pi_reser_c_iid" Type="int" Mode="In" />
@@ -542,6 +580,11 @@
           <Parameter Name="bita_c_vusu_red_reg" Type="varchar" Mode="In" />
           <Parameter Name="bita_c_vnomb_completo_reg" Type="varchar" Mode="In" />
           <Parameter Name="id_cabecera" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="SP_PUB_RESERVA_LISTA_NO_DISPONIBLE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
+          <Parameter Name="fechaInicio" Type="date" Mode="In" />
+          <Parameter Name="fechafin" Type="date" Mode="In" />
+          <Parameter Name="espaciosId" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="SP_PUB_RESERVA_MASTER_INSERTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
           <Parameter Name="pc_ejec_c_cdoc_id" Type="char" Mode="In" />
@@ -743,6 +786,10 @@
             <End Role="DIO_PUB_T_TIPO_PERIODO" EntitySet="DIO_PUB_T_TIPO_PERIODO" />
             <End Role="DIO_PUB_T_RESERVA" EntitySet="DIO_PUB_T_RESERVA" />
           </AssociationSet>
+          <EntitySet Name="ADV_T_COLAB_INM" EntityType="BD_DIONISIOModel.ADV_T_COLAB_INM" />
+          <FunctionImport Name="SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR" ReturnType="Collection(BD_DIONISIOModel.LISTA_INMUEBLES_COLABORADOR_Result)">
+          <Parameter Name="CodigoColaborador" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result">
           <Property Type="DateTime" Name="fecha" Nullable="true" Precision="23" />
@@ -1214,6 +1261,26 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ADV_T_COLAB_INM">
+          <Key>
+            <PropertyRef Name="colab_c_cdoc_id" />
+            <PropertyRef Name="colab_c_cusu_red" />
+            <PropertyRef Name="inm_c_icod" />
+            <PropertyRef Name="perf_c_yid" />
+          </Key>
+          <Property Type="String" Name="colab_c_cdoc_id" Nullable="false" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Type="String" Name="colab_c_cusu_red" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
+          <Property Type="Int32" Name="perf_c_yid" Nullable="false" />
+          <Property Type="DateTime" Name="bita_c_zfec_reg" />
+          <Property Type="String" Name="bita_c_vusu_red_reg" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="LISTA_INMUEBLES_COLABORADOR_Result">
+          <Property Type="String" Name="colab_c_cusu_red" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
+          <Property Type="String" Name="inm_c_vnomb" Nullable="false" MaxLength="100" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1592,6 +1659,58 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ADV_T_COLAB_INM">
+            <EntityTypeMapping TypeName="BD_DIONISIOModel.ADV_T_COLAB_INM">
+              <MappingFragment StoreEntitySet="ADV_T_COLAB_INM">
+                <ScalarProperty Name="bita_c_vnomb_completo_reg" ColumnName="bita_c_vnomb_completo_reg" />
+                <ScalarProperty Name="bita_c_vusu_red_reg" ColumnName="bita_c_vusu_red_reg" />
+                <ScalarProperty Name="bita_c_zfec_reg" ColumnName="bita_c_zfec_reg" />
+                <ScalarProperty Name="perf_c_yid" ColumnName="perf_c_yid" />
+                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
+                <ScalarProperty Name="colab_c_cusu_red" ColumnName="colab_c_cusu_red" />
+                <ScalarProperty Name="colab_c_cdoc_id" ColumnName="colab_c_cdoc_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR" FunctionName="BD_DIONISIOModel.Store.SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.LISTA_INMUEBLES_COLABORADOR_Result">
+                <ScalarProperty Name="colab_c_cusu_red" ColumnName="colab_c_cusu_red" />
+                <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
+                <ScalarProperty Name="inm_c_vnomb" ColumnName="inm_c_vnomb" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS" FunctionName="BD_DIONISIOModel.Store.DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.DIO_SP_PUB_REPORTE_ESPACIOS_PUBLICITARIOS_Result">
+                <ScalarProperty Name="INMUEBLE" ColumnName="INMUEBLE" />
+                <ScalarProperty Name="MARCA" ColumnName="MARCA" />
+                <ScalarProperty Name="EJECUTIVO" ColumnName="EJECUTIVO" />
+                <ScalarProperty Name="PRODUCTO" ColumnName="PRODUCTO" />
+                <ScalarProperty Name="ELEMENTO_ACTIVACION" ColumnName="ELEMENTO_ACTIVACION" />
+                <ScalarProperty Name="COD_ESPACIO" ColumnName="COD_ESPACIO" />
+                <ScalarProperty Name="DESC_ESPACIO" ColumnName="DESC_ESPACIO" />
+                <ScalarProperty Name="TIPO_ASIGNACION" ColumnName="TIPO_ASIGNACION" />
+                <ScalarProperty Name="CLIENTE" ColumnName="CLIENTE" />
+                <ScalarProperty Name="MARCAR" ColumnName="MARCAR" />
+                <ScalarProperty Name="AGENCIA" ColumnName="AGENCIA" />
+                <ScalarProperty Name="FECHA_INICIO" ColumnName="FECHA_INICIO" />
+                <ScalarProperty Name="FECHA_FIN" ColumnName="FECHA_FIN" />
+                <ScalarProperty Name="RESERVA" ColumnName="RESERVA" />
+                <ScalarProperty Name="ESTADORESERVA" ColumnName="ESTADORESERVA" />
+                <ScalarProperty Name="PRECIO_ALQUILER" ColumnName="PRECIO_ALQUILER" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_PUB_RESERVA_LISTA_NO_DISPONIBLE" FunctionName="BD_DIONISIOModel.Store.SP_PUB_RESERVA_LISTA_NO_DISPONIBLE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BD_DIONISIOModel.SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result">
+                <ScalarProperty Name="pub_esp_c_idd" ColumnName="pub_esp_c_idd" />
+                <ScalarProperty Name="pub_esp_c_vcod" ColumnName="pub_esp_c_vcod" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1612,7 +1731,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="BOMBERO" ZoomLevel="78">
+      <Diagram Name="BOMBERO" ZoomLevel="24">
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_CLIENTE" Width="1.5" PointX="5.75" PointY="7.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_COLABORADOR" Width="1.5" PointX="7.75" PointY="6.75" Height="2.5571907552083388" />
         <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_INMUEBLE" Width="1.5" PointX="9.75" PointY="6.75" Height="2.3648893229166674" />
@@ -1676,6 +1795,7 @@
           <ConnectorPoint PointX="3.39843375" PointY="22.182444661458334" />
           <ConnectorPoint PointX="3.39843375" PointY="12.085836588541667" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="BD_DIONISIOModel.ADV_T_COLAB_INM" Width="1.5" PointX="10.375" PointY="10.75" Height="2.3648893229166674" />
         </Diagram>
     </Diagrams>
   </Designer>

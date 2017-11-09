@@ -15,7 +15,7 @@
     <link href="~/Styles/styles/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/styles/pixel-admin.min.css" rel="stylesheet" type="text/css" />
 
-	<link href="~/Recursos/Styles/widgets.min.css" rel="stylesheet" type="text/css"/>
+<%--	<link href="~/Recursos/Styles/widgets.min.css" rel="stylesheet" type="text/css"/>--%>
 
     <link href="~/Styles/styles/pages.min.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/styles/rtl.min.css" rel="stylesheet" type="text/css" />
@@ -109,7 +109,7 @@
        <script src="<%=ResolveClientUrl("~/Scripts/modernizr-2.0.6.min.js") %>"></script>
         <script src="<%=ResolveClientUrl("~/Scripts/bootstrap.min.js") %>"></script>
         <script src="<%=ResolveClientUrl("~/Scripts/pixel-admin.min.js") %>"></script>
-        <script src="<%=ResolveClientUrl("~/Scripts/realplaza.js") %>"></script>
+       <%-- <script src="<%=ResolveClientUrl("~/Scripts/realplaza.js") %>"></script>--%>
         <script src="<%=ResolveClientUrl("~/Scripts/jquery.mousewheel-3.0.6.min.js") %>"></script>
         <script src="<%=ResolveClientUrl("~/Scripts/jquery.rondell.min.js") %>"></script>
         <script src="<%=ResolveClientUrl("~/Scripts/jquery.fancybox.min.js") %>"></script>

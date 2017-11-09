@@ -24,7 +24,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
         IApproveSpaceSoldBL objAprob = new ApproveSpaceSoldBL();
         IReserveSpaceAdvertisingBL objReser = new ReserveSpaceAdvertisingBL();
         ISpaceAdvertinsingReportBL objReport = new SpaceAdvertinsingReportBL();
-        
+        IInmuebleBL objInmueble = new InmuebleBL();
         
         private ReserveSpaceAdvertisingBL _blReserveSpace = null;
 
@@ -61,7 +61,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
             IList<DIO_SP_EJECUTIVO_BTL_LISTAR_Result> lista = objReser.f_listar_ejecutivosBTLBL();
             if (lista.Count > 0)
             {
-                UIPage.Fill(lista, "usua_c_cdoc_id", "nombCompletoEjecutivo", this.ddlEjecutivo, "SELECCIONE", "0");
+                UIPage.Fill(lista, "usua_c_cdoc_id", "nombCompletoEjecutivo", this.ddlEjecutivo, "Ejecutivo de Ventas", "0");
             }
         }
 
@@ -69,13 +69,13 @@ namespace BOM.UserLayer.Interfaces.Reserve
             IList<DIO_PUB_T_ESPACIO_OCUP_ESTADO> listaEstado = objReport.f_ListarEstadoEspacioPublicitario();
             if (listaEstado.Count > 0)
             {
-                UIPage.Fill(listaEstado, "esp_ocu_est_c_iid", "esp_ocu_est_c_vnomb", this.ddlEstado, "SELECCIONE", "0");
+                UIPage.Fill(listaEstado, "esp_ocu_est_c_iid", "esp_ocu_est_c_vnomb", this.ddlEstado, "Estado", "0");
             }
         }
         void buscar()
         {
             string sEjecutivo = this.ddlEjecutivo.SelectedItem.Value.ToString();
-            string sInmueble = this.txtInmueble.Text.ToString();
+            string sInmueble = this.ddlInmueble.SelectedValue.ToString();
             Int32 iTipoProducto = Convert.ToInt32( this.ddlProducto.SelectedItem.Value.ToString());
             Int32 iEstado = Convert.ToInt32( this.ddlEstado.SelectedItem.Value.ToString());
 
@@ -87,7 +87,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
 
         void ExportarExcel() {
             string sEjecutivo = this.ddlEjecutivo.SelectedItem.Value.ToString();
-            string sInmueble = this.txtInmueble.Text.ToString();
+            string sInmueble = this.ddlInmueble.SelectedValue.ToString();
             Int32 iTipoProducto = Convert.ToInt32(this.ddlProducto.SelectedItem.Value.ToString());
             Int32 iEstado = Convert.ToInt32(this.ddlEstado.SelectedItem.Value.ToString());
 
@@ -112,7 +112,22 @@ namespace BOM.UserLayer.Interfaces.Reserve
             }
 
         }
+        void f_cargarComboInmueble()
+        {
+            var objUsuario = (SGA_T_USUARIO)Session["sga_t_usuario"];
+            objInmueble = new InmuebleBL();
 
+            List<LISTA_INMUEBLES_COLABORADOR_Result> lista = null;
+            if (objUsuario != null)
+            {
+                lista = objInmueble.ListarInmueblesPorColaboradorBL(objUsuario.usua_c_cusu_red);
+                if (lista.Count > 0)
+                {
+                    UIPage.Fill(lista, "inm_c_icod", "inm_c_vnomb", ddlInmueble, "Inmueble", "0");
+                }
+            }
+            
+        }
         public void m_CrearExcel(DataTable pobj_dt, string ps_Nombre)
         {
             using (XLWorkbook wb = new XLWorkbook())
@@ -200,7 +215,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack){
-
+                f_cargarComboInmueble(); 
                 f_cargarComboProducto();
                 m_ListarEjecutivo();
                 m_ListarEstadoReserva();

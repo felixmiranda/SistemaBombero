@@ -451,7 +451,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
             //producto no se valida, por defecto esta un producto .. (se quita "seleccione")
             if (!inmuebleSeleccionado())
             {
-                salida = "- Debe seleccionar almenos un inmueble.<br/>";
+                salida = "- Debe seleccionar al menos un inmueble.<br/>";
             }
             if (ddlProductoFiltro.SelectedValue == "2")//BTL
             {
@@ -1456,7 +1456,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
             string msjvalidacionTab = "";
             if (Convert.ToInt16(ddlElementoReserva.SelectedValue) == 0)
             {
-                msjvalidacionTab += "  - Seleccione el tipo de activación.<br/>";
+                msjvalidacionTab += "  - Seleccione el elemento.<br/>";
             }
             //if (txtDescActivacionReserva.Text.Trim() == "")
             //{
@@ -2309,11 +2309,50 @@ namespace BOM.UserLayer.Interfaces.Reserve
             {
                 rbContinuoReservaPrincipal.Enabled = true;
                 rbIntermitenteReservaPrincipal.Enabled = true;
+                txtfechaDesdeReservaPrincipal.Enabled = true;
+                txtfechaHastaReservaPrincipal.Enabled = true;
+                DeshabilitarFechasReserva();
+                
             }
             else
             {
                 rbContinuoReservaPrincipal.Enabled = false;
                 rbIntermitenteReservaPrincipal.Enabled = false;
+                txtfechaDesdeReservaPrincipal.Enabled = false;
+                txtfechaHastaReservaPrincipal.Enabled = false;
+                txtfechaDesdeReservaPrincipal.Text = "";
+                txtfechaHastaReservaPrincipal.Text = "";
+                HabilitarFechasReserva();
+            }
+        }
+        private void DeshabilitarFechasReserva()
+        {
+            foreach (DataListItem control in dtlistEspacios.Controls)
+            {
+                TextBox txtfechaDesdeReserva = control.FindControl("txtfechaDesdeReserva") as TextBox;
+                TextBox txtfechaHastaReserva = control.FindControl("txtfechaHastaReserva") as TextBox;
+                RadioButton rbIntermitenteReserva = control.FindControl("rbIntermitenteReserva") as RadioButton;
+                RadioButton rbContinuoReserva = control.FindControl("rbContinuoReserva") as RadioButton;
+                txtfechaDesdeReserva.Enabled = false;
+                txtfechaHastaReserva.Enabled = false;
+                rbContinuoReserva.Enabled = false;
+                rbIntermitenteReserva.Enabled = false;
+                txtfechaDesdeReserva.Text = "";
+                txtfechaHastaReserva.Text = "";    
+            }
+        }
+        private void HabilitarFechasReserva()
+        {
+            foreach (DataListItem control in dtlistEspacios.Controls)
+            {
+                TextBox txtfechaDesdeReserva = control.FindControl("txtfechaDesdeReserva") as TextBox;
+                TextBox txtfechaHastaReserva = control.FindControl("txtfechaHastaReserva") as TextBox;
+                RadioButton rbIntermitenteReserva = control.FindControl("rbIntermitenteReserva") as RadioButton;
+                RadioButton rbContinuoReserva = control.FindControl("rbContinuoReserva") as RadioButton;
+                txtfechaDesdeReserva.Enabled = true;
+                txtfechaHastaReserva.Enabled = true;
+                rbContinuoReserva.Enabled = true;
+                rbIntermitenteReserva.Enabled = true;
             }
         }
     }
