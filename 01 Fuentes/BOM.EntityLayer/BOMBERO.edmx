@@ -490,6 +490,7 @@
         </Function>
         <Function Name="SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADVANCE">
           <Parameter Name="CodigoColaborador" Type="varchar" Mode="In" />
+          <Parameter Name="CodigoPerfil" Type="int" Mode="In" />
         </Function>
         <Function Name="DIO_SP_PUB_APROB_RESERVA_LISTAR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="PUBLICIDAD">
           <Parameter Name="pv_inmueble" Type="varchar" Mode="In" />
@@ -789,6 +790,7 @@
           <EntitySet Name="ADV_T_COLAB_INM" EntityType="BD_DIONISIOModel.ADV_T_COLAB_INM" />
           <FunctionImport Name="SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR" ReturnType="Collection(BD_DIONISIOModel.LISTA_INMUEBLES_COLABORADOR_Result)">
           <Parameter Name="CodigoColaborador" Mode="In" Type="String" />
+            <Parameter Name="CodigoPerfil" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="SP_PUB_RESERVA_DETALLE_XIDESPACIO_LISTAR_Result">
@@ -1115,6 +1117,7 @@
           <Property Type="String" Name="RESERVA" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="ESTADORESERVA" Nullable="true" MaxLength="9" />
           <Property Type="Decimal" Name="PRECIO_ALQUILER" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="FECHA_REGISTRO" Nullable="true" MaxLength="10" />
         </ComplexType>
         <ComplexType Name="SP_PUB_RESERVA_LISTA_NO_DISPONIBLE_Result">
           <Property Type="Int32" Name="pub_esp_c_idd" Nullable="false" />
@@ -1277,7 +1280,6 @@
           <Property Type="String" Name="bita_c_vnomb_completo_reg" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <ComplexType Name="LISTA_INMUEBLES_COLABORADOR_Result">
-          <Property Type="String" Name="colab_c_cusu_red" Nullable="false" MaxLength="10" />
           <Property Type="Int32" Name="inm_c_icod" Nullable="false" />
           <Property Type="String" Name="inm_c_vnomb" Nullable="false" MaxLength="100" />
         </ComplexType>
@@ -1675,7 +1677,6 @@
           <FunctionImportMapping FunctionImportName="SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR" FunctionName="BD_DIONISIOModel.Store.SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR">
             <ResultMapping>
               <ComplexTypeMapping TypeName="BD_DIONISIOModel.LISTA_INMUEBLES_COLABORADOR_Result">
-                <ScalarProperty Name="colab_c_cusu_red" ColumnName="colab_c_cusu_red" />
                 <ScalarProperty Name="inm_c_icod" ColumnName="inm_c_icod" />
                 <ScalarProperty Name="inm_c_vnomb" ColumnName="inm_c_vnomb" />
               </ComplexTypeMapping>
@@ -1700,6 +1701,7 @@
                 <ScalarProperty Name="RESERVA" ColumnName="RESERVA" />
                 <ScalarProperty Name="ESTADORESERVA" ColumnName="ESTADORESERVA" />
                 <ScalarProperty Name="PRECIO_ALQUILER" ColumnName="PRECIO_ALQUILER" />
+                <ScalarProperty Name="FECHA_REGISTRO" ColumnName="FECHA_REGISTRO" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

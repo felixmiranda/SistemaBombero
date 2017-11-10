@@ -24,7 +24,7 @@ Ejecución		: [PUBLICIDAD].[SP_PUB_RESERVA_LISTA_NO_DISPONIBLE]  '2017-10-01','20
 (
  @fechaInicio date ,
  @fechafin date ,
- @espaciosId nvarchar(max) = 
+ @espaciosId nvarchar(max) 
 )
 AS
 BEGIN

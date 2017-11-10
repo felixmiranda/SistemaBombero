@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage/Principal/Site.Master" AutoEventWireup="true" CodeBehind="frmSpaceAdvertinsingReport.aspx.cs" Inherits="BOM.UserLayer.Interfaces.Reserve.frmSpaceAdvertinsingReport" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-
+<%@ Register Src="../../ControlUsuario/CUCargando.ascx" TagName="CUCargando" TagPrefix="uc5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 <style>
  .columGv
@@ -28,10 +28,24 @@
 
          return true;
      }
-        
+     function BeginRequestHandler(sender, args) {
+         $('#CUMensajeCargando').modal('show');
+     }
+     function EndRequestHandler(sender, args) {
+         $('#CUMensajeCargando').modal('hide');
+         
+     }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+ <script>
+     
+     //On UpdatePanel Refresh.
+     var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+     Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+     Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+    </script>
     <div class="page-header">
         <h1>
             <span class="text-light-gray">PUBLICIDAD / </span>
@@ -104,9 +118,7 @@
                     <asp:GridView ID="gvReservas" runat="server" CssClass="table table-bordered" AutoGenerateColumns="False"
                         HeaderStyle-CssClass="tbl_cabecerareal" ShowHeaderWhenEmpty="True" EmptyDataText="No se han encontrado reservas en la base de datos."
                         DataKeyNames="INMUEBLE,MARCA,EJECUTIVO,PRODUCTO,ELEMENTO_ACTIVACION,COD_ESPACIO,DESC_ESPACIO,TIPO_ASIGNACION,CLIENTE,MARCAR, AGENCIA, FECHA_INICIO, FECHA_FIN, RESERVA, ESTADORESERVA, PRECIO_ALQUILER"
-                        OnRowCommand="gvReservas_RowCommand"  
-                        OnRowDataBound="gvReservas_RowDataBound" Width="2500px" 
-                        onselectedindexchanged="gvReservas_SelectedIndexChanged">
+                        Width="2500px">
                         <Columns>
                      <%--       <asp:TemplateField ItemStyle-CssClass="row_acciones">
                                 <ItemTemplate>
@@ -187,6 +199,12 @@
                                 </ItemTemplate>
                                 <ItemStyle CssClass="columGv"></ItemStyle>
                             </asp:TemplateField>
+                             <asp:TemplateField HeaderText="FECHA REGISTRO">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblFechaRegistro" runat="server" Text='<%# Eval("FECHA_REGISTRO") %>'></asp:Label>
+                                </ItemTemplate>
+                                <ItemStyle CssClass="columGv"></ItemStyle>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="RESERVA">
                                 <ItemTemplate>
                                     <asp:Label ID="lblReserva" runat="server" Text='<%# Eval("RESERVA") %>'></asp:Label>
@@ -219,6 +237,34 @@
             </ContentTemplate>
         </asp:UpdatePanel>
         <br />
-        <br />
+    </div>
+        <!-- popup mensaje operacion -->
+    <asp:UpdatePanel ID="upmsjAccion" runat="server">
+        <ContentTemplate>
+            <div id="popmsjAccion" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content" style="height: 150px; border: solid 1px; margin-top: 35%;">
+                        <div class="panel-heading" style="background: #207c9f; color: white">
+                            Bombero - Real Plaza
+                        </div>
+                        <div class="panel-body" style="padding: 5px; height: 150px; overflow: auto;">
+                            <div class="col-md-12" style="height: auto; margin-top: 5px;">
+                                <asp:Label runat="server" ID="lblmensajeAccion"></asp:Label>
+                            </div>
+                        </div>
+                        <div class="panel-footer text-center">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">
+                                ACEPTAR
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+      <!-- popup mensaje -->
+    <div id="CUMensajeCargando" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <uc5:CUCargando ID="CUCargando" runat="server" />
     </div>
 </asp:Content>

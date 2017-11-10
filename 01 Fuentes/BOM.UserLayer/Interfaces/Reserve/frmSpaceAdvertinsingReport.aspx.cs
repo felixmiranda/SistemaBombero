@@ -83,6 +83,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
 
             this.gvReservas.DataSource = lista;
             this.gvReservas.DataBind();
+          
         }
 
         void ExportarExcel() {
@@ -98,7 +99,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
           dt = converter.ToDataTable(lista.ToList());
          
             
-            string ruta = @"F:\Temp\ReporteExcel"+"_" + string.Format("{0:yyyyMMdd}", DateTime.Now) + ".xlsx";
+            string ruta = @"D:\Temp\ReporteExcel"+"_" + string.Format("{0:yyyyMMdd}", DateTime.Now) + ".xlsx";
           WriteToExcel(dt, ruta);
 
         }
@@ -115,12 +116,13 @@ namespace BOM.UserLayer.Interfaces.Reserve
         void f_cargarComboInmueble()
         {
             var objUsuario = (SGA_T_USUARIO)Session["sga_t_usuario"];
+            var iCodPerfil = (int)Session["S_COD_PERFIL"];
             objInmueble = new InmuebleBL();
 
             List<LISTA_INMUEBLES_COLABORADOR_Result> lista = null;
             if (objUsuario != null)
             {
-                lista = objInmueble.ListarInmueblesPorColaboradorBL(objUsuario.usua_c_cusu_red);
+                lista = objInmueble.ListarInmueblesPorColaboradorBL(objUsuario.usua_c_cusu_red, iCodPerfil);
                 if (lista.Count > 0)
                 {
                     UIPage.Fill(lista, "inm_c_icod", "inm_c_vnomb", ddlInmueble, "Inmueble", "0");
@@ -148,57 +150,6 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 }
             }
         }
-        
-        private void ExporttoExcel(DataTable table)
-        {
-            HttpContext.Current.Response.Clear();
-            HttpContext.Current.Response.ClearContent();
-            HttpContext.Current.Response.ClearHeaders();
-            HttpContext.Current.Response.Buffer = true;
-            HttpContext.Current.Response.ContentType = "application/ms-excel";
-            HttpContext.Current.Response.Write(@"<!DOCTYPE HTML PUBLIC ""-//W3C//DTD HTML 4.0 Transitional//EN"">");
-            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment;filename=Reports.xls");
-
-            HttpContext.Current.Response.Charset = "utf-8";
-            HttpContext.Current.Response.ContentEncoding = System.Text.Encoding.GetEncoding("windows-1250");
-            //sets font
-            HttpContext.Current.Response.Write("<font style='font-size:10.0pt; font-family:Calibri;'>");
-            HttpContext.Current.Response.Write("<BR><BR><BR>");
-            //sets the table border, cell spacing, border color, font of the text, background, foreground, font height
-            HttpContext.Current.Response.Write("<Table border='1' bgColor='#ffffff' " +
-              "borderColor='#000000' cellSpacing='0' cellPadding='0' " +
-              "style='font-size:10.0pt; font-family:Calibri; background:white;'> <TR>");
-            //am getting my grid's column headers
-            int columnscount = gvReservas.Columns.Count;
-
-            for (int j = 0; j < columnscount; j++)
-            {      //write in new column
-                HttpContext.Current.Response.Write("<Td>");
-                //Get column headers  and make it as bold in excel columns
-                HttpContext.Current.Response.Write("<B>");
-                HttpContext.Current.Response.Write(gvReservas.Columns[j].HeaderText.ToString());
-                HttpContext.Current.Response.Write("</B>");
-                HttpContext.Current.Response.Write("</Td>");
-            }
-            HttpContext.Current.Response.Write("</TR>");
-            foreach (DataRow row in table.Rows)
-            {//write in new row
-                HttpContext.Current.Response.Write("<TR>");
-                for (int i = 0; i < table.Columns.Count; i++)
-                {
-                    HttpContext.Current.Response.Write("<Td>");
-                    HttpContext.Current.Response.Write(row[i].ToString());
-                    HttpContext.Current.Response.Write("</Td>");
-                }
-
-                HttpContext.Current.Response.Write("</TR>");
-            }
-            HttpContext.Current.Response.Write("</Table>");
-            HttpContext.Current.Response.Write("</font>");
-            HttpContext.Current.Response.Flush();
-            HttpContext.Current.Response.End();
-        }
-
         #endregion
         #region "SERVICIO WEB"
         [System.Web.Services.WebMethodAttribute(), System.Web.Script.Services.ScriptMethodAttribute()]
@@ -221,38 +172,55 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 m_ListarEstadoReserva();
                 this.gvReservas.DataSource = "";
                 this.gvReservas.DataBind();
+                
             }
+            ((ScriptManager)Master.FindControl("ScriptManager1")).RegisterPostBackControl(btnExportarExcel);
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
         {
-
             buscar();
         }
-
-        protected void gvReservas_RowCommand(object sender, GridViewCommandEventArgs e)
+        public override void VerifyRenderingInServerForm(Control control)
         {
 
-        }
-
-        protected void gvReservas_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
+            // Confirms that an HtmlForm control is rendered for
 
         }
-
-        protected void gvReservas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnExportarExcel_Click(object sender, EventArgs e)
         {
-            ExportarExcel();
+            //ExportarExcel();
+            var fecha = DateTime.Now.ToString("yyyMMdd mm:ss");
+            var nombreArchivo = string.Concat("ReporteEspacios_", fecha, ".xls");
+            if (gvReservas.Rows.Count > 0)
+            {
+                Response.ClearContent();
+                Response.Buffer = true;
+                Response.AddHeader("content-disposition", string.Format("attachment;filename={0}", nombreArchivo));
+                Response.ContentType = "application/vnd.xls";
+                Response.ContentEncoding = System.Text.Encoding.GetEncoding("windows-1252");
+                Response.Charset = "utf-8";
+                StringWriter sw = new StringWriter();
+                HtmlTextWriter tw = new HtmlTextWriter(sw);
+                gvReservas.HeaderRow.Style.Add("background-color", "#ffffff");
+                
+                for (int i = 0; i < gvReservas.HeaderRow.Cells.Count; i++)
+                {
+                    gvReservas.HeaderRow.Cells[i].Style.Add("background-color", "#237b96");
+                    gvReservas.HeaderRow.Cells[i].Style.Add("color", "#fff");
+                }
+                gvReservas.RenderControl(tw);
+                Response.Write(sw.ToString());
+                Response.End();
+
+            }
+            else
+            {
+                lblmensajeAccion.Text = "No se encontró registros en la búsqueda";
+                ScriptManager.RegisterStartupScript(Page, this.GetType(), "error", "javascript:f_AbrirPopAccion();", true);
+            }
+
         }
-
-      
-    
-
         private void WriteToExcel(System.Data.DataTable dt, string location)
         {
             //instantiate excel objects (application, workbook, worksheets)
@@ -297,30 +265,7 @@ namespace BOM.UserLayer.Interfaces.Reserve
                 WbObj.Close();
             }
         }
-        void Exportar_Excel (DataTable dt)
-        {
-            
-            if (dt.Rows.Count > 0)
-            {
-                string filename = @"F:\Temp\DownloadMobileNoExcel.xls"; 
-                System.IO.StringWriter tw = new System.IO.StringWriter();
-                System.Web.UI.HtmlTextWriter hw = new System.Web.UI.HtmlTextWriter(tw);
-                DataGrid dgGrid = new DataGrid();
-                dgGrid.DataSource = dt;
-                dgGrid.DataBind();
-
-                //Get the HTML for the control.
-                dgGrid.RenderControl(hw);
-                //Write the HTML back to the browser.
-                //Response.ContentType = application/vnd.ms-excel;
-                Response.ContentType = "application/vnd.ms-excel";
-                Response.AppendHeader("Content-Disposition", "attachment; filename=" + filename + "");
-                this.EnableViewState = false;
-                Response.Write(tw.ToString());
-                Response.End();
-            }
-        }
-       
+    
     }
 
     public class ListtoDataTableConverter

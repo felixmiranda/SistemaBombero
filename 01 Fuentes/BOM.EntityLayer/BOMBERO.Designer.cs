@@ -1471,7 +1471,8 @@ namespace BOM.EntityLayer
         /// No hay documentación de metadatos disponible.
         /// </summary>
         /// <param name="codigoColaborador">No hay documentación de metadatos disponible.</param>
-        public ObjectResult<LISTA_INMUEBLES_COLABORADOR_Result> SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR(global::System.String codigoColaborador)
+        /// <param name="codigoPerfil">No hay documentación de metadatos disponible.</param>
+        public ObjectResult<LISTA_INMUEBLES_COLABORADOR_Result> SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR(global::System.String codigoColaborador, Nullable<global::System.Int32> codigoPerfil)
         {
             ObjectParameter codigoColaboradorParameter;
             if (codigoColaborador != null)
@@ -1483,7 +1484,17 @@ namespace BOM.EntityLayer
                 codigoColaboradorParameter = new ObjectParameter("CodigoColaborador", typeof(global::System.String));
             }
     
-            return base.ExecuteFunction<LISTA_INMUEBLES_COLABORADOR_Result>("SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR", codigoColaboradorParameter);
+            ObjectParameter codigoPerfilParameter;
+            if (codigoPerfil.HasValue)
+            {
+                codigoPerfilParameter = new ObjectParameter("CodigoPerfil", codigoPerfil);
+            }
+            else
+            {
+                codigoPerfilParameter = new ObjectParameter("CodigoPerfil", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction<LISTA_INMUEBLES_COLABORADOR_Result>("SP_ADV_OBTENER_LISTA_INMUEBLES_COLABORADOR", codigoColaboradorParameter, codigoPerfilParameter);
         }
 
         #endregion
@@ -7171,6 +7182,30 @@ namespace BOM.EntityLayer
         private global::System.Decimal _PRECIO_ALQUILER;
         partial void OnPRECIO_ALQUILERChanging(global::System.Decimal value);
         partial void OnPRECIO_ALQUILERChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String FECHA_REGISTRO
+        {
+            get
+            {
+                return _FECHA_REGISTRO;
+            }
+            set
+            {
+                OnFECHA_REGISTROChanging(value);
+                ReportPropertyChanging("FECHA_REGISTRO");
+                _FECHA_REGISTRO = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("FECHA_REGISTRO");
+                OnFECHA_REGISTROChanged();
+            }
+        }
+        private global::System.String _FECHA_REGISTRO;
+        partial void OnFECHA_REGISTROChanging(global::System.String value);
+        partial void OnFECHA_REGISTROChanged();
 
         #endregion
 
@@ -8517,13 +8552,11 @@ namespace BOM.EntityLayer
         /// <summary>
         /// Crear un nuevo objeto LISTA_INMUEBLES_COLABORADOR_Result.
         /// </summary>
-        /// <param name="colab_c_cusu_red">Valor inicial de la propiedad colab_c_cusu_red.</param>
         /// <param name="inm_c_icod">Valor inicial de la propiedad inm_c_icod.</param>
         /// <param name="inm_c_vnomb">Valor inicial de la propiedad inm_c_vnomb.</param>
-        public static LISTA_INMUEBLES_COLABORADOR_Result CreateLISTA_INMUEBLES_COLABORADOR_Result(global::System.String colab_c_cusu_red, global::System.Int32 inm_c_icod, global::System.String inm_c_vnomb)
+        public static LISTA_INMUEBLES_COLABORADOR_Result CreateLISTA_INMUEBLES_COLABORADOR_Result(global::System.Int32 inm_c_icod, global::System.String inm_c_vnomb)
         {
             LISTA_INMUEBLES_COLABORADOR_Result lISTA_INMUEBLES_COLABORADOR_Result = new LISTA_INMUEBLES_COLABORADOR_Result();
-            lISTA_INMUEBLES_COLABORADOR_Result.colab_c_cusu_red = colab_c_cusu_red;
             lISTA_INMUEBLES_COLABORADOR_Result.inm_c_icod = inm_c_icod;
             lISTA_INMUEBLES_COLABORADOR_Result.inm_c_vnomb = inm_c_vnomb;
             return lISTA_INMUEBLES_COLABORADOR_Result;
@@ -8532,30 +8565,6 @@ namespace BOM.EntityLayer
         #endregion
 
         #region Propiedades primitivas
-    
-        /// <summary>
-        /// No hay documentación de metadatos disponible.
-        /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
-        [DataMemberAttribute()]
-        public global::System.String colab_c_cusu_red
-        {
-            get
-            {
-                return _colab_c_cusu_red;
-            }
-            set
-            {
-                Oncolab_c_cusu_redChanging(value);
-                ReportPropertyChanging("colab_c_cusu_red");
-                _colab_c_cusu_red = StructuralObject.SetValidValue(value, false);
-                ReportPropertyChanged("colab_c_cusu_red");
-                Oncolab_c_cusu_redChanged();
-            }
-        }
-        private global::System.String _colab_c_cusu_red;
-        partial void Oncolab_c_cusu_redChanging(global::System.String value);
-        partial void Oncolab_c_cusu_redChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.

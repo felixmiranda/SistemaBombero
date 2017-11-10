@@ -71,6 +71,7 @@ SELECT
 	ISNULL(AG.cli_c_vraz_soc,'--') AS 'AGENCIA',
 	Convert(varchar(10),RE.reser_c_dfech_inicio,103) AS 'FECHA_INICIO',
 	Convert(varchar(10),RE.reser_c_dfech_fin,103) AS 'FECHA_FIN',
+	Convert(varchar(10),RE.bita_c_zfec_reg,103) AS 'FECHA_REGISTRO',
 	--(Convert(varchar(10),RE.reser_c_dfech_inicio,103)+' - '+Convert(varchar(10),RE.reser_c_dfech_fin,103))  AS 'PERIODO',
 
 	--CASE 
