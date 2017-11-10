@@ -81,7 +81,7 @@ N'			<img src="http://www.yoquieroserrealplaza.com.pe/WebBombero/images/logo_rea
 N'		</div>' +
 N'		<div id = "cuerpo" style="padding:15px;">' +
 N'			<p>Estimado(a) '+@NombreCompleto+' <b></b>,</p>' +
-N'			<p>El alquiler por el espacio publicitario finalizara en 72 horas. Por favor programar la desinstalacion correspondiente' +
+N'			<p>La reserva por el espacio finalizara en 24 horas. Por favor tomar las acciones correspondiente' +
 N'		<br/><br/>'+
 N'		</div>' +
 N'<table border="0" cellspacing="0" cellpadding="2" style="font-family:Calibri,Georgia,Serif;font-size:14px;">' +
@@ -99,7 +99,7 @@ drop table #ReservasPorVencer
 -----------------------------------------------------------------------------------------
 -- CAMBIOS DE ACUERDO A LOS PARAMETROS QUE SE TIENEN EN PRODUCCION 
 -----------------------------------------------------------------------------------------
-EXEC msdb.dbo.sp_send_dbmail @recipients=@Correo
+EXEC msdb.dbo.sp_send_dbmail @recipients=@Correo,
 @profile_name = 'Felix Miranda',
 @subject = 'Alerta vencimiento Reserva',
 @body = @TableHtml,
